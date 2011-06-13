@@ -22,19 +22,19 @@
 package org.picketlink.social.openid.providers;
 
 import javax.xml.namespace.QName;
-
-import org.picketlink.identity.federation.core.exceptions.ProcessingException;
+ 
+import org.jboss.security.xacml.sunxacml.ProcessingException;
 import org.picketlink.identity.federation.core.interfaces.ProtocolContext;
 import org.picketlink.identity.federation.core.interfaces.SecurityTokenProvider;
-import org.picketlink.identity.federation.core.openid.providers.helpers.OpenIDParameterList;
-import org.picketlink.identity.federation.core.openid.providers.helpers.OpenIDProtocolContext;
-import org.picketlink.identity.federation.core.openid.providers.helpers.OpenIDProtocolContext.AUTH_HOLDER;
-import org.picketlink.identity.federation.core.openid.providers.helpers.OpenIDProtocolContext.MODE;
-import org.picketlink.identity.federation.core.openid.providers.helpers.OpenIDProviderManager;
-import org.picketlink.identity.federation.core.openid.providers.helpers.OpenIDTokenRegistryStore;
-import org.picketlink.identity.federation.core.openid.providers.helpers.OpenIDProviderManager.OpenIDMessage;
 import org.picketlink.identity.federation.core.sts.AbstractSecurityTokenProvider;
 import org.picketlink.identity.federation.core.sts.PicketLinkCoreSTS;
+import org.picketlink.social.openid.providers.helpers.OpenIDParameterList;
+import org.picketlink.social.openid.providers.helpers.OpenIDProtocolContext;
+import org.picketlink.social.openid.providers.helpers.OpenIDProtocolContext.AUTH_HOLDER;
+import org.picketlink.social.openid.providers.helpers.OpenIDProtocolContext.MODE;
+import org.picketlink.social.openid.providers.helpers.OpenIDProviderManager;
+import org.picketlink.social.openid.providers.helpers.OpenIDTokenRegistryStore;
+import org.picketlink.social.openid.providers.helpers.OpenIDProviderManager.OpenIDMessage; 
 
 /**
  * @author Anil.Saldhana@redhat.com
@@ -49,7 +49,7 @@ public class OpenIDTokenProvider extends AbstractSecurityTokenProvider implement
    protected static OpenIDProviderManager serverManager = null; //Will be initialized the first time of access
    
    /**
-    * @see org.picketlink.identity.federation.core.interfaces.SecurityTokenProvider#supports(java.lang.String)
+    * @see org.picketlink.social.interfaces.SecurityTokenProvider#supports(java.lang.String)
     */
    public boolean supports(String namespace)
    { 
@@ -57,7 +57,7 @@ public class OpenIDTokenProvider extends AbstractSecurityTokenProvider implement
    }
 
    /**
-    * @see org.picketlink.identity.federation.core.interfaces.SecurityTokenProvider#tokenType()
+    * @see org.picketlink.social.interfaces.SecurityTokenProvider#tokenType()
     */
    public String tokenType()
    { 
@@ -65,7 +65,7 @@ public class OpenIDTokenProvider extends AbstractSecurityTokenProvider implement
    }
 
    /**
-    * @see org.picketlink.identity.federation.core.interfaces.SecurityTokenProvider#getSupportedQName()
+    * @see org.picketlink.social.interfaces.SecurityTokenProvider#getSupportedQName()
     */
    public QName getSupportedQName()
    { 
@@ -73,7 +73,7 @@ public class OpenIDTokenProvider extends AbstractSecurityTokenProvider implement
    }
 
    /**
-    * @see org.picketlink.identity.federation.core.interfaces.SecurityTokenProvider#family()
+    * @see org.picketlink.social.interfaces.SecurityTokenProvider#family()
     */
    public String family()
    { 
@@ -81,7 +81,7 @@ public class OpenIDTokenProvider extends AbstractSecurityTokenProvider implement
    }
 
    /**
-    * @see org.picketlink.identity.federation.core.interfaces.SecurityTokenProvider#issueToken(org.picketlink.identity.federation.core.interfaces.ProtocolContext)
+    * @see org.picketlink.social.interfaces.SecurityTokenProvider#issueToken(org.picketlink.social.interfaces.ProtocolContext)
     */
    public void issueToken(ProtocolContext context) throws ProcessingException
    { 
@@ -137,7 +137,7 @@ public class OpenIDTokenProvider extends AbstractSecurityTokenProvider implement
    }
 
    /**
-    * @see org.picketlink.identity.federation.core.interfaces.SecurityTokenProvider#renewToken(org.picketlink.identity.federation.core.interfaces.ProtocolContext)
+    * @see org.picketlink.social.interfaces.SecurityTokenProvider#renewToken(org.picketlink.social.interfaces.ProtocolContext)
     */
    public void renewToken(ProtocolContext context) throws ProcessingException
    { 
@@ -148,7 +148,7 @@ public class OpenIDTokenProvider extends AbstractSecurityTokenProvider implement
    }
 
    /*
-    * @see org.picketlink.identity.federation.core.interfaces.SecurityTokenProvider#cancelToken(org.picketlink.identity.federation.core.interfaces.ProtocolContext)
+    * @see org.picketlink.social.interfaces.SecurityTokenProvider#cancelToken(org.picketlink.social.interfaces.ProtocolContext)
     */
    public void cancelToken(ProtocolContext context) throws ProcessingException
    { 
@@ -159,7 +159,7 @@ public class OpenIDTokenProvider extends AbstractSecurityTokenProvider implement
    }
 
    /**
-    * @see org.picketlink.identity.federation.core.interfaces.SecurityTokenProvider#validateToken(org.picketlink.identity.federation.core.interfaces.ProtocolContext)
+    * @see org.picketlink.social.interfaces.SecurityTokenProvider#validateToken(org.picketlink.social.interfaces.ProtocolContext)
     */
    public void validateToken(ProtocolContext context) throws ProcessingException
    { 

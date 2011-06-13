@@ -25,8 +25,8 @@ import javax.xml.namespace.QName;
 
 import org.picketlink.identity.federation.core.interfaces.ProtocolContext;
 import org.picketlink.identity.federation.core.interfaces.SecurityTokenProvider;
-import org.picketlink.identity.federation.core.openid.providers.OpenIDTokenProvider;
-import org.picketlink.identity.federation.core.openid.providers.helpers.OpenIDProviderManager.OpenIDMessage;
+import org.picketlink.social.openid.providers.OpenIDTokenProvider;
+import org.picketlink.social.openid.providers.helpers.OpenIDProviderManager.OpenIDMessage;
 
 /**
  * {@code ProtocolContext} for the OpenID Layer
