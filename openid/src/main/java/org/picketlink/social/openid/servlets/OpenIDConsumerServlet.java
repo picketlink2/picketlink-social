@@ -31,13 +31,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.picketlink.identity.federation.api.openid.OpenIDManager;  
-import org.picketlink.identity.federation.api.openid.OpenIDRequest;
-import org.picketlink.identity.federation.api.openid.OpenIDManager.OpenIDProviderInformation;
-import org.picketlink.identity.federation.api.openid.OpenIDManager.OpenIDProviderList;
-import org.picketlink.identity.federation.api.openid.exceptions.OpenIDGeneralException; 
-import org.picketlink.identity.federation.web.openid.HTTPOpenIDContext;
-import org.picketlink.identity.federation.web.openid.HTTPProtocolAdaptor;
+import org.picketlink.social.openid.api.OpenIDManager;
+import org.picketlink.social.openid.api.OpenIDManager.OpenIDProviderInformation;
+import org.picketlink.social.openid.api.OpenIDManager.OpenIDProviderList;
+import org.picketlink.social.openid.api.OpenIDRequest;
+import org.picketlink.social.openid.api.exceptions.OpenIDGeneralException;
+import org.picketlink.social.openid.web.HTTPOpenIDContext;
+import org.picketlink.social.openid.web.HTTPProtocolAdaptor;
+
 
 /**
  * OpenID Consumer Servlet that gets a post

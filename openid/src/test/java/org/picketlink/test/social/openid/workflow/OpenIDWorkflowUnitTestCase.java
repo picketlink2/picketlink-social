@@ -22,14 +22,16 @@
 package org.picketlink.test.social.openid.workflow;
 
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.mortbay.jetty.servlet.Context;
 import org.mortbay.jetty.servlet.ServletHolder;
-import org.mortbay.jetty.webapp.WebAppContext;
-import org.picketlink.identity.federation.api.openid.OpenIDManager;
-import org.picketlink.identity.federation.api.openid.OpenIDManager.OpenIDProviderInformation;
-import org.picketlink.identity.federation.api.openid.OpenIDManager.OpenIDProviderList;
-import org.picketlink.identity.federation.api.openid.OpenIDRequest; 
+import org.mortbay.jetty.webapp.WebAppContext; 
+import org.picketlink.social.openid.api.OpenIDManager;
+import org.picketlink.social.openid.api.OpenIDManager.OpenIDProviderInformation;
+import org.picketlink.social.openid.api.OpenIDManager.OpenIDProviderList;
+import org.picketlink.social.openid.api.OpenIDRequest;
 import org.picketlink.social.openid.servlets.OpenIDProviderServlet;
 import org.picketlink.test.social.openid.EmbeddedWebServerBase;
 import org.picketlink.test.social.openid.InMemoryProtocolAdapter;
@@ -46,6 +48,7 @@ public class OpenIDWorkflowUnitTestCase extends EmbeddedWebServerBase
    private OpenIDRequest openIDRequest = new OpenIDRequest( username ); 
    private OpenIDManager manager = new OpenIDManager( openIDRequest ); 
    
+   @SuppressWarnings({"unchecked", "rawtypes"})
    protected void establishUserApps()
    {
       ClassLoader tcl = Thread.currentThread().getContextClassLoader();
@@ -60,6 +63,12 @@ public class OpenIDWorkflowUnitTestCase extends EmbeddedWebServerBase
       
       Context context = new WebAppContext( warUrlString, CONTEXTPATH );
       server.setHandler( context );
+      
+      Map initParams = new HashMap();
+      initParams.put("configFile", "/test-sts.xml");
+      context.setInitParams(initParams);
+      
+      Thread.currentThread().setContextClassLoader(context.getClassLoader());
  
       context.addServlet(new ServletHolder(new OpenIDProviderServlet()), "/provider/");
       

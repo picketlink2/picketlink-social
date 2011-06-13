@@ -22,6 +22,7 @@
 package org.picketlink.social.openid.servlets;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
@@ -62,8 +63,24 @@ public class OpenIDProviderServlet extends HttpServlet
       String secpageStr = this.servletContext.getInitParameter("securePage");
       if(secpageStr != null && secpageStr.length() > 0)
          securePageName = secpageStr;
+      
+      String configFile = null;
+      String configFileStr = this.servletContext.getInitParameter("configFile");
+      if(configFileStr != null && configFileStr.length() > 0)
+      {
+         try
+         {
+            configFile = servletContext.getResource(configFileStr).toExternalForm();
+         }
+         catch (MalformedURLException e)
+         {
+            throw new ServletException(e);
+         }
+      }
+      
+      log("configFile="+configFile);
 
-      sts.installDefaultConfiguration( ( String[] )null ); 
+      sts.installDefaultConfiguration( new String[] {configFile} ); 
    }
 
    @Override

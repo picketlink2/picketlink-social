@@ -27,10 +27,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.picketlink.identity.federation.api.openid.OpenIDManager; 
-import org.picketlink.identity.federation.api.openid.OpenIDRequest; 
-import org.picketlink.identity.federation.api.openid.OpenIDManager.OpenIDProviderList; 
+ 
+import org.picketlink.social.openid.api.OpenIDManager;
+import org.picketlink.social.openid.api.OpenIDManager.OpenIDProviderList;
+import org.picketlink.social.openid.api.OpenIDRequest;
 import org.picketlink.social.openid.servlets.OpenIDYadisServlet;
 import org.picketlink.test.social.openid.EmbeddedWebServerBase;
 import org.mortbay.jetty.servlet.Context;

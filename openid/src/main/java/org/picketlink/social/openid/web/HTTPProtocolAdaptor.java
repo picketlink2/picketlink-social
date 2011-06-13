@@ -30,15 +30,15 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.log4j.Logger;
-import org.picketlink.identity.federation.api.openid.OpenIDAttributeMap;
-import org.picketlink.identity.federation.api.openid.OpenIDLifecycle;
-import org.picketlink.identity.federation.api.openid.OpenIDLifecycleEvent;
-import org.picketlink.identity.federation.api.openid.OpenIDProtocolAdapter;
-import org.picketlink.identity.federation.api.openid.OpenIDLifecycleEvent.OP;
-import org.picketlink.identity.federation.api.openid.OpenIDLifecycleEvent.TYPE;
-import org.picketlink.identity.federation.api.openid.exceptions.OpenIDLifeCycleException;
-import org.picketlink.identity.federation.api.openid.exceptions.OpenIDProtocolException;
+import org.apache.log4j.Logger; 
+import org.picketlink.social.openid.api.OpenIDAttributeMap;
+import org.picketlink.social.openid.api.OpenIDLifecycle;
+import org.picketlink.social.openid.api.OpenIDLifecycleEvent;
+import org.picketlink.social.openid.api.OpenIDLifecycleEvent.OP;
+import org.picketlink.social.openid.api.OpenIDLifecycleEvent.TYPE;
+import org.picketlink.social.openid.api.OpenIDProtocolAdapter;
+import org.picketlink.social.openid.api.exceptions.OpenIDLifeCycleException;
+import org.picketlink.social.openid.api.exceptions.OpenIDProtocolException;
 
 /**
  * Protocol adapter for HTTP
