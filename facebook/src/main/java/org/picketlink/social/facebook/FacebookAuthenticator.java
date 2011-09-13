@@ -134,6 +134,15 @@ public class FacebookAuthenticator extends FormAuthenticator
       super.start();
    }
 
+   public boolean authenticate(HttpServletRequest request, HttpServletResponse response, LoginConfig loginConfig) throws IOException
+   {
+      if(request instanceof Request == false)
+         throw new IOException("Not of type Catalina request");
+      if(response instanceof Response == false)
+         throw new IOException("Not of type Catalina response");
+      return authenticate((Request)request, (Response)response, loginConfig);
+   }
+   
    @Override
    public boolean authenticate(Request request, Response response, LoginConfig loginConfig) throws IOException
    {  
