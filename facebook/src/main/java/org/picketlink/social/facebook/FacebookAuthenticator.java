@@ -79,11 +79,9 @@ public class FacebookAuthenticator extends FormAuthenticator
    protected boolean saveRestoreRequest = true;
    
    public static String EMPTY_PASSWORD = "EMPTY";
-
    
-   public enum STATES { AUTH, AUTHZ, FINISH};
-   
-   
+   private enum STATES { AUTH, AUTHZ, FINISH};
+     
    public void setReturnURL(String returnURL)
    {
       this.returnURL = returnURL;
@@ -157,7 +155,11 @@ public class FacebookAuthenticator extends FormAuthenticator
          return true;
       
       if( state == null || state.isEmpty())
-      {
+      { 
+         if (saveRestoreRequest)
+         {
+            this.saveRequest(request, request.getSessionInternal());
+         }
          Map<String, String> params = new HashMap<String, String>();
          params.put(OAuthConstants.REDIRECT_URI_PARAMETER, this.returnURL);
          params.put(OAuthConstants.CLIENT_ID_PARAMETER, this.clientID); 
@@ -192,6 +194,7 @@ public class FacebookAuthenticator extends FormAuthenticator
          Principal principal = null;
          facebookPrincipal = handleAuthenticationResponse(request, response);
 
+         request.getSession().setAttribute("principal", facebookPrincipal);
          cachedPrincipal.set(facebookPrincipal);
          
          if(isJBossEnv())

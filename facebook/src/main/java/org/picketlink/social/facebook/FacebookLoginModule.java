@@ -42,7 +42,7 @@ public class FacebookLoginModule extends UsernamePasswordLoginModule
    @Override
    protected Principal getIdentity()
    {
-      return new SimplePrincipal(FacebookAuthenticator.cachedPrincipal.get().getName());
+      return FacebookAuthenticator.cachedPrincipal.get();
    }
 
    @Override
