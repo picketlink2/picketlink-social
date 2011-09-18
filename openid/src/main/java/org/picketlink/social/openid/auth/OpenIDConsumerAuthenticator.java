@@ -66,11 +66,6 @@ public class OpenIDConsumerAuthenticator extends FormAuthenticator
 {
    protected static Logger log = Logger.getLogger(OpenIDConsumerAuthenticator.class);
    protected boolean trace = log.isTraceEnabled();
-   public static final String RETURN_URL_PARAMETER = "returnUrl";
-
-   public static final String OPEN_ID_PARAMETER = "openId";
-
-   public static final String AUTHENTICATION_PROTOCOL_PARAMETER = "authProtocol";
    
    private enum Providers
    {
