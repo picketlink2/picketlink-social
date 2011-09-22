@@ -33,7 +33,7 @@ import org.jboss.security.SimplePrincipal;
 import org.jboss.security.auth.spi.UsernamePasswordLoginModule;
 
 /**
- * A {@link LoginModule} for JBoss environment
+ * A {@link LoginModule} for JBoss environment to support OpenID
  * @author Anil Saldhana
  * @since May 19, 2011
  */
@@ -42,13 +42,13 @@ public class OpenIDLoginModule extends UsernamePasswordLoginModule
    @Override
    protected Principal getIdentity()
    {
-      return OpenIDConsumerAuthenticator.cachedPrincipal.get();
+      return OpenIDProcessor.cachedPrincipal.get();
    }
 
    @Override
    protected String getUsersPassword() throws LoginException
    {
-      return OpenIDConsumerAuthenticator.EMPTY_PASSWORD;
+      return OpenIDProcessor.EMPTY_PASSWORD;
    }
 
    @Override
@@ -56,7 +56,7 @@ public class OpenIDLoginModule extends UsernamePasswordLoginModule
    {   
       Group group = new SimpleGroup("Roles"); 
 
-      List<String> roles = OpenIDConsumerAuthenticator.cachedRoles.get();
+      List<String> roles = OpenIDProcessor.cachedRoles.get();
 
       if(roles != null)
       {
