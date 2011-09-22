@@ -17,6 +17,7 @@
      <module>parent</module>
      <module>openid</module>
      <module>facebook</module>
+     <module>social</module>
    </modules>
 
    <reporting>
