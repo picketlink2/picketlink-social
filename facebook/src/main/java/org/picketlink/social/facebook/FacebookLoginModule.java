@@ -33,7 +33,7 @@ import org.jboss.security.SimplePrincipal;
 import org.jboss.security.auth.spi.UsernamePasswordLoginModule;
 
 /**
- * A {@link LoginModule} for JBoss environment
+ * A {@link LoginModule} for JBoss environment to support facebook authentication
  * @author Anil Saldhana
  * @since May 19, 2011
  */
@@ -42,13 +42,13 @@ public class FacebookLoginModule extends UsernamePasswordLoginModule
    @Override
    protected Principal getIdentity()
    {
-      return FacebookAuthenticator.cachedPrincipal.get();
+      return FacebookProcessor.cachedPrincipal.get();
    }
 
    @Override
    protected String getUsersPassword() throws LoginException
    {
-      return FacebookAuthenticator.EMPTY_PASSWORD;
+      return FacebookProcessor.EMPTY_PASSWORD;
    }
 
    @Override
@@ -56,7 +56,7 @@ public class FacebookLoginModule extends UsernamePasswordLoginModule
    {   
       Group group = new SimpleGroup("Roles"); 
 
-      List<String> roles = FacebookAuthenticator.cachedRoles.get();
+      List<String> roles = FacebookProcessor.cachedRoles.get();
 
       if(roles != null)
       {
