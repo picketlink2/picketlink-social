@@ -89,6 +89,11 @@ public class OpenIDConsumerAuthenticator extends FormAuthenticator
       this.saveRestoreRequest = saveRestoreRequest;
    } 
 
+   /**
+    * A comma separated string that represents the roles the web app
+    * needs to pass authorization
+    * @param roleStr
+    */
    public void setRoleString(String roleStr)
    {
       if(roleStr == null)

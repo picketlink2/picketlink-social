@@ -76,7 +76,12 @@ public class ExternalAuthenticator extends FormAuthenticator
    protected boolean saveRestoreRequest = true;
    
    private enum STATES { AUTH, AUTHZ, FINISH}; 
-   
+
+   /**
+    * A comma separated string that represents the roles the web app
+    * needs to pass authorization
+    * @param roleStr
+    */
    public void setRoleString(String roleStr)
    {
       if(roleStr == null)
