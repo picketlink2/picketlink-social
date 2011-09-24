@@ -25,5 +25,6 @@
    <modules>
       <module>openid-provider</module>
       <module>openid-consumer</module>
+      <module>picketlink-reg</module>
    </modules>
 </project>
