@@ -68,7 +68,7 @@ public class ExternalAuthenticator extends FormAuthenticator
    protected String clientSecret;
    protected String facebookScope = "email";
 
-   private String requiredAttributes = "name,email,ax_firstName,ax_lastName,ax_fullName";
+   private String requiredAttributes = "name,email,ax_firstName,ax_lastName,ax_fullName,ax_email";
 
    private String optionalAttributes = null;
    
