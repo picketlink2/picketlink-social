@@ -140,4 +140,11 @@ public class FacebookPrincipal implements Principal, Serializable
    {
       this.email = email;
    }
+
+   @Override
+   public String toString()
+   {
+      return "FacebookPrincipal [id=" + id + ", name=" + name + ", firstName=" + firstName + ", lastName=" + lastName
+            + ", gender=" + gender + ", timezone=" + timezone + ", locale=" + locale + ", email=" + email + "]";
+   }
 }
