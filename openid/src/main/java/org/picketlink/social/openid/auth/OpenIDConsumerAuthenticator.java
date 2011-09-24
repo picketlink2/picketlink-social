@@ -58,7 +58,7 @@ public class OpenIDConsumerAuthenticator extends FormAuthenticator
 
    private String returnURL = null;
 
-   private String requiredAttributes = "name,email,ax_firstName,ax_lastName,ax_fullName";
+   private String requiredAttributes = "name,email,ax_firstName,ax_lastName,ax_fullName,ax_email";
 
    private String optionalAttributes = null;
 
