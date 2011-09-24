@@ -157,7 +157,7 @@ public class FacebookProcessor
       Principal principal = null;
       Principal facebookPrincipal = handleAuthenticationResponse(request, response);
 
-      request.getSession().setAttribute("principal", facebookPrincipal);
+      request.getSession().setAttribute("PRINCIPAL", facebookPrincipal);
       cachedPrincipal.set(facebookPrincipal);
       
       if(isJBossEnv())
