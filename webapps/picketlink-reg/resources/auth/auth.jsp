@@ -1,3 +1,4 @@
+<html>
 <head>
 <meta charset="utf-8" />
 <title>PicketLink Social Registration</title>
@@ -6,6 +7,19 @@
 <link rel="stylesheet" href="css/960.css" />
 <link rel="stylesheet" href="css/demo.css" />
 </head>
+
+<%@ page import="org.picketlink.social.reg.UserRegistration" %>
+<%
+  String fullName = request.getUserPrincipal().getName();
+  String email = null;
+  UserRegistration user = (UserRegistration)session.getAttribute("user");
+  if(user != null)
+  {
+    fullName = user.getFirstName() + " " + user.getLastName();
+    email = user.getEmail();
+  }
+%>
+
 <body>
 <div class="container_12">
   <h2>
@@ -20,10 +34,10 @@
     <div class="grid_3"/>
     <div class="grid_6">
     <p>
-     <a href="auth"> <img src="images/login-with-facebook.png" height="100" width="150"/> </a>
+    Welcome <%=fullName%>
     </p>
     <p>
-     <a href="auth?authType=google"> <img src="images/login-with-google.png"/></a>
+    Your email address is:<%=email%>
     </p>
     </div>
     <div class="grid_3"/>
@@ -32,5 +46,6 @@
   <!-- end .grid_11 -->
   <div class="clear"></div>
 </div>
+
 </body>
 </html>

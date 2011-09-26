@@ -9,6 +9,16 @@
     Registration Web Application for the PicketLink Social Project
   </description>
 
+  <servlet>
+     <servlet-name>AuthJSP</servlet-name>
+     <jsp-file>/auth/auth.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+     <servlet-name>AuthJSP</servlet-name>
+     <url-pattern>/auth</url-pattern>
+  </servlet-mapping>
+
+
   <!-- Define a security constraint that gives unlimted access to images -->
   <security-constraint>
     <web-resource-collection>
@@ -17,11 +27,18 @@
     </web-resource-collection>
   </security-constraint>
 
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>Images</web-resource-name>
+      <url-pattern>/*</url-pattern>
+    </web-resource-collection>
+  </security-constraint>
+
   <!-- Define a Security Constraint on this Application -->
   <security-constraint>
     <web-resource-collection>
       <web-resource-name>Manager command</web-resource-name>
-      <url-pattern>/*</url-pattern>
+      <url-pattern>/auth/*</url-pattern>
     </web-resource-collection>
     <auth-constraint>
        <role-name>user</role-name>
