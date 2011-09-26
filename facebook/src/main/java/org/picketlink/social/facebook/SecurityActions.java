@@ -21,6 +21,7 @@
  */
 package org.picketlink.social.facebook;
 
+import java.lang.reflect.Method;
 import java.security.AccessController;
 import java.security.PrivilegedAction;
 
@@ -89,5 +90,47 @@ class SecurityActions
          }
       });
    }
-
+   
+   /**
+    * Get the system property
+    * @param key
+    * @param defaultValue
+    * @return
+    */
+   static String getSystemProperty(final String key, final String defaultValue)
+   {
+      return AccessController.doPrivileged(new PrivilegedAction<String>()
+      {
+         public String run()
+         {
+            return System.getProperty(key, defaultValue);
+         }
+      });
+   }
+   
+   /**
+    * Use reflection to get the {@link Method} on a {@link Class} with the
+    * given parameter types
+    * @param clazz
+    * @param methodName
+    * @param parameterTypes
+    * @return
+    */
+   static Method getMethod(final Class<?> clazz, final String methodName, final Class<?>[] parameterTypes)
+   {
+      return AccessController.doPrivileged(new PrivilegedAction<Method>()
+      {
+         public Method run()
+         {
+            try
+            {
+               return clazz.getDeclaredMethod(methodName, parameterTypes);
+            }
+            catch (Exception e)
+            {
+               return null;
+            }
+         }
+      });
+   }
 }

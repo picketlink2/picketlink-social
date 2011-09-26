@@ -22,6 +22,7 @@
 package org.picketlink.social.openid.auth;
 
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
@@ -68,10 +69,13 @@ public class OpenIDConsumerAuthenticator extends FormAuthenticator
    protected boolean saveRestoreRequest = true;
 
    protected OpenIDProcessor processor = null;
+   
+   //Incompatibilities in register() method across JBossWeb versions
+   private Method theSuperRegisterMethod = null;
 
    public void setReturnURL(String returnURL)
    {
-      this.returnURL = returnURL;
+      this.returnURL = StringUtil.getSystemPropertyAsString(returnURL);
    }
 
    public void setRequiredAttributes(String requiredAttributes)
@@ -104,7 +108,7 @@ public class OpenIDConsumerAuthenticator extends FormAuthenticator
          roles.add(token);
       }
    }
-
+   
    public boolean authenticate(HttpServletRequest request, HttpServletResponse response, LoginConfig loginConfig) throws IOException
    {
       if(request instanceof Request == false)
@@ -112,6 +116,25 @@ public class OpenIDConsumerAuthenticator extends FormAuthenticator
       if(response instanceof Response == false)
          throw new IOException("Not of type Catalina response");
       return authenticate((Request)request, (Response)response, loginConfig);
+   }
+   
+   /**
+    * Authenticate the request
+    * @param request
+    * @param response
+    * @param config
+    * @return
+    * @throws IOException
+    * @throws {@link RuntimeException} when the response is not of type catalina response object
+    */
+   public boolean authenticate(Request request, HttpServletResponse response, LoginConfig config) throws IOException
+   {
+      if (response instanceof Response)
+      {
+         Response catalinaResponse = (Response) response;
+         return authenticate(request, catalinaResponse, config);
+      }
+      throw new RuntimeException("Wrong type of response:"+response);
    }
    
    public boolean authenticate(Request request, Response response, LoginConfig loginConfig) throws IOException
@@ -174,9 +197,45 @@ public class OpenIDConsumerAuthenticator extends FormAuthenticator
 
          if(trace)
             log.trace("Logged in as:" + principal);
-         register(request, response, principal, Constants.FORM_METHOD, principalName, "");
+         
+         registerWithAuthenticatorBase(request,response,principal,principalName);
+         
+         request.getSession().setAttribute("STATE", STATES.FINISH.name());
          return true;
       }
       return false;
+   }
+   
+   protected void registerWithAuthenticatorBase(Request request, Response response, Principal principal, String userName)
+   {
+      try
+      {
+         register(request, response, principal, Constants.FORM_METHOD, userName, "");
+      }
+      catch(NoSuchMethodError nse)
+      { 
+         if(theSuperRegisterMethod == null)
+         {
+            Class<?>[] args = new Class[]
+            {Request.class, HttpServletResponse.class, Principal.class, String.class, String.class, String.class};
+            Class<?> superClass = getClass().getSuperclass();
+            theSuperRegisterMethod = SecurityActions.getMethod(superClass, "register", args);
+            
+         }
+         if(theSuperRegisterMethod != null)
+         {
+            Object[] objectArgs = new Object[] {request, response.getResponse(),
+                  principal, Constants.FORM_METHOD,
+                  userName, OpenIDProcessor.EMPTY_PASSWORD };
+            try
+            {
+               theSuperRegisterMethod.invoke(this, objectArgs);
+            }
+            catch (Exception e)
+            {
+               log.error("Unable to register:", e);
+            }
+         }
+      }
    }
 }

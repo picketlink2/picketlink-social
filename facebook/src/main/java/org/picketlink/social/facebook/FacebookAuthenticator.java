@@ -22,10 +22,13 @@
 package org.picketlink.social.facebook;
 
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -64,10 +67,13 @@ public class FacebookAuthenticator extends FormAuthenticator
    private enum STATES { AUTH, AUTHZ, FINISH};
    
    protected FacebookProcessor processor;
+   
+   //Incompatibilities in register() method across JBossWeb versions
+   private Method theSuperRegisterMethod = null;
      
    public void setReturnURL(String returnURL)
    {
-      this.returnURL = returnURL;
+      this.returnURL = getSystemPropertyAsString(returnURL);
    }
 
    public void setClientID(String clientID)
@@ -106,8 +112,6 @@ public class FacebookAuthenticator extends FormAuthenticator
       this.saveRestoreRequest = saveRestoreRequest;
    }
 
-   
-   @Override
    public void start() throws LifecycleException
    {
       //Validate the input values
@@ -127,6 +131,25 @@ public class FacebookAuthenticator extends FormAuthenticator
       if(response instanceof Response == false)
          throw new IOException("Not of type Catalina response");
       return authenticate((Request)request, (Response)response, loginConfig);
+   }
+   
+   /**
+    * Authenticate the request
+    * @param request
+    * @param response
+    * @param config
+    * @return
+    * @throws IOException
+    * @throws {@link RuntimeException} when the response is not of type catalina response object
+    */
+   public boolean authenticate(Request request, HttpServletResponse response, LoginConfig config) throws IOException
+   {
+      if (response instanceof Response)
+      {
+         Response catalinaResponse = (Response) response;
+         return authenticate(request, catalinaResponse, config);
+      }
+      throw new RuntimeException("Wrong type of response:"+response);
    }
     
    public boolean authenticate(Request request, Response response, LoginConfig loginConfig) throws IOException
@@ -175,11 +198,107 @@ public class FacebookAuthenticator extends FormAuthenticator
          {
             this.restoreRequest(request, request.getSessionInternal());
          }
-         register(request, response, principal, Constants.FORM_METHOD, userName, "");
+
+         registerWithAuthenticatorBase(request,response,principal,userName);
+         
          request.getSession().setAttribute("STATE", STATES.FINISH.name());
 
          return true;
       }
       return false;
+   }
+   
+
+   
+   protected void registerWithAuthenticatorBase(Request request, Response response, Principal principal, String userName)
+   {
+      try
+      {
+         register(request, response, principal, Constants.FORM_METHOD, userName, "");
+      }
+      catch(NoSuchMethodError nse)
+      { 
+         if(theSuperRegisterMethod == null)
+         {
+            Class<?>[] args = new Class[]
+            {Request.class, HttpServletResponse.class, Principal.class, String.class, String.class, String.class};
+            Class<?> superClass = getClass().getSuperclass();
+            theSuperRegisterMethod = SecurityActions.getMethod(superClass, "register", args);
+            
+         }
+         if(theSuperRegisterMethod != null)
+         {
+            Object[] objectArgs = new Object[] {request, response.getResponse(),
+                  principal, Constants.FORM_METHOD,
+                  userName, FacebookProcessor.EMPTY_PASSWORD };
+            try
+            {
+               theSuperRegisterMethod.invoke(this, objectArgs);
+            }
+            catch (Exception e)
+            {
+               log.error("Unable to register:", e);
+            }
+         }
+      }
+   }
+   
+   /**
+    * <p>
+    * Get the system property value if the string is of the format ${sysproperty}
+    * </p>
+    * <p>
+    * You can insert default value when the system property is not set, by
+    * separating it at the beginning with ::
+    * </p>
+    * <p>
+    * <b>Examples:</b>
+    * </p>
+    * 
+    * <p>
+    * ${idp} should resolve to a value if the system property "idp" is set.
+    * </p>
+    * <p>
+    * ${idp::http://localhost:8080} will resolve to http://localhost:8080 if the system property "idp" is not set.
+    * </p>
+    * @param str
+    * @return
+    */
+   protected String getSystemPropertyAsString(String str)
+   {
+      if (str == null)
+         throw new IllegalArgumentException("str is null");
+      if (str.contains("${"))
+      {
+         Pattern pattern = Pattern.compile("\\$\\{([^}]+)}");
+         Matcher matcher = pattern.matcher(str);
+
+         StringBuffer buffer = new StringBuffer();
+         String sysPropertyValue = null;
+
+         while (matcher.find())
+         {
+            String subString = matcher.group(1);
+            String defaultValue = "";
+
+            //Look for default value
+            if (subString.contains("::"))
+            {
+               int index = subString.indexOf("::");
+               defaultValue = subString.substring(index + 2);
+               subString = subString.substring(0, index);
+            }
+            sysPropertyValue = SecurityActions.getSystemProperty(subString, defaultValue);
+            if (sysPropertyValue.isEmpty())
+            {
+               throw new IllegalArgumentException(matcher.group(1) + " is missing in system properties");
+            }
+            matcher.appendReplacement(buffer, sysPropertyValue);
+         }
+
+         matcher.appendTail(buffer);
+         str = buffer.toString();
+      }
+      return str;
    }
 }

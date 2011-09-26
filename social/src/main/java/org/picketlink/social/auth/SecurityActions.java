@@ -19,79 +19,19 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package org.picketlink.social.openid.auth;
+package org.picketlink.social.auth;
 
 import java.lang.reflect.Method;
 import java.security.AccessController;
 import java.security.PrivilegedAction;
 
-import org.jboss.security.SecurityContext;
-import org.jboss.security.SecurityContextAssociation;
-import org.jboss.security.SecurityContextFactory;
-
 /**
  * Privileged Blocks
  * @author Anil Saldhana
- * @since May 19, 2011
+ * @since Sep 26, 2011
  */
 class SecurityActions
 {
-   static SecurityContext createSecurityContext( final String name)
-   {
-      return AccessController.doPrivileged(new PrivilegedAction<SecurityContext>()
-      {
-         public SecurityContext run()
-         { 
-            try
-            {
-               return SecurityContextFactory.createSecurityContext(name);
-            }
-            catch (Exception e)
-            {
-               throw new RuntimeException(e);
-            }
-         }
-      });
-   }
-   
-   static void setSecurityContext( final SecurityContext sc)
-   {
-      AccessController.doPrivileged(new PrivilegedAction<Void>()
-      {
-
-         public Void run()
-         { 
-            SecurityContextAssociation.setSecurityContext(sc);
-            return null;
-         }
-      });
-   }
-   
-   static SecurityContext getSecurityContext()
-   {
-      return AccessController.doPrivileged(new PrivilegedAction<SecurityContext>()
-      {
-
-         public SecurityContext run()
-         { 
-            return SecurityContextAssociation.getSecurityContext();
-         }
-      });
-   }
-   
-   static ClassLoader getContextClassLoader()
-   {
-      return AccessController.doPrivileged(new PrivilegedAction<ClassLoader>()
-      {
-
-         public ClassLoader run()
-         { 
-            return Thread.currentThread().getContextClassLoader();
-         }
-      });
-   }
-   
-
    /**
     * Use reflection to get the {@link Method} on a {@link Class} with the
     * given parameter types
@@ -117,5 +57,4 @@ class SecurityActions
          }
       });
    }
-
 }

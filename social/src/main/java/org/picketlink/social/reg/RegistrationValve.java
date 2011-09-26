@@ -55,38 +55,38 @@ public class RegistrationValve extends ValveBase
          throw new IOException("Not of type Catalina response");
       invoke((Request)request, (Response)response);
    }
-   
+
    public void invoke(Request request, Response response) throws IOException, ServletException
    {
       HttpSession session = request.getSession();
       Principal principal = (Principal) session.getAttribute("PRINCIPAL");
-      if(principal == null)
-         throw new ServletException("User is not authenticated using the social authenticator");
-      UserRegistration user = null;
-      if(principal instanceof OpenIdPrincipal)
+      if(principal != null)
       {
-         user = processOpenIDPrincipal((OpenIdPrincipal) principal);
+         UserRegistration user = null;
+         if(principal instanceof OpenIdPrincipal)
+         {
+            user = processOpenIDPrincipal((OpenIdPrincipal) principal);
+         }
+         else if(principal instanceof FacebookPrincipal)
+         { 
+            user = processFacebookPrincipal((FacebookPrincipal) principal);
+         }
+         else
+            throw new ServletException("Unknown principal type:" + principal);
+         if(user != null)
+         {
+            session.setAttribute("user", user);
+         }
       }
-      else if(principal instanceof FacebookPrincipal)
-      { 
-         user = processFacebookPrincipal((FacebookPrincipal) principal);
-      }
-      else
-         throw new ServletException("Unknown principal type:" + principal);
-      if(user != null)
-      {
-         session.setAttribute("user", user);
-      }
-      
       getNext().invoke(request, response);
    }
-   
+
    private UserRegistration processOpenIDPrincipal(OpenIdPrincipal openIDPrincipal)
    {
       UserRegistration user = new UserRegistration();
       Map<String,List<String>> attributes = openIDPrincipal.getAttributes();
       user.setIdentifier(openIDPrincipal.getIdentifier());
-      
+
       if(attributes != null)
       {
          List<String> values = attributes.get("ax_firstName");
@@ -114,7 +114,7 @@ public class RegistrationValve extends ValveBase
       }
       return user;
    }
-   
+
    private UserRegistration processFacebookPrincipal(FacebookPrincipal facebookPrincipal)
    {
       UserRegistration user = new UserRegistration();

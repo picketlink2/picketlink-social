@@ -22,6 +22,7 @@
 package org.picketlink.social.auth;
 
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +39,7 @@ import org.apache.catalina.connector.Request;
 import org.apache.catalina.connector.Response;
 import org.apache.catalina.deploy.LoginConfig;
 import org.apache.log4j.Logger;
+import org.picketlink.identity.federation.core.util.StringUtil;
 import org.picketlink.social.facebook.FacebookProcessor;
 import org.picketlink.social.openid.auth.OpenIDConsumerAuthenticator;
 import org.picketlink.social.openid.auth.OpenIDProcessor;
@@ -76,6 +78,9 @@ public class ExternalAuthenticator extends FormAuthenticator
    protected boolean saveRestoreRequest = true;
    
    private enum STATES { AUTH, AUTHZ, FINISH}; 
+   
+   //Incompatibilities in register() method across JBossWeb versions
+   private Method theSuperRegisterMethod = null;
 
    /**
     * A comma separated string that represents the roles the web app
@@ -86,7 +91,7 @@ public class ExternalAuthenticator extends FormAuthenticator
    {
       if(roleStr == null)
          throw new RuntimeException("Role String is null in configuration");
-      StringTokenizer st = new StringTokenizer(roleStr, ",");
+      StringTokenizer st = new StringTokenizer(StringUtil.getSystemPropertyAsString(roleStr), ",");
       while(st.hasMoreElements())
       {
          roles.add(st.nextToken());
@@ -100,21 +105,40 @@ public class ExternalAuthenticator extends FormAuthenticator
    
    protected List<String> roles = new ArrayList<String>();
    
+   /**
+    * Set the url where the 3rd party authentication service will redirect after authentication
+    * @param returnURL
+    */
    public void setReturnURL(String returnURL)
    {
-      this.returnURL = returnURL;
+      this.returnURL = StringUtil.getSystemPropertyAsString(returnURL);
    }
+   
+   /**
+    * Set the client id for facebook
+    * @param clientID
+    */
    public void setClientID(String clientID)
    {
-      this.clientID = clientID;
+      this.clientID = StringUtil.getSystemPropertyAsString(clientID);
    }
+   
+   /**
+    * Set the client secret for facebook
+    * @param clientSecret
+    */
    public void setClientSecret(String clientSecret)
    {
-      this.clientSecret = clientSecret;
+      this.clientSecret = StringUtil.getSystemPropertyAsString(clientSecret);
    }
+   
+   /**
+    * Set the scope for facebook (Default: email)
+    * @param facebookScope
+    */
    public void setFacebookScope(String facebookScope)
    {
-      this.facebookScope = facebookScope;
+      this.facebookScope = StringUtil.getSystemPropertyAsString(facebookScope);
    }
    
    public boolean authenticate(HttpServletRequest request, HttpServletResponse response, LoginConfig loginConfig) throws IOException
@@ -124,6 +148,25 @@ public class ExternalAuthenticator extends FormAuthenticator
       if(response instanceof Response == false)
          throw new IOException("Not of type Catalina response");
       return authenticate((Request)request, (Response)response, loginConfig);
+   }
+   
+   /**
+    * Authenticate the request
+    * @param request
+    * @param response
+    * @param config
+    * @return
+    * @throws IOException
+    * @throws {@link RuntimeException} when the response is not of type catalina response object
+    */
+   public boolean authenticate(Request request, HttpServletResponse response, LoginConfig config) throws IOException
+   {
+      if (response instanceof Response)
+      {
+         Response catalinaResponse = (Response) response;
+         return authenticate(request, catalinaResponse, config);
+      }
+      throw new RuntimeException("Wrong type of response:"+response);
    }
     
    public boolean authenticate(Request request, Response response, LoginConfig loginConfig) throws IOException
@@ -204,7 +247,8 @@ public class ExternalAuthenticator extends FormAuthenticator
          {
             this.restoreRequest(request, request.getSessionInternal());
          }
-         register(request, response, principal, Constants.FORM_METHOD, userName, "");
+         registerWithAuthenticatorBase(request,response,principal,userName);
+         
          request.getSession().setAttribute("STATE", STATES.FINISH.name());
 
          return true;
@@ -267,9 +311,42 @@ public class ExternalAuthenticator extends FormAuthenticator
 
          if(trace)
             log.trace("Logged in as:" + principal);
-         register(request, response, principal, Constants.FORM_METHOD, principalName, "");
+         registerWithAuthenticatorBase(request,response,principal,principalName);
          return true;
       }
       return false;
+   }
+   
+   protected void registerWithAuthenticatorBase(Request request, Response response, Principal principal, String userName)
+   {
+      try
+      {
+         register(request, response, principal, Constants.FORM_METHOD, userName, "");
+      }
+      catch(NoSuchMethodError nse)
+      { 
+         if(theSuperRegisterMethod == null)
+         {
+            Class<?>[] args = new Class[]
+            {Request.class, HttpServletResponse.class, Principal.class, String.class, String.class, String.class};
+            Class<?> superClass = getClass().getSuperclass();
+            theSuperRegisterMethod = SecurityActions.getMethod(superClass, "register", args);
+            
+         }
+         if(theSuperRegisterMethod != null)
+         {
+            Object[] objectArgs = new Object[] {request, response.getResponse(),
+                  principal, Constants.FORM_METHOD,
+                  userName, FacebookProcessor.EMPTY_PASSWORD };
+            try
+            {
+               theSuperRegisterMethod.invoke(this, objectArgs);
+            }
+            catch (Exception e)
+            {
+               log.error("Unable to register:", e);
+            }
+         }
+      }
    }
 }
