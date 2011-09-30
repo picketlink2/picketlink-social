@@ -28,6 +28,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.apache.catalina.Realm;
 import org.apache.catalina.Session;
 import org.apache.catalina.connector.Request;
@@ -283,6 +285,10 @@ public class OpenIDProcessor
 
          if(trace)
             log.trace("Logged in as:" + principal); 
+      }
+      else
+      {
+         response.sendError(HttpServletResponse.SC_FORBIDDEN);
       }
       return principal;
    }

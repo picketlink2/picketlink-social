@@ -235,7 +235,7 @@ public class ExternalAuthenticator extends FormAuthenticator
          Principal principal = facebookProcessor.getPrincipal(request, response, context.getRealm());
          
          if(principal == null)
-            throw new RuntimeException("Principal was null. Maybe login modules need to be configured properly.");
+            throw new RuntimeException("Principal was null. Maybe login modules need to be configured properly. Or user chose no data");
          
          String userName = principal.getName();
          
@@ -299,6 +299,10 @@ public class ExternalAuthenticator extends FormAuthenticator
          }
 
          Principal principal = openidProcessor.processIncomingAuthResult(request, response, context.getRealm());
+
+         if(principal == null)
+            throw new RuntimeException("Principal was null. Maybe login modules need to be configured properly. Or user chose no data");
+         
          String principalName = principal.getName();
          request.getSessionInternal().setNote(Constants.SESS_USERNAME_NOTE, principalName);
          request.getSessionInternal().setNote(Constants.SESS_PASSWORD_NOTE, "");
