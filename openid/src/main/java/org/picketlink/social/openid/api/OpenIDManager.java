@@ -82,18 +82,10 @@ public class OpenIDManager
    public OpenIDManager(OpenIDRequest theReq)
    {
       this.request = theReq;
-      try
-      {
-         consumerManager = new ConsumerManager(); 
-         consumerManager.setAssociations(new InMemoryConsumerAssociationStore());
-         consumerManager.setNonceVerifier(new InMemoryNonceVerifier(5000));
-         
-         userString = request.getURL(); 
-      }
-      catch(ConsumerException ce)
-      {
-         throw new RuntimeException(ce);
-      }
+      consumerManager = new ConsumerManager(); 
+      consumerManager.setAssociations(new InMemoryConsumerAssociationStore());
+      consumerManager.setNonceVerifier(new InMemoryNonceVerifier(5000));
+      userString = request.getURL(); 
    }
    
    /**
