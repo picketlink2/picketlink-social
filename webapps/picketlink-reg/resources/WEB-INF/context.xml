@@ -2,8 +2,8 @@
     <Valve className="org.picketlink.social.auth.ExternalAuthenticator" 
            returnURL="http://localhost:8080/picketlink-reg/auth"
            scope="email"
-           clientID="193791340666726"
-           clientSecret="b6d74e738c5ab1989d9f45c270c5bac6"
+           clientID="some_client_auth"
+           clientSecret="some_client_secret"
            roleString="user"/>
     <Valve className="org.picketlink.social.reg.RegistrationValve"/>
 </Context>

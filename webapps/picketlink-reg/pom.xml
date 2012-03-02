@@ -27,11 +27,11 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-war-plugin</artifactId>
-          <version>2.0.2</version>
           <configuration>
             <warName>picketlink-reg</warName>
             <webappDirectory>${basedir}/resources/</webappDirectory>
             <warSourceExcludes>WEB-INF/lib/*.jar</warSourceExcludes>
+            <packagingExcludes>**/.svn/</packagingExcludes>
           </configuration>
         </plugin>
      </plugins>
