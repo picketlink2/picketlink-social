@@ -19,6 +19,7 @@
      <module>facebook</module>
      <module>social</module>
      <module>assembly</module>
+     <module>webapps</module>
    </modules>
 
    <reporting>

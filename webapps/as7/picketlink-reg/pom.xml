@@ -1,0 +1,68 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+   <groupId>org.picketlink.social.as7</groupId>
+   <artifactId>picketlink-reg</artifactId>
+   <version>2.0.0.Beta1-SNAPSHOT</version>
+   <packaging>war</packaging>
+   <name>PicketLink Social Registration</name>
+   <url>http://labs.jboss.org/portal/picketlink/</url>
+   <description>PicketLink Social Registration</description>
+   <licenses>
+      <license>
+         <name>lgpl</name>
+         <url>http://repository.jboss.com/licenses/lgpl.txt</url>
+      </license>
+   </licenses>
+   <organization>
+      <name>JBoss Inc.</name>
+      <url>http://www.jboss.org</url>
+   </organization>
+   <build>
+     <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>2.2</version>
+          <configuration>
+            <warName>picketlink-reg</warName>
+            <webappDirectory>${basedir}/../../picketlink-reg/resources/</webappDirectory>
+            <packagingExcludes>**/.svn/,WEB-INF/lib/jcip-annotations-1.0.jar,WEB-INF/lib/commons-codec-1.4.jar,WEB-INF/lib/commons-httpclient-3.1.jar,WEB-INF/lib/commons-logging-1.1.1.jar</packagingExcludes>
+          </configuration>
+        </plugin>
+     </plugins>
+  </build>
+
+     <dependencies>
+       <dependency>
+         <groupId>org.picketlink</groupId>
+         <artifactId>picketlink-consolidated-social</artifactId>
+         <version>${pom.version}</version>
+       </dependency>
+      <dependency>
+         <groupId>org.openid4java</groupId>
+         <artifactId>openid4java-nodeps</artifactId>
+         <version>0.9.6</version>
+         <exclusions>
+           <exclusion>
+               <groupId>com.google.code.guice</groupId>
+               <artifactId>guice</artifactId>
+           </exclusion>
+           <exclusion>
+               <groupId>net.jcip</groupId>
+               <artifactId>jcip-annotations</artifactId>
+           </exclusion>
+         </exclusions>
+      </dependency>
+      <dependency>
+         <groupId>org.json</groupId>
+         <artifactId>json</artifactId>
+         <version>20090211</version>
+      </dependency>
+      <dependency>
+         <groupId>org.apache.httpcomponents</groupId>
+         <artifactId>httpclient</artifactId>
+         <version>4.1.1</version>
+      </dependency>
+      
+     </dependencies>
+</project>

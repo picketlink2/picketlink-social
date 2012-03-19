@@ -1,0 +1,1174 @@
+Apache Maven 3.0.2 (r1056850; 2011-01-08 18:58:10-0600)
+Java version: 1.6.0_31, vendor: Sun Microsystems Inc.
+Java home: /home/anil/java/jdk1.6.0_31/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.2.9-2.fc16.x86_64", arch: "amd64", family: "unix"
+[INFO] Error stacktraces are turned on.
+[DEBUG] Reading global settings from /opt/apache-maven-3.0.2/conf/settings.xml
+[DEBUG] Reading user settings from /home/anil/.m2/settings.xml
+[DEBUG] Using local repository at /home/anil/.m2/repository
+[DEBUG] Using manager EnhancedLocalRepositoryManager with priority 10 for /home/anil/.m2/repository
+[INFO] Scanning for projects...
+[DEBUG] Skipped remote update check for org.picketlink:picketlink-social-webapps:2.0.0.Beta1-SNAPSHOT/maven-metadata.xml, locally built metadata up-to-date.
+[DEBUG] Skipped remote update check for org.picketlink:picketlink-social-parent:2.0.0.Beta1-SNAPSHOT/maven-metadata.xml, locally built metadata up-to-date.
+[DEBUG] Extension realms for project org.picketlink:picketlink-reg-as7:war:2.0.0.Beta1-SNAPSHOT: (none)
+[DEBUG] Looking up lifecyle mappings for packaging war from ClassRealm[plexus.core, parent: null]
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for org.picketlink:picketlink-reg-as7:war:2.0.0.Beta1-SNAPSHOT
+[WARNING] 'parent.relativePath' points at org.picketlink:picketlink-social-as7-webapps instead of org.picketlink:picketlink-social-webapps, please verify your project structure @ line 2, column 11
+[WARNING] The expression ${pom.version} is deprecated. Please use ${project.version} instead.
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[DEBUG] === REACTOR BUILD PLAN ================================================
+[DEBUG] Project: org.picketlink:picketlink-reg-as7:war:2.0.0.Beta1-SNAPSHOT
+[DEBUG] Tasks:   [clean, install]
+[DEBUG] Style:   Regular
+[DEBUG] =======================================================================
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building PicketLink Social Registration 2.0.0.Beta1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] === PROJECT BUILD PLAN ================================================
+[DEBUG] Project:       org.picketlink:picketlink-reg-as7:2.0.0.Beta1-SNAPSHOT
+[DEBUG] Dependencies (collect): []
+[DEBUG] Dependencies (resolve): [compile, runtime, test]
+[DEBUG] Repositories (dependencies): [jboss-public-repository-group (https://repository.jboss.org/nexus/content/groups/public/, releases=true, snapshots=true, managed=false), repository.jboss.org (http://repository.jboss.org/maven2/, releases=true, snapshots=false, managed=false), snapshots.jboss.org (http://snapshots.jboss.org/maven2/, releases=false, snapshots=true, managed=false), central (http://repo1.maven.org/maven2, releases=true, snapshots=false, managed=false)]
+[DEBUG] Repositories (plugins)     : [jboss-public-repository-group (https://repository.jboss.org/nexus/content/groups/public/, releases=true, snapshots=true, managed=false), central (http://repo1.maven.org/maven2, releases=true, snapshots=false, managed=false)]
+[DEBUG] -----------------------------------------------------------------------
+[DEBUG] Goal:          org.apache.maven.plugins:maven-clean-plugin:2.3:clean (default-clean)
+[DEBUG] Style:         Regular
+[DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <directory default-value="${project.build.directory}"/>
+  <excludeDefaultDirectories default-value="false">${clean.excludeDefaultDirectories}</excludeDefaultDirectories>
+  <failOnError default-value="true">${maven.clean.failOnError}</failOnError>
+  <followSymLinks default-value="false">${clean.followSymLinks}</followSymLinks>
+  <outputDirectory default-value="${project.build.outputDirectory}"/>
+  <project default-value="${project}"/>
+  <reportDirectory default-value="${project.reporting.outputDirectory}"/>
+  <skip default-value="false">${clean.skip}</skip>
+  <testOutputDirectory default-value="${project.build.testOutputDirectory}"/>
+  <verbose>${clean.verbose}</verbose>
+</configuration>
+[DEBUG] -----------------------------------------------------------------------
+[DEBUG] Goal:          org.apache.maven.plugins:maven-enforcer-plugin:1.0-beta-1:enforce (enforce-plugin-versions)
+[DEBUG] Style:         Regular
+[DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <fail default-value="true">${enforcer.fail}</fail>
+  <failFast default-value="false">${enforcer.failFast}</failFast>
+  <ignoreCache default-value="false">${enforcer.ignoreCache}</ignoreCache>
+  <project>${project}</project>
+  <rules>
+    <requirePluginVersions>
+      <message>Best practice is to always define plugin versions!</message>
+      <banLatest>true</banLatest>
+      <banRelease>true</banRelease>
+      <phases>deploy,site</phases>
+    </requirePluginVersions>
+  </rules>
+  <session>${session}</session>
+  <skip default-value="false">${enforcer.skip}</skip>
+</configuration>
+[DEBUG] -----------------------------------------------------------------------
+[DEBUG] Goal:          org.apache.maven.plugins:maven-enforcer-plugin:1.0-beta-1:enforce (enforce-java-version)
+[DEBUG] Style:         Regular
+[DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <fail default-value="true">${enforcer.fail}</fail>
+  <failFast default-value="false">${enforcer.failFast}</failFast>
+  <ignoreCache default-value="false">${enforcer.ignoreCache}</ignoreCache>
+  <project>${project}</project>
+  <rules>
+    <requireJavaVersion>
+      <message>To build this project JDK 1.5 (or greater) is required. Please install it.</message>
+      <version>1.5</version>
+    </requireJavaVersion>
+  </rules>
+  <session>${session}</session>
+  <skip default-value="false">${enforcer.skip}</skip>
+</configuration>
+[DEBUG] -----------------------------------------------------------------------
+[DEBUG] Goal:          org.apache.maven.plugins:maven-enforcer-plugin:1.0-beta-1:enforce (enforce-maven-version)
+[DEBUG] Style:         Regular
+[DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <fail default-value="true">${enforcer.fail}</fail>
+  <failFast default-value="false">${enforcer.failFast}</failFast>
+  <ignoreCache default-value="false">${enforcer.ignoreCache}</ignoreCache>
+  <project>${project}</project>
+  <rules>
+    <requireMavenVersion>
+      <message>To build this project Maven 2.0.9 (or greater) is required. Please install it.</message>
+      <version>2.0.9</version>
+    </requireMavenVersion>
+  </rules>
+  <session>${session}</session>
+  <skip default-value="false">${enforcer.skip}</skip>
+</configuration>
+[DEBUG] -----------------------------------------------------------------------
+[DEBUG] Goal:          org.apache.maven.plugins:maven-resources-plugin:2.4.1:resources (default-resources)
+[DEBUG] Style:         Regular
+[DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <buildFilters default-value="${project.build.filters}"/>
+  <encoding default-value="${project.build.sourceEncoding}">${encoding}</encoding>
+  <escapeString default-value="${maven.resources.escapeString}"/>
+  <escapeWindowsPaths default-value="true">${maven.resources.escapeWindowsPaths}</escapeWindowsPaths>
+  <includeEmptyDirs default-value="false">${maven.resources.includeEmptyDirs}</includeEmptyDirs>
+  <outputDirectory default-value="${project.build.outputDirectory}"/>
+  <overwrite default-value="false">${maven.resources.overwrite}</overwrite>
+  <project default-value="${project}"/>
+  <resources default-value="${project.resources}"/>
+  <session default-value="${session}"/>
+  <useBuildFilters default-value="true"/>
+  <useDefaultDelimiters default-value="true"/>
+</configuration>
+[DEBUG] -----------------------------------------------------------------------
+[DEBUG] Goal:          org.apache.maven.plugins:maven-compiler-plugin:2.0.2:compile (default-compile)
+[DEBUG] Style:         Regular
+[DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <basedir>${basedir}</basedir>
+  <buildDirectory>${project.build.directory}</buildDirectory>
+  <classpathElements>${project.compileClasspathElements}</classpathElements>
+  <compileSourceRoots>${project.compileSourceRoots}</compileSourceRoots>
+  <compilerId default-value="javac">${maven.compiler.compilerId}</compilerId>
+  <compilerVersion>${maven.compiler.compilerVersion}</compilerVersion>
+  <debug default-value="true">${maven.compiler.debug}</debug>
+  <encoding>${maven.compiler.encoding}</encoding>
+  <executable>${maven.compiler.executable}</executable>
+  <failOnError default-value="true">${maven.compiler.failOnError}</failOnError>
+  <fork default-value="false"/>
+  <maxmem>${maven.compiler.maxmem}</maxmem>
+  <meminitial>${maven.compiler.meminitial}</meminitial>
+  <optimize default-value="false">${maven.compiler.optimize}</optimize>
+  <outputDirectory>${project.build.outputDirectory}</outputDirectory>
+  <outputFileName>${project.build.finalName}</outputFileName>
+  <projectArtifact>${project.artifact}</projectArtifact>
+  <showDeprecation default-value="false">${maven.compiler.showDeprecation}</showDeprecation>
+  <showWarnings default-value="false">${maven.compiler.showWarnings}</showWarnings>
+  <source>${maven.compiler.source}</source>
+  <staleMillis default-value="0">${lastModGranularityMs}</staleMillis>
+  <target>${maven.compiler.target}</target>
+  <verbose default-value="false">${maven.compiler.verbose}</verbose>
+</configuration>
+[DEBUG] -----------------------------------------------------------------------
+[DEBUG] Goal:          org.apache.maven.plugins:maven-resources-plugin:2.4.1:testResources (default-testResources)
+[DEBUG] Style:         Regular
+[DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <buildFilters default-value="${project.build.filters}"/>
+  <encoding default-value="${project.build.sourceEncoding}">${encoding}</encoding>
+  <escapeString default-value="${maven.resources.escapeString}"/>
+  <escapeWindowsPaths default-value="true">${maven.resources.escapeWindowsPaths}</escapeWindowsPaths>
+  <includeEmptyDirs default-value="false">${maven.resources.includeEmptyDirs}</includeEmptyDirs>
+  <outputDirectory>${project.build.testOutputDirectory}</outputDirectory>
+  <overwrite default-value="false">${maven.resources.overwrite}</overwrite>
+  <project default-value="${project}"/>
+  <resources>${project.testResources}</resources>
+  <session default-value="${session}"/>
+  <useBuildFilters default-value="true"/>
+  <useDefaultDelimiters default-value="true"/>
+</configuration>
+[DEBUG] -----------------------------------------------------------------------
+[DEBUG] Goal:          org.apache.maven.plugins:maven-compiler-plugin:2.0.2:testCompile (default-testCompile)
+[DEBUG] Style:         Regular
+[DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <basedir>${basedir}</basedir>
+  <buildDirectory>${project.build.directory}</buildDirectory>
+  <classpathElements>${project.testClasspathElements}</classpathElements>
+  <compileSourceRoots>${project.testCompileSourceRoots}</compileSourceRoots>
+  <compilerId default-value="javac">${maven.compiler.compilerId}</compilerId>
+  <compilerVersion>${maven.compiler.compilerVersion}</compilerVersion>
+  <debug default-value="true">${maven.compiler.debug}</debug>
+  <encoding>${maven.compiler.encoding}</encoding>
+  <executable>${maven.compiler.executable}</executable>
+  <failOnError default-value="true">${maven.compiler.failOnError}</failOnError>
+  <fork default-value="false"/>
+  <maxmem>${maven.compiler.maxmem}</maxmem>
+  <meminitial>${maven.compiler.meminitial}</meminitial>
+  <optimize default-value="false">${maven.compiler.optimize}</optimize>
+  <outputDirectory>${project.build.testOutputDirectory}</outputDirectory>
+  <outputFileName>${project.build.finalName}</outputFileName>
+  <showDeprecation default-value="false">${maven.compiler.showDeprecation}</showDeprecation>
+  <showWarnings default-value="false">${maven.compiler.showWarnings}</showWarnings>
+  <skip>${maven.test.skip}</skip>
+  <source>${maven.compiler.source}</source>
+  <staleMillis default-value="0">${lastModGranularityMs}</staleMillis>
+  <target>${maven.compiler.target}</target>
+  <verbose default-value="false">${maven.compiler.verbose}</verbose>
+</configuration>
+[DEBUG] -----------------------------------------------------------------------
+[DEBUG] Goal:          org.apache.maven.plugins:maven-surefire-plugin:2.4.3:test (default-test)
+[DEBUG] Style:         Regular
+[DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <argLine>${surefire.jvm.args}</argLine>
+  <basedir>${basedir}</basedir>
+  <childDelegation default-value="false">${childDelegation}</childDelegation>
+  <classesDirectory>${project.build.outputDirectory}</classesDirectory>
+  <classpathElements>${project.testClasspathElements}</classpathElements>
+  <debugForkedProcess>${maven.surefire.debug}</debugForkedProcess>
+  <disableXmlReport default-value="false">false</disableXmlReport>
+  <enableAssertions default-value="true">${enableAssertions}</enableAssertions>
+  <excludedGroups>${excludedGroups}</excludedGroups>
+  <failIfNoTests>${failIfNoTests}</failIfNoTests>
+  <forkMode default-value="once">pertest</forkMode>
+  <forkedProcessTimeoutInSeconds>${surefire.timeout}</forkedProcessTimeoutInSeconds>
+  <groups>${groups}</groups>
+  <includes>
+    <include>**/**TestCase.java</include>
+  </includes>
+  <junitArtifactName default-value="junit:junit">${junitArtifactName}</junitArtifactName>
+  <jvm>${jvm}</jvm>
+  <localRepository>${localRepository}</localRepository>
+  <parallel>${parallel}</parallel>
+  <pluginArtifactMap>${plugin.artifactMap}</pluginArtifactMap>
+  <printSummary default-value="true">true</printSummary>
+  <project>${project}</project>
+  <projectArtifactMap>${project.artifactMap}</projectArtifactMap>
+  <redirectTestOutputToFile default-value="false">${maven.test.redirectTestOutputToFile}</redirectTestOutputToFile>
+  <remoteRepositories>${project.pluginArtifactRepositories}</remoteRepositories>
+  <reportFormat default-value="brief">${surefire.reportFormat}</reportFormat>
+  <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
+  <session>${session}</session>
+  <skip>${maven.test.skip}</skip>
+  <skipExec>${maven.test.skip.exec}</skipExec>
+  <skipTests>${skipTests}</skipTests>
+  <test>${test}</test>
+  <testClassesDirectory>${project.build.testOutputDirectory}</testClassesDirectory>
+  <testFailureIgnore>true</testFailureIgnore>
+  <testNGArtifactName default-value="org.testng:testng">${testNGArtifactName}</testNGArtifactName>
+  <testSourceDirectory>${project.build.testSourceDirectory}</testSourceDirectory>
+  <threadCount>${threadCount}</threadCount>
+  <trimStackTrace default-value="true">false</trimStackTrace>
+  <useFile default-value="true">false</useFile>
+  <useManifestOnlyJar default-value="true">${surefire.useManifestOnlyJar}</useManifestOnlyJar>
+  <useSystemClassLoader>${surefire.useSystemClassLoader}</useSystemClassLoader>
+  <workingDirectory>${basedir}</workingDirectory>
+</configuration>
+[DEBUG] -----------------------------------------------------------------------
+[DEBUG] Goal:          org.apache.maven.plugins:maven-war-plugin:2.2:war (default-war)
+[DEBUG] Style:         Regular
+[DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <archiveClasses default-value="false">${archiveClasses}</archiveClasses>
+  <attachClasses default-value="false"/>
+  <cacheFile default-value="${project.build.directory}/war/work/webapp-cache.xml"/>
+  <classesClassifier default-value="classes"/>
+  <classesDirectory default-value="${project.build.outputDirectory}"/>
+  <containerConfigXML>${maven.war.containerConfigXML}</containerConfigXML>
+  <escapeString>${maven.war.escapeString}</escapeString>
+  <escapedBackslashesInFilePath default-value="false">${maven.war.escapedBackslashesInFilePath}</escapedBackslashesInFilePath>
+  <failOnMissingWebXml default-value="true">${failOnMissingWebXml}</failOnMissingWebXml>
+  <filteringDeploymentDescriptors default-value="false">${maven.war.filteringDeploymentDescriptors}</filteringDeploymentDescriptors>
+  <outputDirectory default-value="${project.build.directory}"/>
+  <packagingExcludes>**/.svn/,WEB-INF/lib/guice-2.0.jar,WEB-INF/lib/jcip-annotations-1.0.jar</packagingExcludes>
+  <primaryArtifact default-value="true">${primaryArtifact}</primaryArtifact>
+  <project default-value="${project}"/>
+  <session default-value="${session}"/>
+  <useCache default-value="false">${useCache}</useCache>
+  <warName default-value="${project.build.finalName}">picketlink-reg</warName>
+  <warSourceDirectory default-value="${basedir}/src/main/webapp"/>
+  <warSourceIncludes default-value="**"/>
+  <webXml>${maven.war.webxml}</webXml>
+  <webappDirectory default-value="${project.build.directory}/${project.build.finalName}">/home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/../../picketlink-reg/resources/</webappDirectory>
+  <workDirectory default-value="${project.build.directory}/war/work"/>
+</configuration>
+[DEBUG] -----------------------------------------------------------------------
+[DEBUG] Goal:          org.apache.maven.plugins:maven-source-plugin:2.1.1:jar-no-fork (attach-sources)
+[DEBUG] Style:         Regular
+[DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <attach default-value="true">${attach}</attach>
+  <defaultManifestFile default-value="${project.build.outputDirectory}/META-INF/MANIFEST.MF"/>
+  <excludeResources default-value="false">${source.excludeResources}</excludeResources>
+  <finalName default-value="${project.build.finalName}"/>
+  <forceCreation default-value="false">${source.forceCreation}</forceCreation>
+  <includePom default-value="false">${source.includePom}</includePom>
+  <outputDirectory default-value="${project.build.directory}"/>
+  <project>${project}</project>
+  <reactorProjects>${reactorProjects}</reactorProjects>
+  <useDefaultExcludes default-value="true"/>
+  <useDefaultManifestFile default-value="false"/>
+</configuration>
+[DEBUG] -----------------------------------------------------------------------
+[DEBUG] Goal:          org.apache.maven.plugins:maven-install-plugin:2.3:install (default-install)
+[DEBUG] Style:         Regular
+[DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <artifact default-value="${project.artifact}"/>
+  <attachedArtifacts default-value="${project.attachedArtifacts}"/>
+  <createChecksum default-value="false">${createChecksum}</createChecksum>
+  <localRepository>${localRepository}</localRepository>
+  <packaging default-value="${project.packaging}"/>
+  <pomFile default-value="${project.file}"/>
+  <updateReleaseInfo default-value="false">${updateReleaseInfo}</updateReleaseInfo>
+</configuration>
+[DEBUG] =======================================================================
+[DEBUG] Skipped remote update check for org.picketlink:picketlink-consolidated-social:2.0.0.Beta1-SNAPSHOT/maven-metadata.xml, locally built metadata up-to-date.
+[DEBUG] Failure to find org.picketlink:picketlink-consolidated-social:2.0.0.Beta1-SNAPSHOT/maven-metadata.xml in http://snapshots.jboss.org/maven2/ was cached in the local repository, resolution will not be reattempted until the update interval of snapshots.jboss.org has elapsed or updates are forced
+[DEBUG] Skipped remote update check for org.picketlink:picketlink-consolidated-social:2.0.0.Beta1-SNAPSHOT/maven-metadata.xml, locally built metadata up-to-date.
+[DEBUG] Failure to find org.picketlink:picketlink-consolidated-social:2.0.0.Beta1-SNAPSHOT/maven-metadata.xml in http://snapshots.jboss.org/maven2/ was cached in the local repository, resolution will not be reattempted until the update interval of snapshots.jboss.org has elapsed or updates are forced
+[DEBUG] Skipped remote update check for org.picketlink:picketlink-social-parent:2.0.0.Beta1-SNAPSHOT/maven-metadata.xml, locally built metadata up-to-date.
+[DEBUG] Failure to find org.picketlink:picketlink-social-parent:2.0.0.Beta1-SNAPSHOT/maven-metadata.xml in http://snapshots.jboss.org/maven2/ was cached in the local repository, resolution will not be reattempted until the update interval of snapshots.jboss.org has elapsed or updates are forced
+[DEBUG] org.picketlink:picketlink-reg-as7:war:2.0.0.Beta1-SNAPSHOT
+[DEBUG]    org.picketlink:picketlink-consolidated-social:jar:2.0.0.Beta1-SNAPSHOT:compile
+[DEBUG]    org.openid4java:openid4java-nodeps:jar:0.9.6:compile
+[DEBUG]       commons-logging:commons-logging:jar:1.1.1:compile
+[DEBUG]    org.json:json:jar:20090211:compile
+[INFO] 
+[INFO] --- maven-clean-plugin:2.3:clean (default-clean) @ picketlink-reg-as7 ---
+[DEBUG] org.apache.maven.plugins:maven-clean-plugin:jar:2.3:
+[DEBUG]    org.apache.maven:maven-project:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-settings:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-profile:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-model:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-artifact-manager:jar:2.0.6:compile
+[DEBUG]          org.apache.maven:maven-repository-metadata:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-plugin-registry:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-artifact:jar:2.0.6:compile
+[DEBUG]       org.codehaus.plexus:plexus-container-default:jar:1.0-alpha-9-stable-1:compile
+[DEBUG]          junit:junit:jar:3.8.1:compile
+[DEBUG]          classworlds:classworlds:jar:1.1-alpha-2:compile
+[DEBUG]    org.apache.maven:maven-plugin-api:jar:2.0.6:compile
+[DEBUG]    org.apache.maven.shared:file-management:jar:1.2.1:compile
+[DEBUG]       org.apache.maven.shared:maven-shared-io:jar:1.1:compile
+[DEBUG]          org.apache.maven.wagon:wagon-provider-api:jar:1.0-alpha-6:compile
+[DEBUG]    org.codehaus.plexus:plexus-utils:jar:1.5.6:compile
+[DEBUG] Created new class realm maven.api
+[DEBUG] Importing foreign packages into class realm maven.api
+[DEBUG]   Imported: org.apache.maven.wagon.events < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.transfer < plexus.core
+[DEBUG]   Imported: org.apache.maven.exception < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.metadata < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.Xpp3Dom < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.collection < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.version < plexus.core
+[DEBUG]   Imported: org.apache.maven.monitor < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.repository < plexus.core
+[DEBUG]   Imported: org.apache.maven.repository < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.resource < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.logging < plexus.core
+[DEBUG]   Imported: org.apache.maven.profiles < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.repository < plexus.core
+[DEBUG]   Imported: org.apache.maven.classrealm < plexus.core
+[DEBUG]   Imported: org.apache.maven.execution < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.artifact < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.spi < plexus.core
+[DEBUG]   Imported: org.apache.maven.reporting < plexus.core
+[DEBUG]   Imported: org.apache.maven.usability < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.container < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.component < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.pull.XmlSerializer < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.authentication < plexus.core
+[DEBUG]   Imported: org.apache.maven.lifecycle < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.classworlds < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.graph < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.* < plexus.core
+[DEBUG]   Imported: org.apache.maven.settings < plexus.core
+[DEBUG]   Imported: org.codehaus.classworlds < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.impl < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.* < plexus.core
+[DEBUG]   Imported: org.apache.maven.toolchain < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.deployment < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.observers < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.pull.XmlPullParserException < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.pull.XmlPullParser < plexus.core
+[DEBUG]   Imported: org.apache.maven.configuration < plexus.core
+[DEBUG]   Imported: org.apache.maven.cli < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.installation < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.context < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.authorization < plexus.core
+[DEBUG]   Imported: org.apache.maven.project < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.lifecycle < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.configuration < plexus.core
+[DEBUG]   Imported: org.apache.maven.artifact < plexus.core
+[DEBUG]   Imported: org.apache.maven.model < plexus.core
+[DEBUG]   Imported: org.apache.maven.* < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.proxy < plexus.core
+[DEBUG]   Imported: org.sonatype.aether.resolution < plexus.core
+[DEBUG]   Imported: org.apache.maven.plugin < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.* < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.personality < plexus.core
+[DEBUG] Populating class realm maven.api
+[DEBUG] Created new class realm plugin>org.apache.maven.plugins:maven-clean-plugin:2.3
+[DEBUG] Importing foreign packages into class realm plugin>org.apache.maven.plugins:maven-clean-plugin:2.3
+[DEBUG]   Imported:  < maven.api
+[DEBUG] Populating class realm plugin>org.apache.maven.plugins:maven-clean-plugin:2.3
+[DEBUG]   Included: org.apache.maven.plugins:maven-clean-plugin:jar:2.3
+[DEBUG]   Included: junit:junit:jar:3.8.1
+[DEBUG]   Included: org.apache.maven.shared:file-management:jar:1.2.1
+[DEBUG]   Included: org.apache.maven.shared:maven-shared-io:jar:1.1
+[DEBUG]   Included: org.codehaus.plexus:plexus-utils:jar:1.5.6
+[DEBUG]   Excluded: org.apache.maven:maven-project:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-settings:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-profile:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-model:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-artifact-manager:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-repository-metadata:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-registry:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-artifact:jar:2.0.6
+[DEBUG]   Excluded: org.codehaus.plexus:plexus-container-default:jar:1.0-alpha-9-stable-1
+[DEBUG]   Excluded: classworlds:classworlds:jar:1.1-alpha-2
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-api:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven.wagon:wagon-provider-api:jar:1.0-alpha-6
+[DEBUG] Configuring mojo org.apache.maven.plugins:maven-clean-plugin:2.3:clean from plugin realm ClassRealm[plugin>org.apache.maven.plugins:maven-clean-plugin:2.3, parent: sun.misc.Launcher$AppClassLoader@1a45a877]
+[DEBUG] Configuring mojo 'org.apache.maven.plugins:maven-clean-plugin:2.3:clean' with basic configurator -->
+[DEBUG]   (f) directory = /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/target
+[DEBUG]   (f) excludeDefaultDirectories = false
+[DEBUG]   (f) failOnError = true
+[DEBUG]   (f) followSymLinks = false
+[DEBUG]   (f) outputDirectory = /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/target/classes
+[DEBUG]   (f) project = MavenProject: org.picketlink:picketlink-reg-as7:2.0.0.Beta1-SNAPSHOT @ /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/pom.xml
+[DEBUG]   (f) reportDirectory = /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/target/site
+[DEBUG]   (f) skip = false
+[DEBUG]   (f) testOutputDirectory = /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/target/test-classes
+[DEBUG] -- end configuration --
+[INFO] Deleting file set: /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/target (included: [**], excluded: [])
+[INFO] Scanning for deletable directories.
+[INFO] Adding symbolic link dirs which were previously excluded to the list being deleted.
+[DEBUG] Originally marked for delete: [classes, , maven-archiver]
+[DEBUG] Marked for preserve (with followSymlinks == false): []
+[DEBUG] Symlinks marked for deletion (originally mismarked): []
+[INFO] Re-scanning for deletable files.
+[INFO] Adding symbolic link files which were previously excluded to the list being deleted.
+[DEBUG] Originally marked for delete: [classes, , maven-archiver/pom.properties, picketlink-reg.war, maven-archiver]
+[DEBUG] Marked for preserve (with followSymlinks == false): []
+[DEBUG] Symlinks marked for deletion (originally mismarked): []
+[DEBUG] Found deletable paths: [classes
+ 
+ maven-archiver/pom.properties
+ picketlink-reg.war
+ maven-archiver]
+[DEBUG] Checking for symlink:
+File's canonical path: /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/target/classes
+File's absolute path with canonical parent: /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/target/classes
+[INFO] Deleting directory: /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/target/classes
+[DEBUG] Checking for symlink:
+File's canonical path: /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/target
+File's absolute path with canonical parent: /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/target
+[INFO] Deleting directory: /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/target
+[DEBUG] Checking for symlink:
+File's canonical path: /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/target/maven-archiver
+File's absolute path with canonical parent: /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/target/maven-archiver
+[DEBUG] Skipping non-existing directory: /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/target/classes
+[DEBUG] Skipping non-existing directory: /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/target/test-classes
+[DEBUG] Skipping non-existing directory: /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/target/site
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0-beta-1:enforce (enforce-plugin-versions) @ picketlink-reg-as7 ---
+[DEBUG] org.apache.maven.plugins:maven-enforcer-plugin:jar:1.0-beta-1:
+[DEBUG]    org.apache.maven:maven-artifact:jar:2.0.9:compile
+[DEBUG]    org.apache.maven:maven-plugin-api:jar:2.0.9:compile
+[DEBUG]    org.apache.maven:maven-project:jar:2.0.9:compile
+[DEBUG]       org.apache.maven:maven-settings:jar:2.0.9:compile
+[DEBUG]       org.apache.maven:maven-profile:jar:2.0.9:compile
+[DEBUG]       org.apache.maven:maven-model:jar:2.0.9:compile
+[DEBUG]       org.apache.maven:maven-artifact-manager:jar:2.0.9:compile
+[DEBUG]       org.apache.maven:maven-plugin-registry:jar:2.0.9:compile
+[DEBUG]       org.codehaus.plexus:plexus-container-default:jar:1.0-alpha-9-stable-1:compile
+[DEBUG]          junit:junit:jar:3.8.2:test (scope managed from compile) (version managed from 3.8.1)
+[DEBUG]    org.apache.maven:maven-core:jar:2.0.9:compile
+[DEBUG]       org.apache.maven:maven-plugin-parameter-documenter:jar:2.0.9:compile
+[DEBUG]       org.apache.maven.reporting:maven-reporting-api:jar:2.0.9:compile
+[DEBUG]          org.apache.maven.doxia:doxia-sink-api:jar:1.0-alpha-10:compile
+[DEBUG]       org.apache.maven:maven-repository-metadata:jar:2.0.9:compile
+[DEBUG]       org.apache.maven:maven-error-diagnostics:jar:2.0.9:compile
+[DEBUG]       commons-cli:commons-cli:jar:1.0:compile
+[DEBUG]       org.apache.maven:maven-plugin-descriptor:jar:2.0.9:compile
+[DEBUG]       org.codehaus.plexus:plexus-interactivity-api:jar:1.0-alpha-4:compile
+[DEBUG]       org.apache.maven:maven-monitor:jar:2.0.9:compile
+[DEBUG]       classworlds:classworlds:jar:1.1:compile
+[DEBUG]    org.codehaus.plexus:plexus-utils:jar:1.5.8:compile
+[DEBUG]    commons-lang:commons-lang:jar:2.3:compile
+[DEBUG]    org.apache.maven.enforcer:enforcer-api:jar:1.0-beta-1:compile
+[DEBUG]    org.apache.maven.enforcer:enforcer-rules:jar:1.0-beta-1:compile
+[DEBUG]       org.beanshell:bsh:jar:2.0b4:compile
+[DEBUG] Created new class realm plugin>org.apache.maven.plugins:maven-enforcer-plugin:1.0-beta-1
+[DEBUG] Importing foreign packages into class realm plugin>org.apache.maven.plugins:maven-enforcer-plugin:1.0-beta-1
+[DEBUG]   Imported:  < maven.api
+[DEBUG] Populating class realm plugin>org.apache.maven.plugins:maven-enforcer-plugin:1.0-beta-1
+[DEBUG]   Included: org.apache.maven.plugins:maven-enforcer-plugin:jar:1.0-beta-1
+[DEBUG]   Included: org.apache.maven.reporting:maven-reporting-api:jar:2.0.9
+[DEBUG]   Included: org.apache.maven.doxia:doxia-sink-api:jar:1.0-alpha-10
+[DEBUG]   Included: commons-cli:commons-cli:jar:1.0
+[DEBUG]   Included: org.codehaus.plexus:plexus-interactivity-api:jar:1.0-alpha-4
+[DEBUG]   Included: org.codehaus.plexus:plexus-utils:jar:1.5.8
+[DEBUG]   Included: commons-lang:commons-lang:jar:2.3
+[DEBUG]   Included: org.apache.maven.enforcer:enforcer-api:jar:1.0-beta-1
+[DEBUG]   Included: org.apache.maven.enforcer:enforcer-rules:jar:1.0-beta-1
+[DEBUG]   Included: org.beanshell:bsh:jar:2.0b4
+[DEBUG]   Excluded: org.apache.maven:maven-artifact:jar:2.0.9
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-api:jar:2.0.9
+[DEBUG]   Excluded: org.apache.maven:maven-project:jar:2.0.9
+[DEBUG]   Excluded: org.apache.maven:maven-settings:jar:2.0.9
+[DEBUG]   Excluded: org.apache.maven:maven-profile:jar:2.0.9
+[DEBUG]   Excluded: org.apache.maven:maven-model:jar:2.0.9
+[DEBUG]   Excluded: org.apache.maven:maven-artifact-manager:jar:2.0.9
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-registry:jar:2.0.9
+[DEBUG]   Excluded: org.codehaus.plexus:plexus-container-default:jar:1.0-alpha-9-stable-1
+[DEBUG]   Excluded: junit:junit:jar:3.8.2
+[DEBUG]   Excluded: org.apache.maven:maven-core:jar:2.0.9
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-parameter-documenter:jar:2.0.9
+[DEBUG]   Excluded: org.apache.maven:maven-repository-metadata:jar:2.0.9
+[DEBUG]   Excluded: org.apache.maven:maven-error-diagnostics:jar:2.0.9
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-descriptor:jar:2.0.9
+[DEBUG]   Excluded: org.apache.maven:maven-monitor:jar:2.0.9
+[DEBUG]   Excluded: classworlds:classworlds:jar:1.1
+[DEBUG] Configuring mojo org.apache.maven.plugins:maven-enforcer-plugin:1.0-beta-1:enforce from plugin realm ClassRealm[plugin>org.apache.maven.plugins:maven-enforcer-plugin:1.0-beta-1, parent: sun.misc.Launcher$AppClassLoader@1a45a877]
+[DEBUG] Configuring mojo 'org.apache.maven.plugins:maven-enforcer-plugin:1.0-beta-1:enforce' with basic configurator -->
+[DEBUG]   (s) fail = true
+[DEBUG]   (s) failFast = false
+[DEBUG]   (f) ignoreCache = false
+[DEBUG]   (s) project = MavenProject: org.picketlink:picketlink-reg-as7:2.0.0.Beta1-SNAPSHOT @ /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/pom.xml
+[DEBUG]   (f) message = Best practice is to always define plugin versions!
+[DEBUG]   (f) banLatest = true
+[DEBUG]   (f) banRelease = true
+[DEBUG]   (f) phases = deploy,site
+[DEBUG]   (s) rules = [org.apache.maven.plugins.enforcer.RequirePluginVersions@53458dcb]
+[DEBUG]   (s) session = org.apache.maven.execution.MavenSession@69408a75
+[DEBUG]   (s) skip = false
+[DEBUG] -- end configuration --
+[DEBUG] Executing rule: org.apache.maven.plugins.enforcer.RequirePluginVersions
+[WARNING] This rule is not compatible with the current version of Maven. The rule is not able to perform any checks.
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0-beta-1:enforce (enforce-java-version) @ picketlink-reg-as7 ---
+[DEBUG] Configuring mojo org.apache.maven.plugins:maven-enforcer-plugin:1.0-beta-1:enforce from plugin realm ClassRealm[plugin>org.apache.maven.plugins:maven-enforcer-plugin:1.0-beta-1, parent: sun.misc.Launcher$AppClassLoader@1a45a877]
+[DEBUG] Configuring mojo 'org.apache.maven.plugins:maven-enforcer-plugin:1.0-beta-1:enforce' with basic configurator -->
+[DEBUG]   (s) fail = true
+[DEBUG]   (s) failFast = false
+[DEBUG]   (f) ignoreCache = false
+[DEBUG]   (s) project = MavenProject: org.picketlink:picketlink-reg-as7:2.0.0.Beta1-SNAPSHOT @ /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/pom.xml
+[DEBUG]   (f) message = To build this project JDK 1.5 (or greater) is required. Please install it.
+[DEBUG]   (s) version = 1.5
+[DEBUG]   (s) rules = [org.apache.maven.plugins.enforcer.RequireJavaVersion@438d460]
+[DEBUG]   (s) session = org.apache.maven.execution.MavenSession@69408a75
+[DEBUG]   (s) skip = false
+[DEBUG] -- end configuration --
+[DEBUG] Executing rule: org.apache.maven.plugins.enforcer.RequireJavaVersion
+[DEBUG] Rule org.apache.maven.plugins.enforcer.RequireJavaVersion is cacheable.
+[DEBUG] Detected Java String: 1.6.0_31
+[DEBUG] Normalized Java String: 1.6.0-31
+[DEBUG] Parsed Version: Major: 1 Minor: 6 Incremental: 0 Build: 31 Qualifier: null
+[DEBUG] Detected JDK Version: 1.6.0-31 is allowed in the range 1.5.
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0-beta-1:enforce (enforce-maven-version) @ picketlink-reg-as7 ---
+[DEBUG] Configuring mojo org.apache.maven.plugins:maven-enforcer-plugin:1.0-beta-1:enforce from plugin realm ClassRealm[plugin>org.apache.maven.plugins:maven-enforcer-plugin:1.0-beta-1, parent: sun.misc.Launcher$AppClassLoader@1a45a877]
+[DEBUG] Configuring mojo 'org.apache.maven.plugins:maven-enforcer-plugin:1.0-beta-1:enforce' with basic configurator -->
+[DEBUG]   (s) fail = true
+[DEBUG]   (s) failFast = false
+[DEBUG]   (f) ignoreCache = false
+[DEBUG]   (s) project = MavenProject: org.picketlink:picketlink-reg-as7:2.0.0.Beta1-SNAPSHOT @ /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/pom.xml
+[DEBUG]   (f) message = To build this project Maven 2.0.9 (or greater) is required. Please install it.
+[DEBUG]   (s) version = 2.0.9
+[DEBUG]   (s) rules = [org.apache.maven.plugins.enforcer.RequireMavenVersion@6d4c4d61]
+[DEBUG]   (s) session = org.apache.maven.execution.MavenSession@69408a75
+[DEBUG]   (s) skip = false
+[DEBUG] -- end configuration --
+[DEBUG] Executing rule: org.apache.maven.plugins.enforcer.RequireMavenVersion
+[DEBUG] Rule org.apache.maven.plugins.enforcer.RequireMavenVersion is cacheable.
+[DEBUG] Detected Maven Version: 3.0.2
+[DEBUG] Detected Maven Version: 3.0.2 is allowed in the range 2.0.9.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.1:resources (default-resources) @ picketlink-reg-as7 ---
+[DEBUG] org.apache.maven.plugins:maven-resources-plugin:jar:2.4.1:
+[DEBUG]    org.apache.maven:maven-plugin-api:jar:2.0.6:compile
+[DEBUG]    org.apache.maven:maven-project:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-settings:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-profile:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-model:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-artifact-manager:jar:2.0.6:compile
+[DEBUG]          org.apache.maven:maven-repository-metadata:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-plugin-registry:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-artifact:jar:2.0.6:compile
+[DEBUG]       org.codehaus.plexus:plexus-container-default:jar:1.0-alpha-9-stable-1:compile
+[DEBUG]          junit:junit:jar:3.8.1:compile
+[DEBUG]          classworlds:classworlds:jar:1.1-alpha-2:compile
+[DEBUG]    org.codehaus.plexus:plexus-utils:jar:1.5.15:compile
+[DEBUG]    org.apache.maven.shared:maven-filtering:jar:1.0-beta-3:compile
+[DEBUG]       org.apache.maven:maven-core:jar:2.0.6:compile
+[DEBUG]          org.apache.maven:maven-plugin-parameter-documenter:jar:2.0.6:compile
+[DEBUG]          org.apache.maven.reporting:maven-reporting-api:jar:2.0.6:compile
+[DEBUG]             org.apache.maven.doxia:doxia-sink-api:jar:1.0-alpha-7:compile
+[DEBUG]          org.apache.maven:maven-error-diagnostics:jar:2.0.6:compile
+[DEBUG]          commons-cli:commons-cli:jar:1.0:compile
+[DEBUG]          org.apache.maven:maven-plugin-descriptor:jar:2.0.6:compile
+[DEBUG]          org.codehaus.plexus:plexus-interactivity-api:jar:1.0-alpha-4:compile
+[DEBUG]       org.apache.maven:maven-monitor:jar:2.0.6:compile
+[DEBUG]       org.sonatype.plexus:plexus-build-api:jar:0.0.4:compile
+[DEBUG]    org.codehaus.plexus:plexus-interpolation:jar:1.13:compile
+[DEBUG] Created new class realm plugin>org.apache.maven.plugins:maven-resources-plugin:2.4.1
+[DEBUG] Importing foreign packages into class realm plugin>org.apache.maven.plugins:maven-resources-plugin:2.4.1
+[DEBUG]   Imported:  < maven.api
+[DEBUG] Populating class realm plugin>org.apache.maven.plugins:maven-resources-plugin:2.4.1
+[DEBUG]   Included: org.apache.maven.plugins:maven-resources-plugin:jar:2.4.1
+[DEBUG]   Included: junit:junit:jar:3.8.1
+[DEBUG]   Included: org.codehaus.plexus:plexus-utils:jar:1.5.15
+[DEBUG]   Included: org.apache.maven.shared:maven-filtering:jar:1.0-beta-3
+[DEBUG]   Included: org.apache.maven.reporting:maven-reporting-api:jar:2.0.6
+[DEBUG]   Included: org.apache.maven.doxia:doxia-sink-api:jar:1.0-alpha-7
+[DEBUG]   Included: commons-cli:commons-cli:jar:1.0
+[DEBUG]   Included: org.codehaus.plexus:plexus-interactivity-api:jar:1.0-alpha-4
+[DEBUG]   Included: org.sonatype.plexus:plexus-build-api:jar:0.0.4
+[DEBUG]   Included: org.codehaus.plexus:plexus-interpolation:jar:1.13
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-api:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-project:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-settings:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-profile:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-model:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-artifact-manager:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-repository-metadata:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-registry:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-artifact:jar:2.0.6
+[DEBUG]   Excluded: org.codehaus.plexus:plexus-container-default:jar:1.0-alpha-9-stable-1
+[DEBUG]   Excluded: classworlds:classworlds:jar:1.1-alpha-2
+[DEBUG]   Excluded: org.apache.maven:maven-core:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-parameter-documenter:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-error-diagnostics:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-descriptor:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-monitor:jar:2.0.6
+[DEBUG] Configuring mojo org.apache.maven.plugins:maven-resources-plugin:2.4.1:resources from plugin realm ClassRealm[plugin>org.apache.maven.plugins:maven-resources-plugin:2.4.1, parent: sun.misc.Launcher$AppClassLoader@1a45a877]
+[DEBUG] Configuring mojo 'org.apache.maven.plugins:maven-resources-plugin:2.4.1:resources' with basic configurator -->
+[DEBUG]   (f) buildFilters = []
+[DEBUG]   (f) encoding = UTF-8
+[DEBUG]   (f) escapeWindowsPaths = true
+[DEBUG]   (s) includeEmptyDirs = false
+[DEBUG]   (s) outputDirectory = /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/target/classes
+[DEBUG]   (s) overwrite = false
+[DEBUG]   (f) project = MavenProject: org.picketlink:picketlink-reg-as7:2.0.0.Beta1-SNAPSHOT @ /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/pom.xml
+[DEBUG]   (s) resources = [Resource {targetPath: null, filtering: false, FileSet {directory: /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/src/main/resources, PatternSet [includes: {}, excludes: {}]}}]
+[DEBUG]   (f) session = org.apache.maven.execution.MavenSession@69408a75
+[DEBUG]   (f) useBuildFilters = true
+[DEBUG]   (s) useDefaultDelimiters = true
+[DEBUG] -- end configuration --
+[DEBUG] properties used {env.DESKTOP_SESSION=gnome, file.encoding.pkg=sun.io, version.assembly.plugin=2.2-beta-4, java.home=/home/anil/java/jdk1.6.0_31/jre, env.DISPLAY=:0, env.LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.tbz=01;31:*.tbz2=01;31:*.bz=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:*.pdf=00;33:*.ps=00;33:*.ps.gz=00;33:*.txt=00;33:*.patch=00;33:*.diff=00;33:*.log=00;33:*.tex=00;33:*.xls=00;33:*.xlsx=00;33:*.ppt=00;33:*.pptx=00;33:*.rtf=00;33:*.doc=00;33:*.docx=00;33:*.odt=00;33:*.ods=00;33:*.odp=00;33:*.xml=00;33:*.epub=00;33:*.abw=00;33:*.html=00;33:*.wpd=00;33:, env.XDG_VTNR=1, classworlds.conf=/opt/apache-maven-3.0.2/bin/m2.conf, env.XDG_SESSION_COOKIE=49aaafdaf7853547bcef9f320000000c-1331816034.260259-995781388, java.endorsed.dirs=/home/anil/java/jdk1.6.0_31/jre/lib/endorsed, env.LOGNAME=anil, env.USERNAME=anil, env.XDG_SEAT=seat0, env.SESSION_MANAGER=local/unix:@/tmp/.ICE-unix/1192,unix/unix:/tmp/.ICE-unix/1192, env.KDEDIRS=/usr, sun.os.patch.level=unknown, java.vendor.url=http://java.sun.com/, version.javadoc.plugin=2.6.1, version.findbugs.plugin=2.2, java.version=1.6.0_31, arguments=-Prelease, java.vendor.url.bug=http://java.sun.com/cgi-bin/bugreport.cgi, version.deploy.plugin=2.4, version.pir.plugin=2.1.2, env.GNOME_KEYRING_CONTROL=/tmp/keyring-Qy8rWn, user.name=anil, env.LANG=en_US.UTF-8, version.site.plugin=2.0.1, sun.io.unicode.encoding=UnicodeLittle, env.CVSROOT=:ext:asaldhana@cvs.forge.jboss.com:/cvsroot/jboss, sun.jnu.encoding=UTF-8, env.DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-QmlohiCPYg,guid=d0238f4566dc3bf53efde65600000016, java.runtime.name=Java(TM) SE Runtime Environment, version.resources.plugin=2.4.1, java.specification.name=Java Platform API Specification, version.plugin.plugin=2.5.1, user.timezone=US/Central, env.LESSOPEN=||/usr/bin/lesspipe.sh %s, path.separator=:, env.XMODIFIERS=@im=none, file.encoding=UTF-8, version.war.plugin=2.1-beta-1, env.HOME=/home/anil, sun.java.command=org.codehaus.plexus.classworlds.launcher.Launcher -X clean install, version.taglist.plugin=2.4, version.pmd.plugin=2.4, version.eclipse.plugin=2.7, env.HOSTNAME=sadbhav, version.javancss.plugin=2.0, java.io.tmpdir=/tmp, env.GNOME_KEYRING_PID=1186, user.language=en, env.HISTCONTROL=ignoredups, line.separator=
+, env.ANT_OPTS=-Xmx512m, env.HISTSIZE=1000, version.sonar.plugin=1.0-beta-1, version.enforcer.plugin=1.0-beta-1, version.antrun.plugin=1.3, version.cobertura.plugin=2.3, java.vm.info=mixed mode, sun.desktop=gnome, java.vm.specification.name=Java Virtual Machine Specification, jdk.min.version=1.5, version.install.plugin=2.3, env.COLORTERM=gnome-terminal, env.M2_HOME=/opt/apache-maven-3.0.2, env.CATALINA_OPTS=-Xms1024m -Xmx1024m  -XX:MaxPermSize=128m, env.GDMSESSION=gnome, version.jxr.plugin=2.1, java.awt.printerjob=sun.print.PSPrinterJob, env.WINDOWID=23068677, env.CLASSPATH=:/opt/apache-ant-1.8.2/lib/ant-junit.jar:/opt/apache-ant-1.8.2/lib/ant-junit.jar, os.name=Linux, java.specification.vendor=Sun Microsystems Inc., version.ear.plugin=2.4, env.TERM=xterm, java.vm.name=Java HotSpot(TM) 64-Bit Server VM, version.checkstyle.plugin=2.4, env.QT_IM_MODULE=xim, java.library.path=/home/anil/java/jdk1.6.0_31/jre/lib/amd64/server:/home/anil/java/jdk1.6.0_31/jre/lib/amd64:/home/anil/java/jdk1.6.0_31/jre/../lib/amd64:/usr/lib64/qt-3.3/lib:/usr/lib64/qt-3.3/lib::/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib, env.PATH=/usr/lib/qt-3.3/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin:/usr/sbin:/usr/java/latest/bin:/opt/apache-maven-3.0.2/bin:/home/anil/.local/bin:/home/anil/bin:/usr/bin:/usr/sbin:/usr/java/latest/bin:/opt/apache-maven-3.0.2/bin, jboss.snapshots.repo.url=https://repository.jboss.org/nexus/content/repositories/snapshots/, env.JDK_HOME=/usr/java/latest, version.jdepend.plugin=2.0-beta-2, targetJdk=1.5, java.class.version=50.0, env.SHLVL=2, env.LD_LIBRARY_PATH=/home/anil/java/jdk1.6.0_31/jre/lib/amd64/server:/home/anil/java/jdk1.6.0_31/jre/lib/amd64:/home/anil/java/jdk1.6.0_31/jre/../lib/amd64:/usr/lib64/qt-3.3/lib:/usr/lib64/qt-3.3/lib:, version.ejb.plugin=2.2, env.GJS_DEBUG_OUTPUT=stderr, version.clover2.plugin=2.5.1, sun.boot.library.path=/home/anil/java/jdk1.6.0_31/jre/lib/amd64, project.build.sourceEncoding=UTF-8, sun.management.compiler=HotSpot 64-Bit Tiered Compilers, java.awt.graphicsenv=sun.awt.X11GraphicsEnvironment, env.USER=anil, version.buildnumber.plugin=1.0-beta-3, version.clean.plugin=2.3, java.vm.specification.version=1.0, env.KDE_IS_PRELINKED=1, version.source.plugin=2.1.1, env.NLSPATH=/usr/dt/lib/nls/msg/%L/%N.cat, sun.cpu.isalist=, version.release.plugin=2.0-beta-9, java.ext.dirs=/home/anil/java/jdk1.6.0_31/jre/lib/ext:/usr/java/packages/lib/ext, env.GJS_DEBUG_TOPICS=JS ERROR;JS LOG, os.version=3.2.9-2.fc16.x86_64, user.home=/home/anil, version.surefire.plugin=2.4.3, java.vm.vendor=Sun Microsystems Inc., jboss.releases.repo.url=https://repository.jboss.org/nexus/service/local/staging/deploy/maven2/, env.JAVA_HOME=/usr/java/latest, env.XDG_SESSION_ID=2, env.XAUTHORITY=/var/run/gdm/auth-for-anil-a9a0Bn/database, user.dir=/home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg, env.XFILESEARCHPATH=/usr/dt/app-defaults/%L/Dt, env.WINDOWPATH=1, env.MAIL=/var/spool/mail/anil, env.M2=/opt/apache-maven-3.0.2/bin, env.PWD=/home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg, version.rar.plugin=2.2, sun.cpu.endian=little, useReleaseProfile=false, env.QTLIB=/usr/lib/qt-3.3/lib, maven.min.version=2.0.9, java.vm.version=20.6-b01, java.class.path=/opt/apache-maven-3.0.2/boot/plexus-classworlds-2.4.jar, version.idea.plugin=2.2, downloadSources=true, env.QTDIR=/usr/lib/qt-3.3, os.arch=amd64, version.compiler.plugin=2.0.2, sun.java.launcher=SUN_STANDARD, env.IMSETTINGS_INTEGRATE_DESKTOP=yes, java.vm.specification.vendor=Sun Microsystems Inc., file.separator=/, java.runtime.version=1.6.0_31-b04, env.SSH_AUTH_SOCK=/tmp/keyring-Qy8rWn/ssh, sun.boot.class.path=/home/anil/java/jdk1.6.0_31/jre/lib/resources.jar:/home/anil/java/jdk1.6.0_31/jre/lib/rt.jar:/home/anil/java/jdk1.6.0_31/jre/lib/sunrsasign.jar:/home/anil/java/jdk1.6.0_31/jre/lib/jsse.jar:/home/anil/java/jdk1.6.0_31/jre/lib/jce.jar:/home/anil/java/jdk1.6.0_31/jre/lib/charsets.jar:/home/anil/java/jdk1.6.0_31/jre/lib/modules/jdk.boot.jar:/home/anil/java/jdk1.6.0_31/jre/classes, env.XDG_RUNTIME_DIR=/run/user/anil, version.dependency.plugin=2.1, env.QTINC=/usr/lib/qt-3.3/include, user.country=US, env.ANT_HOME=/opt/apache-ant-1.8.2, env.SHELL=/bin/bash, maven.home=/opt/apache-maven-3.0.2, maven.compiler.target=1.5, java.vendor=Sun Microsystems Inc., version.jar.plugin=2.2, env.GPG_AGENT_INFO=/tmp/keyring-Qy8rWn/gpg:0:1, env.IMSETTINGS_MODULE=none, maven.compiler.source=1.5, java.specification.version=1.6, sun.arch.data.model=64, env.GNOME_DESKTOP_SESSION_ID=this-is-deprecated}
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[DEBUG] resource with targetPath null
+directory /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/src/main/resources
+excludes []
+includes []
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.0.2:compile (default-compile) @ picketlink-reg-as7 ---
+[DEBUG] org.apache.maven.plugins:maven-compiler-plugin:jar:2.0.2:
+[DEBUG]    org.apache.maven:maven-plugin-api:jar:2.0:compile
+[DEBUG]    org.codehaus.plexus:plexus-utils:jar:1.0.4:compile
+[DEBUG]    org.codehaus.plexus:plexus-compiler-api:jar:1.5.3:compile
+[DEBUG]       org.codehaus.plexus:plexus-container-default:jar:1.0-alpha-8:compile
+[DEBUG]          junit:junit:jar:3.8.1:compile
+[DEBUG]          classworlds:classworlds:jar:1.1-alpha-2:compile
+[DEBUG]    org.codehaus.plexus:plexus-compiler-manager:jar:1.5.3:compile
+[DEBUG]    org.codehaus.plexus:plexus-compiler-javac:jar:1.5.3:runtime
+[DEBUG]    org.apache.maven:maven-artifact:jar:2.0:compile
+[DEBUG] Created new class realm plugin>org.apache.maven.plugins:maven-compiler-plugin:2.0.2
+[DEBUG] Importing foreign packages into class realm plugin>org.apache.maven.plugins:maven-compiler-plugin:2.0.2
+[DEBUG]   Imported:  < maven.api
+[DEBUG] Populating class realm plugin>org.apache.maven.plugins:maven-compiler-plugin:2.0.2
+[DEBUG]   Included: org.apache.maven.plugins:maven-compiler-plugin:jar:2.0.2
+[DEBUG]   Included: org.codehaus.plexus:plexus-utils:jar:1.0.4
+[DEBUG]   Included: org.codehaus.plexus:plexus-compiler-api:jar:1.5.3
+[DEBUG]   Included: junit:junit:jar:3.8.1
+[DEBUG]   Included: org.codehaus.plexus:plexus-compiler-manager:jar:1.5.3
+[DEBUG]   Included: org.codehaus.plexus:plexus-compiler-javac:jar:1.5.3
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-api:jar:2.0
+[DEBUG]   Excluded: org.codehaus.plexus:plexus-container-default:jar:1.0-alpha-8
+[DEBUG]   Excluded: classworlds:classworlds:jar:1.1-alpha-2
+[DEBUG]   Excluded: org.apache.maven:maven-artifact:jar:2.0
+[DEBUG] Configuring mojo org.apache.maven.plugins:maven-compiler-plugin:2.0.2:compile from plugin realm ClassRealm[plugin>org.apache.maven.plugins:maven-compiler-plugin:2.0.2, parent: sun.misc.Launcher$AppClassLoader@1a45a877]
+[DEBUG] Configuring mojo 'org.apache.maven.plugins:maven-compiler-plugin:2.0.2:compile' with basic configurator -->
+[DEBUG]   (f) basedir = /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg
+[DEBUG]   (f) buildDirectory = /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/target
+[DEBUG]   (f) classpathElements = [/home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/target/classes, /home/anil/.m2/repository/org/picketlink/picketlink-consolidated-social/2.0.0.Beta1-SNAPSHOT/picketlink-consolidated-social-2.0.0.Beta1-SNAPSHOT.jar, /home/anil/.m2/repository/org/openid4java/openid4java-nodeps/0.9.6/openid4java-nodeps-0.9.6.jar, /home/anil/.m2/repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar, /home/anil/.m2/repository/org/json/json/20090211/json-20090211.jar]
+[DEBUG]   (f) compileSourceRoots = [/home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/src/main/java]
+[DEBUG]   (f) compilerId = javac
+[DEBUG]   (f) debug = true
+[DEBUG]   (f) failOnError = true
+[DEBUG]   (f) fork = false
+[DEBUG]   (f) optimize = false
+[DEBUG]   (f) outputDirectory = /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/target/classes
+[DEBUG]   (f) outputFileName = picketlink-reg-as7-2.0.0.Beta1-SNAPSHOT
+[DEBUG]   (f) projectArtifact = org.picketlink:picketlink-reg-as7:war:2.0.0.Beta1-SNAPSHOT
+[DEBUG]   (f) showDeprecation = false
+[DEBUG]   (f) showWarnings = false
+[DEBUG]   (f) source = 1.5
+[DEBUG]   (f) staleMillis = 0
+[DEBUG]   (f) target = 1.5
+[DEBUG]   (f) verbose = false
+[DEBUG] -- end configuration --
+[DEBUG] Using compiler 'javac'.
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.1:testResources (default-testResources) @ picketlink-reg-as7 ---
+[DEBUG] Configuring mojo org.apache.maven.plugins:maven-resources-plugin:2.4.1:testResources from plugin realm ClassRealm[plugin>org.apache.maven.plugins:maven-resources-plugin:2.4.1, parent: sun.misc.Launcher$AppClassLoader@1a45a877]
+[DEBUG] Configuring mojo 'org.apache.maven.plugins:maven-resources-plugin:2.4.1:testResources' with basic configurator -->
+[DEBUG]   (f) buildFilters = []
+[DEBUG]   (f) encoding = UTF-8
+[DEBUG]   (f) escapeWindowsPaths = true
+[DEBUG]   (s) includeEmptyDirs = false
+[DEBUG]   (s) outputDirectory = /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/target/test-classes
+[DEBUG]   (s) overwrite = false
+[DEBUG]   (f) project = MavenProject: org.picketlink:picketlink-reg-as7:2.0.0.Beta1-SNAPSHOT @ /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/pom.xml
+[DEBUG]   (s) resources = [Resource {targetPath: null, filtering: false, FileSet {directory: /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/src/test/resources, PatternSet [includes: {}, excludes: {}]}}]
+[DEBUG]   (f) session = org.apache.maven.execution.MavenSession@69408a75
+[DEBUG]   (f) useBuildFilters = true
+[DEBUG]   (s) useDefaultDelimiters = true
+[DEBUG] -- end configuration --
+[DEBUG] properties used {env.DESKTOP_SESSION=gnome, file.encoding.pkg=sun.io, version.assembly.plugin=2.2-beta-4, java.home=/home/anil/java/jdk1.6.0_31/jre, env.DISPLAY=:0, env.LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.tbz=01;31:*.tbz2=01;31:*.bz=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:*.pdf=00;33:*.ps=00;33:*.ps.gz=00;33:*.txt=00;33:*.patch=00;33:*.diff=00;33:*.log=00;33:*.tex=00;33:*.xls=00;33:*.xlsx=00;33:*.ppt=00;33:*.pptx=00;33:*.rtf=00;33:*.doc=00;33:*.docx=00;33:*.odt=00;33:*.ods=00;33:*.odp=00;33:*.xml=00;33:*.epub=00;33:*.abw=00;33:*.html=00;33:*.wpd=00;33:, env.XDG_VTNR=1, classworlds.conf=/opt/apache-maven-3.0.2/bin/m2.conf, env.XDG_SESSION_COOKIE=49aaafdaf7853547bcef9f320000000c-1331816034.260259-995781388, java.endorsed.dirs=/home/anil/java/jdk1.6.0_31/jre/lib/endorsed, env.LOGNAME=anil, env.USERNAME=anil, env.XDG_SEAT=seat0, env.SESSION_MANAGER=local/unix:@/tmp/.ICE-unix/1192,unix/unix:/tmp/.ICE-unix/1192, env.KDEDIRS=/usr, sun.os.patch.level=unknown, java.vendor.url=http://java.sun.com/, version.javadoc.plugin=2.6.1, version.findbugs.plugin=2.2, java.version=1.6.0_31, arguments=-Prelease, java.vendor.url.bug=http://java.sun.com/cgi-bin/bugreport.cgi, version.deploy.plugin=2.4, version.pir.plugin=2.1.2, env.GNOME_KEYRING_CONTROL=/tmp/keyring-Qy8rWn, user.name=anil, env.LANG=en_US.UTF-8, version.site.plugin=2.0.1, sun.io.unicode.encoding=UnicodeLittle, env.CVSROOT=:ext:asaldhana@cvs.forge.jboss.com:/cvsroot/jboss, sun.jnu.encoding=UTF-8, env.DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-QmlohiCPYg,guid=d0238f4566dc3bf53efde65600000016, java.runtime.name=Java(TM) SE Runtime Environment, version.resources.plugin=2.4.1, java.specification.name=Java Platform API Specification, version.plugin.plugin=2.5.1, user.timezone=US/Central, env.LESSOPEN=||/usr/bin/lesspipe.sh %s, path.separator=:, env.XMODIFIERS=@im=none, file.encoding=UTF-8, version.war.plugin=2.1-beta-1, env.HOME=/home/anil, sun.java.command=org.codehaus.plexus.classworlds.launcher.Launcher -X clean install, version.taglist.plugin=2.4, version.pmd.plugin=2.4, version.eclipse.plugin=2.7, env.HOSTNAME=sadbhav, version.javancss.plugin=2.0, java.io.tmpdir=/tmp, env.GNOME_KEYRING_PID=1186, user.language=en, env.HISTCONTROL=ignoredups, line.separator=
+, env.ANT_OPTS=-Xmx512m, env.HISTSIZE=1000, version.sonar.plugin=1.0-beta-1, version.enforcer.plugin=1.0-beta-1, version.antrun.plugin=1.3, version.cobertura.plugin=2.3, java.vm.info=mixed mode, sun.desktop=gnome, java.vm.specification.name=Java Virtual Machine Specification, jdk.min.version=1.5, version.install.plugin=2.3, env.COLORTERM=gnome-terminal, env.M2_HOME=/opt/apache-maven-3.0.2, env.CATALINA_OPTS=-Xms1024m -Xmx1024m  -XX:MaxPermSize=128m, env.GDMSESSION=gnome, version.jxr.plugin=2.1, java.awt.printerjob=sun.print.PSPrinterJob, env.WINDOWID=23068677, env.CLASSPATH=:/opt/apache-ant-1.8.2/lib/ant-junit.jar:/opt/apache-ant-1.8.2/lib/ant-junit.jar, os.name=Linux, java.specification.vendor=Sun Microsystems Inc., version.ear.plugin=2.4, env.TERM=xterm, java.vm.name=Java HotSpot(TM) 64-Bit Server VM, version.checkstyle.plugin=2.4, env.QT_IM_MODULE=xim, java.library.path=/home/anil/java/jdk1.6.0_31/jre/lib/amd64/server:/home/anil/java/jdk1.6.0_31/jre/lib/amd64:/home/anil/java/jdk1.6.0_31/jre/../lib/amd64:/usr/lib64/qt-3.3/lib:/usr/lib64/qt-3.3/lib::/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib, env.PATH=/usr/lib/qt-3.3/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin:/usr/sbin:/usr/java/latest/bin:/opt/apache-maven-3.0.2/bin:/home/anil/.local/bin:/home/anil/bin:/usr/bin:/usr/sbin:/usr/java/latest/bin:/opt/apache-maven-3.0.2/bin, jboss.snapshots.repo.url=https://repository.jboss.org/nexus/content/repositories/snapshots/, env.JDK_HOME=/usr/java/latest, version.jdepend.plugin=2.0-beta-2, targetJdk=1.5, java.class.version=50.0, env.SHLVL=2, env.LD_LIBRARY_PATH=/home/anil/java/jdk1.6.0_31/jre/lib/amd64/server:/home/anil/java/jdk1.6.0_31/jre/lib/amd64:/home/anil/java/jdk1.6.0_31/jre/../lib/amd64:/usr/lib64/qt-3.3/lib:/usr/lib64/qt-3.3/lib:, version.ejb.plugin=2.2, env.GJS_DEBUG_OUTPUT=stderr, version.clover2.plugin=2.5.1, sun.boot.library.path=/home/anil/java/jdk1.6.0_31/jre/lib/amd64, project.build.sourceEncoding=UTF-8, sun.management.compiler=HotSpot 64-Bit Tiered Compilers, java.awt.graphicsenv=sun.awt.X11GraphicsEnvironment, env.USER=anil, version.buildnumber.plugin=1.0-beta-3, version.clean.plugin=2.3, java.vm.specification.version=1.0, env.KDE_IS_PRELINKED=1, version.source.plugin=2.1.1, env.NLSPATH=/usr/dt/lib/nls/msg/%L/%N.cat, sun.cpu.isalist=, version.release.plugin=2.0-beta-9, java.ext.dirs=/home/anil/java/jdk1.6.0_31/jre/lib/ext:/usr/java/packages/lib/ext, env.GJS_DEBUG_TOPICS=JS ERROR;JS LOG, os.version=3.2.9-2.fc16.x86_64, user.home=/home/anil, version.surefire.plugin=2.4.3, java.vm.vendor=Sun Microsystems Inc., jboss.releases.repo.url=https://repository.jboss.org/nexus/service/local/staging/deploy/maven2/, env.JAVA_HOME=/usr/java/latest, env.XDG_SESSION_ID=2, env.XAUTHORITY=/var/run/gdm/auth-for-anil-a9a0Bn/database, user.dir=/home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg, env.XFILESEARCHPATH=/usr/dt/app-defaults/%L/Dt, env.WINDOWPATH=1, env.MAIL=/var/spool/mail/anil, env.M2=/opt/apache-maven-3.0.2/bin, env.PWD=/home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg, version.rar.plugin=2.2, sun.cpu.endian=little, useReleaseProfile=false, env.QTLIB=/usr/lib/qt-3.3/lib, maven.min.version=2.0.9, java.vm.version=20.6-b01, java.class.path=/opt/apache-maven-3.0.2/boot/plexus-classworlds-2.4.jar, version.idea.plugin=2.2, downloadSources=true, env.QTDIR=/usr/lib/qt-3.3, os.arch=amd64, version.compiler.plugin=2.0.2, sun.java.launcher=SUN_STANDARD, env.IMSETTINGS_INTEGRATE_DESKTOP=yes, java.vm.specification.vendor=Sun Microsystems Inc., file.separator=/, java.runtime.version=1.6.0_31-b04, env.SSH_AUTH_SOCK=/tmp/keyring-Qy8rWn/ssh, sun.boot.class.path=/home/anil/java/jdk1.6.0_31/jre/lib/resources.jar:/home/anil/java/jdk1.6.0_31/jre/lib/rt.jar:/home/anil/java/jdk1.6.0_31/jre/lib/sunrsasign.jar:/home/anil/java/jdk1.6.0_31/jre/lib/jsse.jar:/home/anil/java/jdk1.6.0_31/jre/lib/jce.jar:/home/anil/java/jdk1.6.0_31/jre/lib/charsets.jar:/home/anil/java/jdk1.6.0_31/jre/lib/modules/jdk.boot.jar:/home/anil/java/jdk1.6.0_31/jre/classes, env.XDG_RUNTIME_DIR=/run/user/anil, version.dependency.plugin=2.1, env.QTINC=/usr/lib/qt-3.3/include, user.country=US, env.ANT_HOME=/opt/apache-ant-1.8.2, env.SHELL=/bin/bash, maven.home=/opt/apache-maven-3.0.2, maven.compiler.target=1.5, java.vendor=Sun Microsystems Inc., version.jar.plugin=2.2, env.GPG_AGENT_INFO=/tmp/keyring-Qy8rWn/gpg:0:1, env.IMSETTINGS_MODULE=none, maven.compiler.source=1.5, java.specification.version=1.6, sun.arch.data.model=64, env.GNOME_DESKTOP_SESSION_ID=this-is-deprecated}
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[DEBUG] resource with targetPath null
+directory /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/src/test/resources
+excludes []
+includes []
+[INFO] skip non existing resourceDirectory /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.0.2:testCompile (default-testCompile) @ picketlink-reg-as7 ---
+[DEBUG] Configuring mojo org.apache.maven.plugins:maven-compiler-plugin:2.0.2:testCompile from plugin realm ClassRealm[plugin>org.apache.maven.plugins:maven-compiler-plugin:2.0.2, parent: sun.misc.Launcher$AppClassLoader@1a45a877]
+[DEBUG] Configuring mojo 'org.apache.maven.plugins:maven-compiler-plugin:2.0.2:testCompile' with basic configurator -->
+[DEBUG]   (f) basedir = /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg
+[DEBUG]   (f) buildDirectory = /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/target
+[DEBUG]   (f) classpathElements = [/home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/target/test-classes, /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/target/classes, /home/anil/.m2/repository/org/picketlink/picketlink-consolidated-social/2.0.0.Beta1-SNAPSHOT/picketlink-consolidated-social-2.0.0.Beta1-SNAPSHOT.jar, /home/anil/.m2/repository/org/openid4java/openid4java-nodeps/0.9.6/openid4java-nodeps-0.9.6.jar, /home/anil/.m2/repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar, /home/anil/.m2/repository/org/json/json/20090211/json-20090211.jar]
+[DEBUG]   (f) compileSourceRoots = [/home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/src/test/java]
+[DEBUG]   (f) compilerId = javac
+[DEBUG]   (f) debug = true
+[DEBUG]   (f) failOnError = true
+[DEBUG]   (f) fork = false
+[DEBUG]   (f) optimize = false
+[DEBUG]   (f) outputDirectory = /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/target/test-classes
+[DEBUG]   (f) outputFileName = picketlink-reg-as7-2.0.0.Beta1-SNAPSHOT
+[DEBUG]   (f) showDeprecation = false
+[DEBUG]   (f) showWarnings = false
+[DEBUG]   (f) source = 1.5
+[DEBUG]   (f) staleMillis = 0
+[DEBUG]   (f) target = 1.5
+[DEBUG]   (f) verbose = false
+[DEBUG] -- end configuration --
+[DEBUG] Using compiler 'javac'.
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.4.3:test (default-test) @ picketlink-reg-as7 ---
+[DEBUG] org.apache.maven.plugins:maven-surefire-plugin:jar:2.4.3:
+[DEBUG]    org.apache.maven:maven-plugin-api:jar:2.0.6:compile
+[DEBUG]    org.apache.maven.surefire:surefire-booter:jar:2.4.3:compile
+[DEBUG]       org.apache.maven.surefire:surefire-api:jar:2.4.3:compile
+[DEBUG]    org.codehaus.plexus:plexus-utils:jar:1.5.1:compile
+[DEBUG]    org.apache.maven:maven-artifact:jar:2.0.6:compile
+[DEBUG]    org.apache.maven:maven-project:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-settings:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-profile:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-model:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-artifact-manager:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-plugin-registry:jar:2.0.6:compile
+[DEBUG]       org.codehaus.plexus:plexus-container-default:jar:1.0-alpha-9-stable-1:compile
+[DEBUG]          junit:junit:jar:3.8.1:compile
+[DEBUG]    org.apache.maven:maven-core:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-plugin-parameter-documenter:jar:2.0.6:compile
+[DEBUG]       org.apache.maven.reporting:maven-reporting-api:jar:2.0.6:compile
+[DEBUG]          org.apache.maven.doxia:doxia-sink-api:jar:1.0-alpha-7:compile
+[DEBUG]       org.apache.maven:maven-repository-metadata:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-error-diagnostics:jar:2.0.6:compile
+[DEBUG]       commons-cli:commons-cli:jar:1.0:compile
+[DEBUG]       org.apache.maven:maven-plugin-descriptor:jar:2.0.6:compile
+[DEBUG]       org.codehaus.plexus:plexus-interactivity-api:jar:1.0-alpha-4:compile
+[DEBUG]       org.apache.maven:maven-monitor:jar:2.0.6:compile
+[DEBUG]       classworlds:classworlds:jar:1.1:compile
+[DEBUG]    org.apache.maven:maven-toolchain:jar:1.0:compile
+[DEBUG] Created new class realm plugin>org.apache.maven.plugins:maven-surefire-plugin:2.4.3
+[DEBUG] Importing foreign packages into class realm plugin>org.apache.maven.plugins:maven-surefire-plugin:2.4.3
+[DEBUG]   Imported:  < maven.api
+[DEBUG] Populating class realm plugin>org.apache.maven.plugins:maven-surefire-plugin:2.4.3
+[DEBUG]   Included: org.apache.maven.plugins:maven-surefire-plugin:jar:2.4.3
+[DEBUG]   Included: org.apache.maven.surefire:surefire-booter:jar:2.4.3
+[DEBUG]   Included: org.apache.maven.surefire:surefire-api:jar:2.4.3
+[DEBUG]   Included: org.codehaus.plexus:plexus-utils:jar:1.5.1
+[DEBUG]   Included: junit:junit:jar:3.8.1
+[DEBUG]   Included: org.apache.maven.reporting:maven-reporting-api:jar:2.0.6
+[DEBUG]   Included: org.apache.maven.doxia:doxia-sink-api:jar:1.0-alpha-7
+[DEBUG]   Included: commons-cli:commons-cli:jar:1.0
+[DEBUG]   Included: org.codehaus.plexus:plexus-interactivity-api:jar:1.0-alpha-4
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-api:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-artifact:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-project:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-settings:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-profile:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-model:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-artifact-manager:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-registry:jar:2.0.6
+[DEBUG]   Excluded: org.codehaus.plexus:plexus-container-default:jar:1.0-alpha-9-stable-1
+[DEBUG]   Excluded: org.apache.maven:maven-core:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-parameter-documenter:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-repository-metadata:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-error-diagnostics:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-descriptor:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-monitor:jar:2.0.6
+[DEBUG]   Excluded: classworlds:classworlds:jar:1.1
+[DEBUG]   Excluded: org.apache.maven:maven-toolchain:jar:1.0
+[DEBUG] Configuring mojo org.apache.maven.plugins:maven-surefire-plugin:2.4.3:test from plugin realm ClassRealm[plugin>org.apache.maven.plugins:maven-surefire-plugin:2.4.3, parent: sun.misc.Launcher$AppClassLoader@1a45a877]
+[DEBUG] Configuring mojo 'org.apache.maven.plugins:maven-surefire-plugin:2.4.3:test' with basic configurator -->
+[DEBUG]   (f) basedir = /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg
+[DEBUG]   (f) childDelegation = false
+[DEBUG]   (f) classesDirectory = /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/target/classes
+[DEBUG]   (f) classpathElements = [/home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/target/test-classes, /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/target/classes, /home/anil/.m2/repository/org/picketlink/picketlink-consolidated-social/2.0.0.Beta1-SNAPSHOT/picketlink-consolidated-social-2.0.0.Beta1-SNAPSHOT.jar, /home/anil/.m2/repository/org/openid4java/openid4java-nodeps/0.9.6/openid4java-nodeps-0.9.6.jar, /home/anil/.m2/repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar, /home/anil/.m2/repository/org/json/json/20090211/json-20090211.jar]
+[DEBUG]   (f) disableXmlReport = false
+[DEBUG]   (f) enableAssertions = true
+[DEBUG]   (f) forkMode = pertest
+[DEBUG]   (f) includes = [**/**TestCase.java]
+[DEBUG]   (f) junitArtifactName = junit:junit
+[DEBUG]   (f) localRepository =        id: local
+      url: file:///home/anil/.m2/repository/
+   layout: none
+
+[DEBUG]   (f) pluginArtifactMap = {org.apache.maven.plugins:maven-surefire-plugin=org.apache.maven.plugins:maven-surefire-plugin:maven-plugin:2.4.3:, org.apache.maven.surefire:surefire-booter=org.apache.maven.surefire:surefire-booter:jar:2.4.3:compile, org.apache.maven.surefire:surefire-api=org.apache.maven.surefire:surefire-api:jar:2.4.3:compile, org.codehaus.plexus:plexus-utils=org.codehaus.plexus:plexus-utils:jar:1.5.1:compile, junit:junit=junit:junit:jar:3.8.1:compile, org.apache.maven.reporting:maven-reporting-api=org.apache.maven.reporting:maven-reporting-api:jar:2.0.6:compile, org.apache.maven.doxia:doxia-sink-api=org.apache.maven.doxia:doxia-sink-api:jar:1.0-alpha-7:compile, commons-cli:commons-cli=commons-cli:commons-cli:jar:1.0:compile, org.codehaus.plexus:plexus-interactivity-api=org.codehaus.plexus:plexus-interactivity-api:jar:1.0-alpha-4:compile}
+[DEBUG]   (f) printSummary = true
+[DEBUG]   (f) project = MavenProject: org.picketlink:picketlink-reg-as7:2.0.0.Beta1-SNAPSHOT @ /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/pom.xml
+[DEBUG]   (f) projectArtifactMap = {org.picketlink:picketlink-consolidated-social=org.picketlink:picketlink-consolidated-social:jar:2.0.0.Beta1-SNAPSHOT:compile, org.openid4java:openid4java-nodeps=org.openid4java:openid4java-nodeps:jar:0.9.6:compile, commons-logging:commons-logging=commons-logging:commons-logging:jar:1.1.1:compile, org.json:json=org.json:json:jar:20090211:compile}
+[DEBUG]   (f) redirectTestOutputToFile = false
+[DEBUG]   (f) remoteRepositories = [       id: jboss-public-repository-group
+      url: https://repository.jboss.org/nexus/content/groups/public/
+   layout: default
+snapshots: [enabled => true, update => never]
+ releases: [enabled => true, update => never]
+,        id: central
+      url: http://repo1.maven.org/maven2
+   layout: default
+snapshots: [enabled => false, update => daily]
+ releases: [enabled => true, update => never]
+]
+[DEBUG]   (f) reportFormat = brief
+[DEBUG]   (f) reportsDirectory = /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/target/surefire-reports
+[DEBUG]   (f) session = org.apache.maven.execution.MavenSession@69408a75
+[DEBUG]   (f) testClassesDirectory = /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/target/test-classes
+[DEBUG]   (f) testFailureIgnore = true
+[DEBUG]   (f) testNGArtifactName = org.testng:testng
+[DEBUG]   (f) testSourceDirectory = /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/src/test/java
+[DEBUG]   (f) trimStackTrace = false
+[DEBUG]   (f) useFile = false
+[DEBUG]   (f) useManifestOnlyJar = true
+[DEBUG]   (f) workingDirectory = /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg
+[DEBUG] -- end configuration --
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-war-plugin:2.2:war (default-war) @ picketlink-reg-as7 ---
+[DEBUG] org.apache.maven.plugins:maven-war-plugin:jar:2.2:
+[DEBUG]    org.apache.maven:maven-plugin-api:jar:2.0.6:compile
+[DEBUG]    org.apache.maven:maven-artifact:jar:2.0.6:compile
+[DEBUG]    org.apache.maven:maven-model:jar:2.0.6:compile
+[DEBUG]    org.apache.maven:maven-project:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-profile:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-artifact-manager:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-plugin-registry:jar:2.0.6:compile
+[DEBUG]    org.apache.maven:maven-core:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-plugin-parameter-documenter:jar:2.0.6:compile
+[DEBUG]       org.apache.maven.reporting:maven-reporting-api:jar:2.0.6:compile
+[DEBUG]          org.apache.maven.doxia:doxia-sink-api:jar:1.0-alpha-7:compile
+[DEBUG]       org.apache.maven:maven-repository-metadata:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-error-diagnostics:jar:2.0.6:compile
+[DEBUG]       commons-cli:commons-cli:jar:1.0:compile
+[DEBUG]       org.apache.maven:maven-plugin-descriptor:jar:2.0.6:compile
+[DEBUG]       org.codehaus.plexus:plexus-interactivity-api:jar:1.0-alpha-4:compile
+[DEBUG]       classworlds:classworlds:jar:1.1:compile
+[DEBUG]    org.apache.maven:maven-settings:jar:2.0.6:compile
+[DEBUG]    org.apache.maven:maven-monitor:jar:2.0.6:compile
+[DEBUG]    org.apache.maven:maven-archiver:jar:2.5:compile
+[DEBUG]    org.codehaus.plexus:plexus-io:jar:2.0.2:compile
+[DEBUG]    org.codehaus.plexus:plexus-archiver:jar:2.1:compile
+[DEBUG]    org.codehaus.plexus:plexus-interpolation:jar:1.15:compile
+[DEBUG]    org.codehaus.plexus:plexus-container-default:jar:1.0-alpha-9-stable-1:compile
+[DEBUG]       junit:junit:jar:3.8.1:compile
+[DEBUG]    com.thoughtworks.xstream:xstream:jar:1.3.1:compile
+[DEBUG]       xpp3:xpp3_min:jar:1.1.4c:compile
+[DEBUG]    org.codehaus.plexus:plexus-utils:jar:3.0:compile
+[DEBUG]    org.apache.maven.shared:maven-filtering:jar:1.0-beta-2:compile
+[DEBUG] Created new class realm plugin>org.apache.maven.plugins:maven-war-plugin:2.2
+[DEBUG] Importing foreign packages into class realm plugin>org.apache.maven.plugins:maven-war-plugin:2.2
+[DEBUG]   Imported:  < maven.api
+[DEBUG] Populating class realm plugin>org.apache.maven.plugins:maven-war-plugin:2.2
+[DEBUG]   Included: org.apache.maven.plugins:maven-war-plugin:jar:2.2
+[DEBUG]   Included: org.apache.maven.reporting:maven-reporting-api:jar:2.0.6
+[DEBUG]   Included: org.apache.maven.doxia:doxia-sink-api:jar:1.0-alpha-7
+[DEBUG]   Included: commons-cli:commons-cli:jar:1.0
+[DEBUG]   Included: org.codehaus.plexus:plexus-interactivity-api:jar:1.0-alpha-4
+[DEBUG]   Included: org.apache.maven:maven-archiver:jar:2.5
+[DEBUG]   Included: org.codehaus.plexus:plexus-io:jar:2.0.2
+[DEBUG]   Included: org.codehaus.plexus:plexus-archiver:jar:2.1
+[DEBUG]   Included: org.codehaus.plexus:plexus-interpolation:jar:1.15
+[DEBUG]   Included: junit:junit:jar:3.8.1
+[DEBUG]   Included: com.thoughtworks.xstream:xstream:jar:1.3.1
+[DEBUG]   Included: xpp3:xpp3_min:jar:1.1.4c
+[DEBUG]   Included: org.codehaus.plexus:plexus-utils:jar:3.0
+[DEBUG]   Included: org.apache.maven.shared:maven-filtering:jar:1.0-beta-2
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-api:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-artifact:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-model:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-project:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-profile:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-artifact-manager:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-registry:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-core:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-parameter-documenter:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-repository-metadata:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-error-diagnostics:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-descriptor:jar:2.0.6
+[DEBUG]   Excluded: classworlds:classworlds:jar:1.1
+[DEBUG]   Excluded: org.apache.maven:maven-settings:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-monitor:jar:2.0.6
+[DEBUG]   Excluded: org.codehaus.plexus:plexus-container-default:jar:1.0-alpha-9-stable-1
+[DEBUG] Configuring mojo org.apache.maven.plugins:maven-war-plugin:2.2:war from plugin realm ClassRealm[plugin>org.apache.maven.plugins:maven-war-plugin:2.2, parent: sun.misc.Launcher$AppClassLoader@1a45a877]
+[DEBUG] Configuring mojo 'org.apache.maven.plugins:maven-war-plugin:2.2:war' with basic configurator -->
+[DEBUG]   (s) archiveClasses = false
+[DEBUG]   (s) attachClasses = false
+[DEBUG]   (s) cacheFile = /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/target/war/work/webapp-cache.xml
+[DEBUG]   (s) classesClassifier = classes
+[DEBUG]   (s) classesDirectory = /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/target/classes
+[DEBUG]   (f) escapedBackslashesInFilePath = false
+[DEBUG]   (s) failOnMissingWebXml = true
+[DEBUG]   (f) filteringDeploymentDescriptors = false
+[DEBUG]   (s) outputDirectory = /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/target
+[DEBUG]   (s) packagingExcludes = **/.svn/,WEB-INF/lib/guice-2.0.jar,WEB-INF/lib/jcip-annotations-1.0.jar
+[DEBUG]   (s) primaryArtifact = true
+[DEBUG]   (s) project = MavenProject: org.picketlink:picketlink-reg-as7:2.0.0.Beta1-SNAPSHOT @ /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/pom.xml
+[DEBUG]   (f) session = org.apache.maven.execution.MavenSession@69408a75
+[DEBUG]   (s) useCache = false
+[DEBUG]   (s) warName = picketlink-reg
+[DEBUG]   (s) warSourceDirectory = /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/src/main/webapp
+[DEBUG]   (s) warSourceIncludes = **
+[DEBUG]   (s) webappDirectory = /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/../../picketlink-reg/resources
+[DEBUG]   (s) workDirectory = /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/target/war/work
+[DEBUG] -- end configuration --
+[INFO] Packaging webapp
+[INFO] Assembling webapp [picketlink-reg-as7] in [/home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/../../picketlink-reg/resources]
+[DEBUG] properties used {env.DESKTOP_SESSION=gnome, file.encoding.pkg=sun.io, version.assembly.plugin=2.2-beta-4, java.home=/home/anil/java/jdk1.6.0_31/jre, env.DISPLAY=:0, env.LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.tbz=01;31:*.tbz2=01;31:*.bz=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:*.pdf=00;33:*.ps=00;33:*.ps.gz=00;33:*.txt=00;33:*.patch=00;33:*.diff=00;33:*.log=00;33:*.tex=00;33:*.xls=00;33:*.xlsx=00;33:*.ppt=00;33:*.pptx=00;33:*.rtf=00;33:*.doc=00;33:*.docx=00;33:*.odt=00;33:*.ods=00;33:*.odp=00;33:*.xml=00;33:*.epub=00;33:*.abw=00;33:*.html=00;33:*.wpd=00;33:, env.XDG_VTNR=1, classworlds.conf=/opt/apache-maven-3.0.2/bin/m2.conf, env.XDG_SESSION_COOKIE=49aaafdaf7853547bcef9f320000000c-1331816034.260259-995781388, java.endorsed.dirs=/home/anil/java/jdk1.6.0_31/jre/lib/endorsed, env.LOGNAME=anil, env.USERNAME=anil, env.XDG_SEAT=seat0, env.SESSION_MANAGER=local/unix:@/tmp/.ICE-unix/1192,unix/unix:/tmp/.ICE-unix/1192, env.KDEDIRS=/usr, sun.os.patch.level=unknown, java.vendor.url=http://java.sun.com/, version.javadoc.plugin=2.6.1, version.findbugs.plugin=2.2, java.version=1.6.0_31, arguments=-Prelease, java.vendor.url.bug=http://java.sun.com/cgi-bin/bugreport.cgi, version.deploy.plugin=2.4, version.pir.plugin=2.1.2, env.GNOME_KEYRING_CONTROL=/tmp/keyring-Qy8rWn, user.name=anil, env.LANG=en_US.UTF-8, version.site.plugin=2.0.1, sun.io.unicode.encoding=UnicodeLittle, env.CVSROOT=:ext:asaldhana@cvs.forge.jboss.com:/cvsroot/jboss, sun.jnu.encoding=UTF-8, env.DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-QmlohiCPYg,guid=d0238f4566dc3bf53efde65600000016, java.runtime.name=Java(TM) SE Runtime Environment, version.resources.plugin=2.4.1, java.specification.name=Java Platform API Specification, version.plugin.plugin=2.5.1, user.timezone=US/Central, env.LESSOPEN=||/usr/bin/lesspipe.sh %s, path.separator=:, env.XMODIFIERS=@im=none, file.encoding=UTF-8, version.war.plugin=2.1-beta-1, env.HOME=/home/anil, sun.java.command=org.codehaus.plexus.classworlds.launcher.Launcher -X clean install, version.taglist.plugin=2.4, version.pmd.plugin=2.4, version.eclipse.plugin=2.7, env.HOSTNAME=sadbhav, version.javancss.plugin=2.0, java.io.tmpdir=/tmp, env.GNOME_KEYRING_PID=1186, user.language=en, env.HISTCONTROL=ignoredups, line.separator=
+, env.ANT_OPTS=-Xmx512m, env.HISTSIZE=1000, version.sonar.plugin=1.0-beta-1, version.enforcer.plugin=1.0-beta-1, version.antrun.plugin=1.3, version.cobertura.plugin=2.3, java.vm.info=mixed mode, sun.desktop=gnome, java.vm.specification.name=Java Virtual Machine Specification, jdk.min.version=1.5, version.install.plugin=2.3, env.COLORTERM=gnome-terminal, env.M2_HOME=/opt/apache-maven-3.0.2, env.CATALINA_OPTS=-Xms1024m -Xmx1024m  -XX:MaxPermSize=128m, env.GDMSESSION=gnome, version.jxr.plugin=2.1, java.awt.printerjob=sun.print.PSPrinterJob, env.WINDOWID=23068677, env.CLASSPATH=:/opt/apache-ant-1.8.2/lib/ant-junit.jar:/opt/apache-ant-1.8.2/lib/ant-junit.jar, os.name=Linux, java.specification.vendor=Sun Microsystems Inc., version.ear.plugin=2.4, env.TERM=xterm, java.vm.name=Java HotSpot(TM) 64-Bit Server VM, version.checkstyle.plugin=2.4, env.QT_IM_MODULE=xim, java.library.path=/home/anil/java/jdk1.6.0_31/jre/lib/amd64/server:/home/anil/java/jdk1.6.0_31/jre/lib/amd64:/home/anil/java/jdk1.6.0_31/jre/../lib/amd64:/usr/lib64/qt-3.3/lib:/usr/lib64/qt-3.3/lib::/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib, env.PATH=/usr/lib/qt-3.3/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin:/usr/sbin:/usr/java/latest/bin:/opt/apache-maven-3.0.2/bin:/home/anil/.local/bin:/home/anil/bin:/usr/bin:/usr/sbin:/usr/java/latest/bin:/opt/apache-maven-3.0.2/bin, jboss.snapshots.repo.url=https://repository.jboss.org/nexus/content/repositories/snapshots/, env.JDK_HOME=/usr/java/latest, version.jdepend.plugin=2.0-beta-2, targetJdk=1.5, java.class.version=50.0, env.SHLVL=2, env.LD_LIBRARY_PATH=/home/anil/java/jdk1.6.0_31/jre/lib/amd64/server:/home/anil/java/jdk1.6.0_31/jre/lib/amd64:/home/anil/java/jdk1.6.0_31/jre/../lib/amd64:/usr/lib64/qt-3.3/lib:/usr/lib64/qt-3.3/lib:, version.ejb.plugin=2.2, env.GJS_DEBUG_OUTPUT=stderr, version.clover2.plugin=2.5.1, sun.boot.library.path=/home/anil/java/jdk1.6.0_31/jre/lib/amd64, project.build.sourceEncoding=UTF-8, sun.management.compiler=HotSpot 64-Bit Tiered Compilers, java.awt.graphicsenv=sun.awt.X11GraphicsEnvironment, env.USER=anil, version.buildnumber.plugin=1.0-beta-3, version.clean.plugin=2.3, java.vm.specification.version=1.0, env.KDE_IS_PRELINKED=1, version.source.plugin=2.1.1, env.NLSPATH=/usr/dt/lib/nls/msg/%L/%N.cat, sun.cpu.isalist=, version.release.plugin=2.0-beta-9, java.ext.dirs=/home/anil/java/jdk1.6.0_31/jre/lib/ext:/usr/java/packages/lib/ext, env.GJS_DEBUG_TOPICS=JS ERROR;JS LOG, os.version=3.2.9-2.fc16.x86_64, user.home=/home/anil, version.surefire.plugin=2.4.3, java.vm.vendor=Sun Microsystems Inc., jboss.releases.repo.url=https://repository.jboss.org/nexus/service/local/staging/deploy/maven2/, env.JAVA_HOME=/usr/java/latest, env.XDG_SESSION_ID=2, env.XAUTHORITY=/var/run/gdm/auth-for-anil-a9a0Bn/database, user.dir=/home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg, env.XFILESEARCHPATH=/usr/dt/app-defaults/%L/Dt, env.WINDOWPATH=1, env.MAIL=/var/spool/mail/anil, env.M2=/opt/apache-maven-3.0.2/bin, env.PWD=/home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg, version.rar.plugin=2.2, sun.cpu.endian=little, useReleaseProfile=false, env.QTLIB=/usr/lib/qt-3.3/lib, maven.min.version=2.0.9, java.vm.version=20.6-b01, java.class.path=/opt/apache-maven-3.0.2/boot/plexus-classworlds-2.4.jar, version.idea.plugin=2.2, downloadSources=true, env.QTDIR=/usr/lib/qt-3.3, os.arch=amd64, version.compiler.plugin=2.0.2, sun.java.launcher=SUN_STANDARD, env.IMSETTINGS_INTEGRATE_DESKTOP=yes, java.vm.specification.vendor=Sun Microsystems Inc., file.separator=/, java.runtime.version=1.6.0_31-b04, env.SSH_AUTH_SOCK=/tmp/keyring-Qy8rWn/ssh, sun.boot.class.path=/home/anil/java/jdk1.6.0_31/jre/lib/resources.jar:/home/anil/java/jdk1.6.0_31/jre/lib/rt.jar:/home/anil/java/jdk1.6.0_31/jre/lib/sunrsasign.jar:/home/anil/java/jdk1.6.0_31/jre/lib/jsse.jar:/home/anil/java/jdk1.6.0_31/jre/lib/jce.jar:/home/anil/java/jdk1.6.0_31/jre/lib/charsets.jar:/home/anil/java/jdk1.6.0_31/jre/lib/modules/jdk.boot.jar:/home/anil/java/jdk1.6.0_31/jre/classes, env.XDG_RUNTIME_DIR=/run/user/anil, version.dependency.plugin=2.1, env.QTINC=/usr/lib/qt-3.3/include, env.ANT_HOME=/opt/apache-ant-1.8.2, user.country=US, maven.home=/opt/apache-maven-3.0.2, env.SHELL=/bin/bash, maven.compiler.target=1.5, java.vendor=Sun Microsystems Inc., env.GPG_AGENT_INFO=/tmp/keyring-Qy8rWn/gpg:0:1, version.jar.plugin=2.2, env.IMSETTINGS_MODULE=none, maven.compiler.source=1.5, java.specification.version=1.6, env.GNOME_DESKTOP_SESSION_ID=this-is-deprecated, sun.arch.data.model=64}
+[INFO] Processing war project
+[INFO] Copying webapp resources [/home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/src/main/webapp]
+[DEBUG]  + META-INF/jboss-deployment-structure.xml has been copied.
+[DEBUG]  + WEB-INF/jboss-web.xml has been copied.
+[DEBUG] Dump of the current build pathSet content -->
+[DEBUG] META-INF/jboss-deployment-structure.xml
+[DEBUG] WEB-INF/jboss-web.xml
+[DEBUG] -- end of dump --
+[DEBUG] Processing: picketlink-consolidated-social-2.0.0.Beta1-SNAPSHOT.jar
+[DEBUG]  + WEB-INF/lib/picketlink-consolidated-social-2.0.0.Beta1-SNAPSHOT.jar has been copied.
+[DEBUG] Processing: openid4java-nodeps-0.9.6.jar
+[DEBUG]  + WEB-INF/lib/openid4java-nodeps-0.9.6.jar has been copied.
+[DEBUG] Processing: commons-logging-1.1.1.jar
+[DEBUG]  + WEB-INF/lib/commons-logging-1.1.1.jar has been copied.
+[DEBUG] Processing: json-20090211.jar
+[DEBUG]  + WEB-INF/lib/json-20090211.jar has been copied.
+[INFO] Webapp assembled in [40 msecs]
+[DEBUG] Excluding [**/.svn/, WEB-INF/lib/guice-2.0.jar, WEB-INF/lib/jcip-annotations-1.0.jar] from the generated webapp archive.
+[DEBUG] Including [**] in the generated webapp archive.
+[INFO] Building war: /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/target/picketlink-reg.war
+[DEBUG] adding directory META-INF/
+[DEBUG] adding entry META-INF/MANIFEST.MF
+[DEBUG] adding directory auth/
+[DEBUG] adding directory auth/css/
+[DEBUG] adding directory css/
+[DEBUG] adding directory WEB-INF/
+[DEBUG] adding directory WEB-INF/classes/
+[DEBUG] adding directory WEB-INF/lib/
+[DEBUG] adding directory images/
+[DEBUG] adding entry auth/css/text.css
+[DEBUG] adding entry auth/css/960_12_col_rtl.css
+[DEBUG] adding entry auth/css/reset.css
+[DEBUG] adding entry auth/css/960_12_col.css
+[DEBUG] adding entry auth/css/reset_rtl.css
+[DEBUG] adding entry auth/css/demo.css
+[DEBUG] adding entry auth/css/960_24_col_rtl.css
+[DEBUG] adding entry auth/css/960_16_col.css
+[DEBUG] adding entry auth/css/text_rtl.css
+[DEBUG] adding entry auth/css/960.css
+[DEBUG] adding entry auth/css/960_24_col.css
+[DEBUG] adding entry auth/css/960_rtl.css
+[DEBUG] adding entry auth/css/960_16_col_rtl.css
+[DEBUG] adding entry auth/auth.jsp
+[DEBUG] adding entry css/text.css
+[DEBUG] adding entry css/960_12_col_rtl.css
+[DEBUG] adding entry css/reset.css
+[DEBUG] adding entry css/960_12_col.css
+[DEBUG] adding entry css/reset_rtl.css
+[DEBUG] adding entry css/demo.css
+[DEBUG] adding entry css/960_24_col_rtl.css
+[DEBUG] adding entry css/960_16_col.css
+[DEBUG] adding entry css/text_rtl.css
+[DEBUG] adding entry css/960.css
+[DEBUG] adding entry css/960_24_col.css
+[DEBUG] adding entry css/960_rtl.css
+[DEBUG] adding entry css/960_16_col_rtl.css
+[DEBUG] adding entry META-INF/jboss-deployment-structure.xml
+[DEBUG] adding entry WEB-INF/jboss-web.xml
+[DEBUG] adding entry WEB-INF/context.xml
+[DEBUG] adding entry WEB-INF/web.xml
+[DEBUG] adding entry WEB-INF/lib/json-20090211.jar
+[DEBUG] adding entry WEB-INF/lib/commons-httpclient-3.1.jar
+[DEBUG] adding entry WEB-INF/lib/commons-codec-1.4.jar
+[DEBUG] adding entry WEB-INF/lib/picketlink-consolidated-social-2.0.0.Beta1-SNAPSHOT.jar
+[DEBUG] adding entry WEB-INF/lib/openid4java-nodeps-0.9.6.jar
+[DEBUG] adding entry WEB-INF/lib/commons-logging-1.1.1.jar
+[DEBUG] adding entry index.jsp
+[DEBUG] adding entry images/picketlink_banner.png
+[DEBUG] adding entry images/login-with-facebook.png
+[DEBUG] adding entry images/login-with-google.png
+[INFO] WEB-INF/web.xml already added, skipping
+[DEBUG] adding directory META-INF/maven/
+[DEBUG] adding directory META-INF/maven/org.picketlink/
+[DEBUG] adding directory META-INF/maven/org.picketlink/picketlink-reg-as7/
+[DEBUG] adding entry META-INF/maven/org.picketlink/picketlink-reg-as7/pom.xml
+[DEBUG] adding entry META-INF/maven/org.picketlink/picketlink-reg-as7/pom.properties
+[INFO] 
+[INFO] --- maven-source-plugin:2.1.1:jar-no-fork (attach-sources) @ picketlink-reg-as7 ---
+[DEBUG] org.apache.maven.plugins:maven-source-plugin:jar:2.1.1:
+[DEBUG]    org.apache.maven:maven-model:jar:2.0.9:compile
+[DEBUG]    org.apache.maven:maven-artifact:jar:2.0.9:compile
+[DEBUG]    org.apache.maven:maven-plugin-api:jar:2.0.9:compile
+[DEBUG]    org.apache.maven:maven-project:jar:2.0.9:compile
+[DEBUG]       org.apache.maven:maven-settings:jar:2.0.9:compile
+[DEBUG]       org.apache.maven:maven-profile:jar:2.0.9:compile
+[DEBUG]       org.apache.maven:maven-artifact-manager:jar:2.0.9:compile
+[DEBUG]          org.apache.maven:maven-repository-metadata:jar:2.0.9:compile
+[DEBUG]       org.apache.maven:maven-plugin-registry:jar:2.0.9:compile
+[DEBUG]       org.codehaus.plexus:plexus-container-default:jar:1.0-alpha-9-stable-1:compile
+[DEBUG]          junit:junit:jar:3.8.1:compile
+[DEBUG]          classworlds:classworlds:jar:1.1-alpha-2:compile
+[DEBUG]    org.apache.maven:maven-archiver:jar:2.4:compile
+[DEBUG]       org.codehaus.plexus:plexus-interpolation:jar:1.6:compile
+[DEBUG]    org.codehaus.plexus:plexus-archiver:jar:1.0-alpha-9:compile
+[DEBUG]       org.codehaus.plexus:plexus-io:jar:1.0-alpha-1:compile
+[DEBUG]    org.codehaus.plexus:plexus-utils:jar:1.5.8:compile
+[DEBUG] Created new class realm plugin>org.apache.maven.plugins:maven-source-plugin:2.1.1
+[DEBUG] Importing foreign packages into class realm plugin>org.apache.maven.plugins:maven-source-plugin:2.1.1
+[DEBUG]   Imported:  < maven.api
+[DEBUG] Populating class realm plugin>org.apache.maven.plugins:maven-source-plugin:2.1.1
+[DEBUG]   Included: org.apache.maven.plugins:maven-source-plugin:jar:2.1.1
+[DEBUG]   Included: junit:junit:jar:3.8.1
+[DEBUG]   Included: org.apache.maven:maven-archiver:jar:2.4
+[DEBUG]   Included: org.codehaus.plexus:plexus-interpolation:jar:1.6
+[DEBUG]   Included: org.codehaus.plexus:plexus-archiver:jar:1.0-alpha-9
+[DEBUG]   Included: org.codehaus.plexus:plexus-io:jar:1.0-alpha-1
+[DEBUG]   Included: org.codehaus.plexus:plexus-utils:jar:1.5.8
+[DEBUG]   Excluded: org.apache.maven:maven-model:jar:2.0.9
+[DEBUG]   Excluded: org.apache.maven:maven-artifact:jar:2.0.9
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-api:jar:2.0.9
+[DEBUG]   Excluded: org.apache.maven:maven-project:jar:2.0.9
+[DEBUG]   Excluded: org.apache.maven:maven-settings:jar:2.0.9
+[DEBUG]   Excluded: org.apache.maven:maven-profile:jar:2.0.9
+[DEBUG]   Excluded: org.apache.maven:maven-artifact-manager:jar:2.0.9
+[DEBUG]   Excluded: org.apache.maven:maven-repository-metadata:jar:2.0.9
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-registry:jar:2.0.9
+[DEBUG]   Excluded: org.codehaus.plexus:plexus-container-default:jar:1.0-alpha-9-stable-1
+[DEBUG]   Excluded: classworlds:classworlds:jar:1.1-alpha-2
+[DEBUG] Configuring mojo org.apache.maven.plugins:maven-source-plugin:2.1.1:jar-no-fork from plugin realm ClassRealm[plugin>org.apache.maven.plugins:maven-source-plugin:2.1.1, parent: sun.misc.Launcher$AppClassLoader@1a45a877]
+[DEBUG] Configuring mojo 'org.apache.maven.plugins:maven-source-plugin:2.1.1:jar-no-fork' with basic configurator -->
+[DEBUG]   (f) attach = true
+[DEBUG]   (f) defaultManifestFile = /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/target/classes/META-INF/MANIFEST.MF
+[DEBUG]   (f) excludeResources = false
+[DEBUG]   (f) finalName = picketlink-reg-as7-2.0.0.Beta1-SNAPSHOT
+[DEBUG]   (f) forceCreation = false
+[DEBUG]   (f) includePom = false
+[DEBUG]   (f) outputDirectory = /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/target
+[DEBUG]   (f) project = MavenProject: org.picketlink:picketlink-reg-as7:2.0.0.Beta1-SNAPSHOT @ /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/pom.xml
+[DEBUG]   (f) reactorProjects = [MavenProject: org.picketlink:picketlink-reg-as7:2.0.0.Beta1-SNAPSHOT @ /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/pom.xml]
+[DEBUG]   (f) useDefaultExcludes = true
+[DEBUG]   (f) useDefaultManifestFile = false
+[DEBUG] -- end configuration --
+[INFO] No sources in project. Archive not created.
+[INFO] 
+[INFO] --- maven-install-plugin:2.3:install (default-install) @ picketlink-reg-as7 ---
+[DEBUG] org.apache.maven.plugins:maven-install-plugin:jar:2.3:
+[DEBUG]    org.apache.maven:maven-plugin-api:jar:2.0.6:compile
+[DEBUG]    org.apache.maven:maven-project:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-settings:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-profile:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-plugin-registry:jar:2.0.6:compile
+[DEBUG]       org.codehaus.plexus:plexus-container-default:jar:1.0-alpha-9-stable-1:compile
+[DEBUG]          junit:junit:jar:3.8.1:compile
+[DEBUG]          classworlds:classworlds:jar:1.1-alpha-2:compile
+[DEBUG]    org.apache.maven:maven-model:jar:2.0.6:compile
+[DEBUG]    org.apache.maven:maven-artifact-manager:jar:2.0.6:compile
+[DEBUG]       org.apache.maven:maven-repository-metadata:jar:2.0.6:compile
+[DEBUG]    org.apache.maven:maven-artifact:jar:2.0.6:compile
+[DEBUG]    org.codehaus.plexus:plexus-utils:jar:1.5.6:compile
+[DEBUG]    org.codehaus.plexus:plexus-digest:jar:1.0:compile
+[DEBUG] Created new class realm plugin>org.apache.maven.plugins:maven-install-plugin:2.3
+[DEBUG] Importing foreign packages into class realm plugin>org.apache.maven.plugins:maven-install-plugin:2.3
+[DEBUG]   Imported:  < maven.api
+[DEBUG] Populating class realm plugin>org.apache.maven.plugins:maven-install-plugin:2.3
+[DEBUG]   Included: org.apache.maven.plugins:maven-install-plugin:jar:2.3
+[DEBUG]   Included: junit:junit:jar:3.8.1
+[DEBUG]   Included: org.codehaus.plexus:plexus-utils:jar:1.5.6
+[DEBUG]   Included: org.codehaus.plexus:plexus-digest:jar:1.0
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-api:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-project:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-settings:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-profile:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-plugin-registry:jar:2.0.6
+[DEBUG]   Excluded: org.codehaus.plexus:plexus-container-default:jar:1.0-alpha-9-stable-1
+[DEBUG]   Excluded: classworlds:classworlds:jar:1.1-alpha-2
+[DEBUG]   Excluded: org.apache.maven:maven-model:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-artifact-manager:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-repository-metadata:jar:2.0.6
+[DEBUG]   Excluded: org.apache.maven:maven-artifact:jar:2.0.6
+[DEBUG] Configuring mojo org.apache.maven.plugins:maven-install-plugin:2.3:install from plugin realm ClassRealm[plugin>org.apache.maven.plugins:maven-install-plugin:2.3, parent: sun.misc.Launcher$AppClassLoader@1a45a877]
+[DEBUG] Configuring mojo 'org.apache.maven.plugins:maven-install-plugin:2.3:install' with basic configurator -->
+[DEBUG]   (f) artifact = org.picketlink:picketlink-reg-as7:war:2.0.0.Beta1-SNAPSHOT
+[DEBUG]   (f) attachedArtifacts = []
+[DEBUG]   (f) createChecksum = false
+[DEBUG]   (f) localRepository =        id: local
+      url: file:///home/anil/.m2/repository/
+   layout: none
+
+[DEBUG]   (f) packaging = war
+[DEBUG]   (f) pomFile = /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/pom.xml
+[DEBUG]   (f) updateReleaseInfo = false
+[DEBUG] -- end configuration --
+[DEBUG] Using manager EnhancedLocalRepositoryManager with priority 10 for /home/anil/.m2/repository
+[INFO] Installing /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/target/picketlink-reg.war to /home/anil/.m2/repository/org/picketlink/picketlink-reg-as7/2.0.0.Beta1-SNAPSHOT/picketlink-reg-as7-2.0.0.Beta1-SNAPSHOT.war
+[INFO] Installing /home/anil/picketlink/picketlink/social/trunk/webapps/as7/picketlink-reg/pom.xml to /home/anil/.m2/repository/org/picketlink/picketlink-reg-as7/2.0.0.Beta1-SNAPSHOT/picketlink-reg-as7-2.0.0.Beta1-SNAPSHOT.pom
+[DEBUG] Installing org.picketlink:picketlink-reg-as7:2.0.0.Beta1-SNAPSHOT/maven-metadata.xml to /home/anil/.m2/repository/org/picketlink/picketlink-reg-as7/2.0.0.Beta1-SNAPSHOT/maven-metadata-local.xml
+[DEBUG] Installing org.picketlink:picketlink-reg-as7/maven-metadata.xml to /home/anil/.m2/repository/org/picketlink/picketlink-reg-as7/maven-metadata-local.xml
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 2.383s
+[INFO] Finished at: Thu Mar 15 13:37:44 CDT 2012
+[INFO] Final Memory: 6M/150M
+[INFO] ------------------------------------------------------------------------

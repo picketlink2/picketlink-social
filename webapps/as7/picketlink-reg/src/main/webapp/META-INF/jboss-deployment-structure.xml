@@ -1,0 +1,12 @@
+<jboss-deployment-structure>
+  
+  <deployment>
+    <!-- Add picketlink module dependency -->
+    <dependencies>
+      <module name="org.picketlink" />
+      <module name="org.apache.commons.codec" />
+      <module name="org.apache.commons.logging" />
+    </dependencies>
+  </deployment>
+</jboss-deployment-structure>
+
