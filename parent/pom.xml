@@ -8,7 +8,7 @@
    <groupId>org.picketlink</groupId>
    <artifactId>picketlink-social-parent</artifactId>
    <packaging>pom</packaging>
-   <version>2.0.0.Beta1-SNAPSHOT</version>
+   <version>1.0.0.Final</version>
    <name>PicketLink Social - Parent</name>
    <url>http://labs.jboss.org/portal/picketlink/</url>
    <description>PicketLink Social Parent</description>
