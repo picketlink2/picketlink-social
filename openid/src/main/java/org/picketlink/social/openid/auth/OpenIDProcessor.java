@@ -241,7 +241,7 @@ public class OpenIDProcessor
       { 
          throw new RuntimeException(e);
       }
-
+      
       // examine the verification result and extract the verified identifier
       Identifier identifier = verification.getVerifiedId();
 

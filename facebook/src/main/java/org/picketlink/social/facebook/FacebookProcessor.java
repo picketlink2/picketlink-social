@@ -156,6 +156,8 @@ public class FacebookProcessor
    {
       Principal principal = null;
       Principal facebookPrincipal = handleAuthenticationResponse(request, response);
+      if(facebookPrincipal == null)
+    	  return null;
 
       request.getSession().setAttribute("PRINCIPAL", facebookPrincipal);
       cachedPrincipal.set(facebookPrincipal);
@@ -186,7 +188,8 @@ public class FacebookProcessor
          String authorizationCode = request.getParameter(OAuthConstants.CODE_PARAMETER);
          if (authorizationCode == null)
          {
-            throw new RuntimeException("Authorization code parameter not found");
+            log.error("Authorization code parameter not found");
+            return null;
          }
 
          URLConnection connection = sendAccessTokenRequest(returnUrl, authorizationCode, response);

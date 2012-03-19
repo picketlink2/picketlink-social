@@ -187,7 +187,12 @@ public class FacebookAuthenticator extends FormAuthenticator
          Principal principal = processor.getPrincipal(request, response, context.getRealm());
 
          if(principal == null)
-            throw new RuntimeException("Principal was null. Maybe login modules need to be configured properly.");
+         { 
+        	 log.error("Principal was null. Maybe login modules need to be configured properly.");
+        	 response.sendError(HttpServletResponse.SC_FORBIDDEN);
+        	 return false;
+         }
+            
          String userName = principal.getName();
          
          request.getSessionInternal().setNote(Constants.SESS_USERNAME_NOTE, userName);

@@ -32,7 +32,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.catalina.Session;
 import org.apache.catalina.authenticator.Constants;
 import org.apache.catalina.authenticator.FormAuthenticator;
 import org.apache.catalina.connector.Request;
@@ -219,6 +218,11 @@ public class ExternalAuthenticator extends FormAuthenticator
     	  {
     		  principal = facebookProcessor.getPrincipal(request, response, context.getRealm());
     	  }
+    	  if(principal == null)
+    	  {
+    		  response.sendError(HttpServletResponse.SC_FORBIDDEN);
+    		  return false;
+    	  }
           return dealWithFacebookPrincipal(request, response, principal);
       }
       
@@ -242,7 +246,11 @@ public class ExternalAuthenticator extends FormAuthenticator
          Principal principal = facebookProcessor.getPrincipal(request, response, context.getRealm());
          
          if(principal == null)
-            throw new RuntimeException("Principal was null. Maybe login modules need to be configured properly. Or user chose no data");
+         {
+             log.error("Principal was null. Maybe login modules need to be configured properly. Or user chose no data");
+   		     response.sendError(HttpServletResponse.SC_FORBIDDEN);
+             return false;
+         }
          
          return dealWithFacebookPrincipal(request, response, principal);
       }
@@ -274,9 +282,14 @@ public class ExternalAuthenticator extends FormAuthenticator
       HttpSession httpSession = request.getSession();
       String state = (String) httpSession.getAttribute("STATE");
       if(trace) log.trace("state="+ state);
-
+ 
       if( STATES.FINISH.name().equals(state))
-         return true;
+      {
+    	  //This is a replay. We need to resend a request back to the OpenID provider
+    	  httpSession.setAttribute("STATE", STATES.AUTH.name());
+    	  
+    	  return openidProcessor.prepareAndSendAuthRequest(request, response);
+      }
 
       if( state == null || state.isEmpty())
       { 
@@ -284,32 +297,16 @@ public class ExternalAuthenticator extends FormAuthenticator
       } 
       //We have sent an auth request
       if( state.equals(STATES.AUTH.name()))
-      {
-         Session session = request.getSessionInternal(true);
-         if (saveRestoreRequest)
-         {
-            this.saveRequest(request, session);
-         }
-
+      { 
          Principal principal = openidProcessor.processIncomingAuthResult(request, response, context.getRealm());
 
          if(principal == null)
-            throw new RuntimeException("Principal was null. Maybe login modules need to be configured properly. Or user chose no data");
-         
-         String principalName = principal.getName();
-         request.getSessionInternal().setNote(Constants.SESS_USERNAME_NOTE, principalName);
-         request.getSessionInternal().setNote(Constants.SESS_PASSWORD_NOTE, "");
-         request.setUserPrincipal(principal);
-
-         if (saveRestoreRequest)
          {
-            this.restoreRequest(request, request.getSessionInternal());
+             log.error("Principal was null. Maybe login modules need to be configured properly. Or user chose no data");
+        	 return false;
          }
-
-         if(trace)
-            log.trace("Logged in as:" + principal);
-         registerWithAuthenticatorBase(request,response,principal,principalName);
-         return true;
+         
+         return dealWithOpenIDPrincipal(request, response, principal);
       }
       return false;
    }
@@ -364,5 +361,26 @@ public class ExternalAuthenticator extends FormAuthenticator
        request.getSession().setAttribute("STATE", STATES.FINISH.name());
 
        return true;
+   }
+   
+   private boolean dealWithOpenIDPrincipal(Request request, Response response, Principal principal) throws IOException
+   {
+	   HttpSession httpSession = request.getSession();
+	      
+	   String principalName = principal.getName();
+       request.getSessionInternal().setNote(Constants.SESS_USERNAME_NOTE, principalName);
+       request.getSessionInternal().setNote(Constants.SESS_PASSWORD_NOTE, "");
+       request.setUserPrincipal(principal);
+
+       if (saveRestoreRequest)
+       {
+          this.restoreRequest(request, request.getSessionInternal());
+       }
+
+       if(trace)
+          log.trace("Logged in as:" + principal);
+       registerWithAuthenticatorBase(request,response,principal,principalName);
+       httpSession.setAttribute("STATE", STATES.FINISH.name());
+       return true;  
    }
 }
