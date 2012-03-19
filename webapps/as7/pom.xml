@@ -1,8 +1,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <parent>
+    <groupId>org.picketlink</groupId>
+    <artifactId>picketlink-social-webapps</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <relativePath>../</relativePath>
+  </parent>
+
    <modelVersion>4.0.0</modelVersion>
    <groupId>org.picketlink.social</groupId>
    <artifactId>picketlink-social-as7-webapps</artifactId>
-   <version>1.0.0.Final</version>
+   <version>1.0.0-SNAPSHOT</version>
    <packaging>pom</packaging>
    <name>PicketLink Social Web Applications</name>
    <url>http://labs.jboss.org/portal/jbosssecurity/</url>
@@ -18,6 +25,44 @@
       <name>JBoss Inc.</name>
       <url>http://www.jboss.org</url>
    </organization>
+   <repositories>
+     <repository>
+       <id>jboss-public-repository-group</id>
+       <name>JBoss Public Maven Repository Group</name>
+       <url>http://repository.jboss.org/nexus/content/groups/public/</url>
+       <layout>default</layout>
+       <releases>
+         <enabled>true</enabled>
+         <updatePolicy>never</updatePolicy>
+       </releases>
+       <snapshots>
+         <enabled>true</enabled>
+         <updatePolicy>never</updatePolicy>
+       </snapshots>
+     </repository>
+    <repository>
+      <id>repository.jboss.org</id>
+      <name>JBoss Repository</name>
+      <layout>default</layout>
+      <url>http://repository.jboss.org/maven2/</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>snapshots.jboss.org</id>
+      <name>JBoss Snapshots Repository</name>
+      <layout>default</layout>
+      <url>http://snapshots.jboss.org/maven2/</url>
+      <snapshots>
+         <enabled>true</enabled>
+      </snapshots>
+      <releases>
+         <enabled>false</enabled>
+      </releases>
+    </repository>
+  </repositories>
+
    <modules>
       <module>openid-consumer</module>
       <module>picketlink-reg</module>
