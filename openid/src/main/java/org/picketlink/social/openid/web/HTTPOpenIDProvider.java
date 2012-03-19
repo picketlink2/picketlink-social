@@ -2,7 +2,7 @@
  * JBoss, Home of Professional Open Source.
  * Copyright 2008, Red Hat Middleware LLC, and individual contributors
  * as indicated by the @author tags. See the copyright.txt file in the
- * distribution for a full listing of individual contributors. 
+ * distribution for a full listing of individual contributors.
  *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as
@@ -36,107 +36,84 @@ import org.openid4java.server.ServerManager;
 
 /**
  * Common code at an OpenID Provider
+ *
  * @author Anil.Saldhana@redhat.com
  * @since Jul 7, 2009
  */
-public class HTTPOpenIDProvider
-{
-   public String process(HttpServletRequest request, HttpServletResponse response) 
-   throws IOException
-   {
-      HttpSession session = request.getSession();
-      
-      ServerManager manager=new ServerManager();
-      manager.setSharedAssociations(new InMemoryServerAssociationStore());
-      manager.setPrivateAssociations(new InMemoryServerAssociationStore());
-      manager.setOPEndpointUrl(request.getScheme() + "://" 
-            + request.getServerName() + ":" 
-            + request.getServerPort() + "/simple-openid/provider.jsp");
-      
-      ParameterList requestp;
+public class HTTPOpenIDProvider {
+    public String process(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        HttpSession session = request.getSession();
 
-      if ("complete".equals(request.getParameter("_action"))) // Completing the authz and authn process by redirecting here
-      {
-          requestp=(ParameterList) session.getAttribute("parameterlist"); // On a redirect from the OP authn & authz sequence
-      }
-      else
-      {
-          requestp = new ParameterList(request.getParameterMap());
-      }
+        ServerManager manager = new ServerManager();
+        manager.setSharedAssociations(new InMemoryServerAssociationStore());
+        manager.setPrivateAssociations(new InMemoryServerAssociationStore());
+        manager.setOPEndpointUrl(request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+                + "/simple-openid/provider.jsp");
 
-      String mode = requestp.hasParameter("openid.mode") ?
-                  requestp.getParameterValue("openid.mode") : null;
+        ParameterList requestp;
 
-          Message responsem;
-          String responseText;
+        if ("complete".equals(request.getParameter("_action"))) // Completing the authz and authn process by redirecting here
+        {
+            requestp = (ParameterList) session.getAttribute("parameterlist"); // On a redirect from the OP authn & authz
+                                                                              // sequence
+        } else {
+            requestp = new ParameterList(request.getParameterMap());
+        }
 
-          if ("associate".equals(mode))
-          {
-              // --- process an association request ---
-              responsem = manager.associationResponse(requestp);
-              responseText = responsem.keyValueFormEncoding();
-          }
-          else if ("checkid_setup".equals(mode)
-                  || "checkid_immediate".equals(mode))
-          {
-              // interact with the user and obtain data needed to continue
-              //List userData = userInteraction(requestp);
-              String userSelectedId = null;
-              String userSelectedClaimedId = null;
-              Boolean authenticatedAndApproved = Boolean.FALSE;
+        String mode = requestp.hasParameter("openid.mode") ? requestp.getParameterValue("openid.mode") : null;
 
-              if ((session.getAttribute("authenticatedAndApproved") == null) ||
-                      (((Boolean)session.getAttribute("authenticatedAndApproved")) == Boolean.FALSE) )
-              {
-                  session.setAttribute("parameterlist", requestp);
-                  response.sendRedirect("provider_authorization.jsp");
-              }
-              else
-              {
-                  userSelectedId = (String) session.getAttribute("openid.claimed_id");
-                  userSelectedClaimedId = (String) session.getAttribute("openid.identity");
-                  authenticatedAndApproved = (Boolean) session.getAttribute("authenticatedAndApproved");
-                  // Remove the parameterlist so this provider can accept requests from elsewhere
-                  session.removeAttribute("parameterlist");
-                  session.setAttribute("authenticatedAndApproved", Boolean.FALSE); // Makes you authorize each and every time
-              }
+        Message responsem;
+        String responseText;
 
-              // --- process an authentication request ---
-              responsem = manager.authResponse(requestp,
-                      userSelectedId,
-                      userSelectedClaimedId,
-                      authenticatedAndApproved.booleanValue());
+        if ("associate".equals(mode)) {
+            // --- process an association request ---
+            responsem = manager.associationResponse(requestp);
+            responseText = responsem.keyValueFormEncoding();
+        } else if ("checkid_setup".equals(mode) || "checkid_immediate".equals(mode)) {
+            // interact with the user and obtain data needed to continue
+            // List userData = userInteraction(requestp);
+            String userSelectedId = null;
+            String userSelectedClaimedId = null;
+            Boolean authenticatedAndApproved = Boolean.FALSE;
 
-              // caller will need to decide which of the following to use:
-              // - GET HTTP-redirect to the return_to URL
-              // - HTML FORM Redirection
-              //responseText = response.wwwFormEncoding();
-              if (responsem instanceof AuthSuccess)
-              {
-                  response.sendRedirect(((AuthSuccess) responsem).getDestinationUrl(true));
-                  return "";
-              }
-              else
-              {
-                  responseText="<pre>"+responsem.keyValueFormEncoding()+"</pre>";
-              }
-          }
-          else if ("check_authentication".equals(mode))
-          {
-              // --- processing a verification request ---
-              responsem = manager.verify(requestp);
-              responseText = responsem.keyValueFormEncoding();
-          }
-          else
-          {
-              // --- error response ---
-              responsem = DirectError.createDirectError("Unknown request");
-              responseText = responsem.keyValueFormEncoding();
-          }
-          
-          
-      
-      return responseText != null ? responseText.trim() : null;
-   }
+            if ((session.getAttribute("authenticatedAndApproved") == null)
+                    || (((Boolean) session.getAttribute("authenticatedAndApproved")) == Boolean.FALSE)) {
+                session.setAttribute("parameterlist", requestp);
+                response.sendRedirect("provider_authorization.jsp");
+            } else {
+                userSelectedId = (String) session.getAttribute("openid.claimed_id");
+                userSelectedClaimedId = (String) session.getAttribute("openid.identity");
+                authenticatedAndApproved = (Boolean) session.getAttribute("authenticatedAndApproved");
+                // Remove the parameterlist so this provider can accept requests from elsewhere
+                session.removeAttribute("parameterlist");
+                session.setAttribute("authenticatedAndApproved", Boolean.FALSE); // Makes you authorize each and every time
+            }
+
+            // --- process an authentication request ---
+            responsem = manager.authResponse(requestp, userSelectedId, userSelectedClaimedId,
+                    authenticatedAndApproved.booleanValue());
+
+            // caller will need to decide which of the following to use:
+            // - GET HTTP-redirect to the return_to URL
+            // - HTML FORM Redirection
+            // responseText = response.wwwFormEncoding();
+            if (responsem instanceof AuthSuccess) {
+                response.sendRedirect(((AuthSuccess) responsem).getDestinationUrl(true));
+                return "";
+            } else {
+                responseText = "<pre>" + responsem.keyValueFormEncoding() + "</pre>";
+            }
+        } else if ("check_authentication".equals(mode)) {
+            // --- processing a verification request ---
+            responsem = manager.verify(requestp);
+            responseText = responsem.keyValueFormEncoding();
+        } else {
+            // --- error response ---
+            responsem = DirectError.createDirectError("Unknown request");
+            responseText = responsem.keyValueFormEncoding();
+        }
+
+        return responseText != null ? responseText.trim() : null;
+    }
 
 }

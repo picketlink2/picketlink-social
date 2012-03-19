@@ -2,7 +2,7 @@
  * JBoss, Home of Professional Open Source.
  * Copyright 2011, Red Hat Middleware LLC, and individual contributors
  * as indicated by the @author tags. See the copyright.txt file in the
- * distribution for a full listing of individual contributors. 
+ * distribution for a full listing of individual contributors.
  *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as
@@ -38,90 +38,77 @@ import org.picketlink.social.facebook.FacebookPrincipal;
 import org.picketlink.social.openid.OpenIdPrincipal;
 
 /**
- * A Valve that can be added after the authenticator to look
- * into the authenticated principal and derive useful information
- * to register the user
- * 
+ * A Valve that can be added after the authenticator to look into the authenticated principal and derive useful information to
+ * register the user
+ *
  * @author Anil Saldhana
  * @since Sep 22, 2011
  */
-public class RegistrationValve extends ValveBase
-{
-   public void invoke(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
-   {
-      if(request instanceof Request == false)
-         throw new IOException("Not of type Catalina request");
-      if(response instanceof Response == false)
-         throw new IOException("Not of type Catalina response");
-      invoke((Request)request, (Response)response);
-   }
+public class RegistrationValve extends ValveBase {
+    public void invoke(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        if (request instanceof Request == false)
+            throw new IOException("Not of type Catalina request");
+        if (response instanceof Response == false)
+            throw new IOException("Not of type Catalina response");
+        invoke((Request) request, (Response) response);
+    }
 
-   public void invoke(Request request, Response response) throws IOException, ServletException
-   {
-      HttpSession session = request.getSession();
-      Principal principal = (Principal) session.getAttribute("PRINCIPAL");
-      if(principal != null)
-      {
-         UserRegistration user = null;
-         if(principal instanceof OpenIdPrincipal)
-         {
-            user = processOpenIDPrincipal((OpenIdPrincipal) principal);
-         }
-         else if(principal instanceof FacebookPrincipal)
-         { 
-            user = processFacebookPrincipal((FacebookPrincipal) principal);
-         }
-         else
-            throw new ServletException("Unknown principal type:" + principal);
-         if(user != null)
-         {
-            session.setAttribute("user", user);
-         }
-      }
-      getNext().invoke(request, response);
-   }
+    public void invoke(Request request, Response response) throws IOException, ServletException {
+        HttpSession session = request.getSession();
+        Principal principal = (Principal) session.getAttribute("PRINCIPAL");
+        if (principal != null) {
+            UserRegistration user = null;
+            if (principal instanceof OpenIdPrincipal) {
+                user = processOpenIDPrincipal((OpenIdPrincipal) principal);
+            } else if (principal instanceof FacebookPrincipal) {
+                user = processFacebookPrincipal((FacebookPrincipal) principal);
+            } else
+                throw new ServletException("Unknown principal type:" + principal);
+            if (user != null) {
+                session.setAttribute("user", user);
+            }
+        }
+        getNext().invoke(request, response);
+    }
 
-   private UserRegistration processOpenIDPrincipal(OpenIdPrincipal openIDPrincipal)
-   {
-      UserRegistration user = new UserRegistration();
-      Map<String,List<String>> attributes = openIDPrincipal.getAttributes();
-      user.setIdentifier(openIDPrincipal.getIdentifier());
+    private UserRegistration processOpenIDPrincipal(OpenIdPrincipal openIDPrincipal) {
+        UserRegistration user = new UserRegistration();
+        Map<String, List<String>> attributes = openIDPrincipal.getAttributes();
+        user.setIdentifier(openIDPrincipal.getIdentifier());
 
-      if(attributes != null)
-      {
-         List<String> values = attributes.get("ax_firstName");
-         if(values != null && values.size() > 0)
-            user.setFirstName(values.get(0));
+        if (attributes != null) {
+            List<String> values = attributes.get("ax_firstName");
+            if (values != null && values.size() > 0)
+                user.setFirstName(values.get(0));
 
-         //Try the last name
-         values = attributes.get("ax_lastName");
-         if(values != null && values.size() > 0)
-            user.setLastName(values.get(0));  
+            // Try the last name
+            values = attributes.get("ax_lastName");
+            if (values != null && values.size() > 0)
+                user.setLastName(values.get(0));
 
-         //Try the full name
-         values = attributes.get("ax_fullName");
-         if(values != null && values.size() > 0)
-            user.setFullName(values.get(0));  
+            // Try the full name
+            values = attributes.get("ax_fullName");
+            if (values != null && values.size() > 0)
+                user.setFullName(values.get(0));
 
-         values = attributes.get("fullname"); //Yahoo
-         if(values != null && values.size() > 0)
-            user.setFullName(values.get(0));
+            values = attributes.get("fullname"); // Yahoo
+            if (values != null && values.size() > 0)
+                user.setFullName(values.get(0));
 
-         //Email
-         values = attributes.get("ax_email");
-         if(values != null && values.size() > 0)
-            user.setEmail(values.get(0));
-      }
-      return user;
-   }
+            // Email
+            values = attributes.get("ax_email");
+            if (values != null && values.size() > 0)
+                user.setEmail(values.get(0));
+        }
+        return user;
+    }
 
-   private UserRegistration processFacebookPrincipal(FacebookPrincipal facebookPrincipal)
-   {
-      UserRegistration user = new UserRegistration();
-      user.setEmail(facebookPrincipal.getEmail());
-      user.setFirstName(facebookPrincipal.getFirstName());
-      user.setLastName(facebookPrincipal.getLastName());
-      user.setIdentifier(facebookPrincipal.getId());
-      return user;
-   }
+    private UserRegistration processFacebookPrincipal(FacebookPrincipal facebookPrincipal) {
+        UserRegistration user = new UserRegistration();
+        user.setEmail(facebookPrincipal.getEmail());
+        user.setFirstName(facebookPrincipal.getFirstName());
+        user.setLastName(facebookPrincipal.getLastName());
+        user.setIdentifier(facebookPrincipal.getId());
+        return user;
+    }
 }

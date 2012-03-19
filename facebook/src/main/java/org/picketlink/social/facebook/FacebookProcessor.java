@@ -2,7 +2,7 @@
  * JBoss, Home of Professional Open Source.
  * Copyright 2011, Red Hat Middleware LLC, and individual contributors
  * as indicated by the @author tags. See the copyright.txt file in the
- * distribution for a full listing of individual contributors. 
+ * distribution for a full listing of individual contributors.
  *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as
@@ -50,286 +50,244 @@ import org.json.JSONObject;
 
 /**
  * Processor to perform Facebook interaction
+ *
  * @author Anil Saldhana
  * @since Sep 22, 2011
  */
-public class FacebookProcessor
-{ 
-   protected static Logger log = Logger.getLogger(FacebookProcessor.class);
-   protected boolean trace = log.isTraceEnabled();
+public class FacebookProcessor {
+    protected static Logger log = Logger.getLogger(FacebookProcessor.class);
+    protected boolean trace = log.isTraceEnabled();
 
-   protected  FacebookUtil util = new FacebookUtil(FacebookConstants.SERVICE_URL);
-   
-   public static ThreadLocal<Principal> cachedPrincipal = new ThreadLocal<Principal>();
-   
-   public static ThreadLocal<List<String>> cachedRoles = new ThreadLocal<List<String>>();
-   public static String EMPTY_PASSWORD = "EMPTY";
-   
-   protected List<String> roles = new ArrayList<String>();
-   
-   public enum STATES { AUTH, AUTHZ, FINISH};
-   
-   protected String clientID;
-   protected String clientSecret;
-   protected String scope;
-   private String returnURL;
-   
-   public FacebookProcessor(String clientID, String clientSecret, String scope, String returnURL, List<String> requiredRoles)
-   {
-      super();
-      this.clientID = clientID;
-      this.clientSecret = clientSecret;
-      this.scope = scope;
-      this.returnURL = returnURL;
-      this.roles.addAll(requiredRoles);
-   }
-   
-   public void setRoleString(String roleStr)
-   {
-      if(roleStr == null)
-         throw new RuntimeException("Role String is null in configuration");
-      StringTokenizer st = new StringTokenizer(roleStr, ",");
-      while(st.hasMoreElements())
-      {
-         roles.add(st.nextToken());
-      }
-   }
-   
-   public boolean initialInteraction(Request request, Response response) throws IOException
-   {  
-      HttpSession session = request.getSession();
-      Map<String, String> params = new HashMap<String, String>();
-      params.put(OAuthConstants.REDIRECT_URI_PARAMETER, returnURL);
-      params.put(OAuthConstants.CLIENT_ID_PARAMETER, clientID);
-      
-      if (scope != null)
-      {
-         params.put(OAuthConstants.SCOPE_PARAMETER, scope);
-      }
-      
-      String location = new StringBuilder(FacebookConstants.SERVICE_URL).append("?").append(
-            util.createQueryString(params)).toString();
-      try
-      { 
-         session.setAttribute("STATE", STATES.AUTH.name());
-         if(trace) log.trace("Redirect:"+location);
-         response.sendRedirect(location);
-         return false;
-      }
-      catch (IOException e)
-      {
-         throw new RuntimeException(e);
-      }
-   }
-   
-   public boolean handleAuthStage(HttpServletRequest request, HttpServletResponse response)
-   {
-      request.getSession().setAttribute("STATE",STATES.AUTHZ.name());
-      sendAuthorizeRequest(this.returnURL, response);
-      return false;
-   }
-   
-   protected void sendAuthorizeRequest(String returnUrl, HttpServletResponse response)
-   {  
-      String returnUri = returnUrl;
-      
-      Map<String, String> params = new HashMap<String, String>();
-      params.put(OAuthConstants.REDIRECT_URI_PARAMETER, returnUri);
-      params.put(OAuthConstants.CLIENT_ID_PARAMETER, clientID);
-      if (scope != null)
-      {
-         params.put(OAuthConstants.SCOPE_PARAMETER, scope);
-      }
-      String location = new StringBuilder(FacebookConstants.AUTHENTICATION_ENDPOINT_URL).append("?").append(
-            util.createQueryString(params)).toString();
-      try
-      {
-         response.sendRedirect(location);
-      }
-      catch (IOException e)
-      {
-         throw new RuntimeException(e);
-      }
-   }
-   
-   public Principal getPrincipal(Request request, Response response, Realm realm)
-   {
-      Principal principal = null;
-      Principal facebookPrincipal = handleAuthenticationResponse(request, response);
-      if(facebookPrincipal == null)
-    	  return null;
+    protected FacebookUtil util = new FacebookUtil(FacebookConstants.SERVICE_URL);
 
-      request.getSession().setAttribute("PRINCIPAL", facebookPrincipal);
-      cachedPrincipal.set(facebookPrincipal);
-      
-      if(isJBossEnv())
-      {
-         cachedRoles.set(roles);
-         principal = realm.authenticate(facebookPrincipal.getName(), EMPTY_PASSWORD); 
-      }
-      else
-      { 
-         //Create a Tomcat Generic Principal
-         principal = new GenericPrincipal(realm, facebookPrincipal.getName(), null, roles, facebookPrincipal);
-      }
-      return principal;
-   }
-   
-   protected Principal handleAuthenticationResponse(HttpServletRequest request, HttpServletResponse response)
-   {
-      String error = request.getParameter(OAuthConstants.ERROR_PARAMETER);
-      if (error != null)
-      {
-         throw new RuntimeException("error:" + error);
-      }
-      else
-      {
-         String returnUrl = returnURL;
-         String authorizationCode = request.getParameter(OAuthConstants.CODE_PARAMETER);
-         if (authorizationCode == null)
-         {
-            log.error("Authorization code parameter not found");
+    public static ThreadLocal<Principal> cachedPrincipal = new ThreadLocal<Principal>();
+
+    public static ThreadLocal<List<String>> cachedRoles = new ThreadLocal<List<String>>();
+    public static String EMPTY_PASSWORD = "EMPTY";
+
+    protected List<String> roles = new ArrayList<String>();
+
+    public enum STATES {
+        AUTH, AUTHZ, FINISH
+    };
+
+    protected String clientID;
+    protected String clientSecret;
+    protected String scope;
+    private String returnURL;
+
+    public FacebookProcessor(String clientID, String clientSecret, String scope, String returnURL, List<String> requiredRoles) {
+        super();
+        this.clientID = clientID;
+        this.clientSecret = clientSecret;
+        this.scope = scope;
+        this.returnURL = returnURL;
+        this.roles.addAll(requiredRoles);
+    }
+
+    public void setRoleString(String roleStr) {
+        if (roleStr == null)
+            throw new RuntimeException("Role String is null in configuration");
+        StringTokenizer st = new StringTokenizer(roleStr, ",");
+        while (st.hasMoreElements()) {
+            roles.add(st.nextToken());
+        }
+    }
+
+    public boolean initialInteraction(Request request, Response response) throws IOException {
+        HttpSession session = request.getSession();
+        Map<String, String> params = new HashMap<String, String>();
+        params.put(OAuthConstants.REDIRECT_URI_PARAMETER, returnURL);
+        params.put(OAuthConstants.CLIENT_ID_PARAMETER, clientID);
+
+        if (scope != null) {
+            params.put(OAuthConstants.SCOPE_PARAMETER, scope);
+        }
+
+        String location = new StringBuilder(FacebookConstants.SERVICE_URL).append("?").append(util.createQueryString(params))
+                .toString();
+        try {
+            session.setAttribute("STATE", STATES.AUTH.name());
+            if (trace)
+                log.trace("Redirect:" + location);
+            response.sendRedirect(location);
+            return false;
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public boolean handleAuthStage(HttpServletRequest request, HttpServletResponse response) {
+        request.getSession().setAttribute("STATE", STATES.AUTHZ.name());
+        sendAuthorizeRequest(this.returnURL, response);
+        return false;
+    }
+
+    protected void sendAuthorizeRequest(String returnUrl, HttpServletResponse response) {
+        String returnUri = returnUrl;
+
+        Map<String, String> params = new HashMap<String, String>();
+        params.put(OAuthConstants.REDIRECT_URI_PARAMETER, returnUri);
+        params.put(OAuthConstants.CLIENT_ID_PARAMETER, clientID);
+        if (scope != null) {
+            params.put(OAuthConstants.SCOPE_PARAMETER, scope);
+        }
+        String location = new StringBuilder(FacebookConstants.AUTHENTICATION_ENDPOINT_URL).append("?")
+                .append(util.createQueryString(params)).toString();
+        try {
+            response.sendRedirect(location);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public Principal getPrincipal(Request request, Response response, Realm realm) {
+        Principal principal = null;
+        Principal facebookPrincipal = handleAuthenticationResponse(request, response);
+        if (facebookPrincipal == null)
             return null;
-         }
 
-         URLConnection connection = sendAccessTokenRequest(returnUrl, authorizationCode, response);
+        request.getSession().setAttribute("PRINCIPAL", facebookPrincipal);
+        cachedPrincipal.set(facebookPrincipal);
 
-         Map<String, String> params = formUrlDecode(readUrlContent(connection));
-         String accessToken = params.get(OAuthConstants.ACCESS_TOKEN_PARAMETER);
-         String expires = params.get(FacebookConstants.EXPIRES);
-         
-         if(trace) log.trace("Access Token=" + accessToken + " :: Expires=" + expires);
-         
-         if (accessToken == null)
-         {
-            throw new RuntimeException("No access token found");
-         } 
-         
-         return readInIdentity(request, response, accessToken, returnUrl);
-      } 
-   }
-   
-   protected URLConnection sendAccessTokenRequest(String returnUrl, String authorizationCode, HttpServletResponse response)
-   { 
-      String returnUri = returnURL;
+        if (isJBossEnv()) {
+            cachedRoles.set(roles);
+            principal = realm.authenticate(facebookPrincipal.getName(), EMPTY_PASSWORD);
+        } else {
+            // Create a Tomcat Generic Principal
+            principal = new GenericPrincipal(realm, facebookPrincipal.getName(), null, roles, facebookPrincipal);
+        }
+        return principal;
+    }
 
-      Map<String, String> params = new HashMap<String, String>();
-      params.put(OAuthConstants.REDIRECT_URI_PARAMETER, returnUri);
-      params.put(OAuthConstants.CLIENT_ID_PARAMETER, clientID);
-      params.put(OAuthConstants.CLIENT_SECRET_PARAMETER, clientSecret);
-      params.put(OAuthConstants.CODE_PARAMETER, authorizationCode);
-      
-      String location = new StringBuilder(FacebookConstants.ACCESS_TOKEN_ENDPOINT_URL).append("?").append(
-            util.createQueryString(params)).toString();
-
-      try
-      {
-         if(trace) log.trace("AccessToken Request="+location);
-         URL url = new URL(location);
-         URLConnection connection = url.openConnection();
-         return connection;
-      }
-      catch (IOException e)
-      {
-         throw new RuntimeException(e);
-      }
-   }
-   
-   private boolean isJBossEnv()
-   {
-      Class<?> clazz = SecurityActions.loadClass(getClass(), "org.jboss.as.web.WebServer");
-      if(clazz == null)
-    	  clazz = SecurityActions.loadClass(getClass(), "org.jboss.system.Service");
-      if( clazz != null )
-         return true;
-      return false;
-   }
-   
-   private Principal readInIdentity(HttpServletRequest request, HttpServletResponse response, String accessToken, String returnUrl)
-   {
-      FacebookPrincipal facebookPrincipal = null;
-      try
-      {
-         String urlString = new StringBuilder(FacebookConstants.PROFILE_ENDPOINT_URL).append("?access_token=").append(
-               URLEncoder.encode(accessToken, "UTF-8")).toString();
-         if(trace) log.trace("Profile read:"+urlString);
-         
-         URL profileUrl = new URL(urlString);
-         String profileContent = readUrlContent(profileUrl.openConnection());
-         JSONObject jsonObject = new JSONObject(profileContent);
-
-         facebookPrincipal = new FacebookPrincipal();
-         facebookPrincipal.setAccessToken(accessToken);
-         facebookPrincipal.setId(jsonObject.getString("id"));
-         facebookPrincipal.setName(jsonObject.getString("name"));
-         facebookPrincipal.setFirstName(jsonObject.getString("first_name"));
-         facebookPrincipal.setLastName(jsonObject.getString("last_name"));
-         facebookPrincipal.setGender(jsonObject.getString("gender"));
-         facebookPrincipal.setTimezone(jsonObject.getString("timezone"));
-         facebookPrincipal.setLocale(jsonObject.getString("locale"));
-         if (jsonObject.getString("email") != null)
-         {
-            facebookPrincipal.setEmail(jsonObject.getString("email"));
-         }
-      }
-      catch (JSONException e)
-      {
-         throw new RuntimeException(e);
-      }
-      catch (IOException e)
-      {
-         throw new RuntimeException(e);
-      }
-      
-      return facebookPrincipal;
-   }
-   
-   private String readUrlContent(URLConnection connection)
-   {
-      StringBuilder result = new StringBuilder();
-      try
-      {
-         Reader reader = new InputStreamReader(connection.getInputStream());
-         char[] buffer = new char[50];
-         int nrOfChars;
-         while ((nrOfChars = reader.read(buffer)) != -1)
-         {
-            result.append(buffer, 0, nrOfChars);
-         }
-      }
-      catch (IOException e)
-      {
-         throw new RuntimeException(e);
-      }
-      return result.toString();
-   }
-   
-   private Map<String, String> formUrlDecode(String encodedData)
-   {
-      Map<String, String> params = new HashMap<String, String>();
-      String[] elements = encodedData.split("&");
-      for (String element : elements)
-      {
-         String[] pair = element.split("=");
-         if (pair.length == 2)
-         {
-            String paramName = pair[0];
-            String paramValue;
-            try
-            {
-               paramValue = URLDecoder.decode(pair[1], "UTF-8");
+    protected Principal handleAuthenticationResponse(HttpServletRequest request, HttpServletResponse response) {
+        String error = request.getParameter(OAuthConstants.ERROR_PARAMETER);
+        if (error != null) {
+            throw new RuntimeException("error:" + error);
+        } else {
+            String returnUrl = returnURL;
+            String authorizationCode = request.getParameter(OAuthConstants.CODE_PARAMETER);
+            if (authorizationCode == null) {
+                log.error("Authorization code parameter not found");
+                return null;
             }
-            catch (UnsupportedEncodingException e)
-            {
-               throw new RuntimeException(e);
+
+            URLConnection connection = sendAccessTokenRequest(returnUrl, authorizationCode, response);
+
+            Map<String, String> params = formUrlDecode(readUrlContent(connection));
+            String accessToken = params.get(OAuthConstants.ACCESS_TOKEN_PARAMETER);
+            String expires = params.get(FacebookConstants.EXPIRES);
+
+            if (trace)
+                log.trace("Access Token=" + accessToken + " :: Expires=" + expires);
+
+            if (accessToken == null) {
+                throw new RuntimeException("No access token found");
             }
-            params.put(paramName, paramValue);
-         }
-         else
-         {
-            throw new RuntimeException("Unexpected name-value pair in response: " + element);
-         }
-      }
-      return params;
-   }
+
+            return readInIdentity(request, response, accessToken, returnUrl);
+        }
+    }
+
+    protected URLConnection sendAccessTokenRequest(String returnUrl, String authorizationCode, HttpServletResponse response) {
+        String returnUri = returnURL;
+
+        Map<String, String> params = new HashMap<String, String>();
+        params.put(OAuthConstants.REDIRECT_URI_PARAMETER, returnUri);
+        params.put(OAuthConstants.CLIENT_ID_PARAMETER, clientID);
+        params.put(OAuthConstants.CLIENT_SECRET_PARAMETER, clientSecret);
+        params.put(OAuthConstants.CODE_PARAMETER, authorizationCode);
+
+        String location = new StringBuilder(FacebookConstants.ACCESS_TOKEN_ENDPOINT_URL).append("?")
+                .append(util.createQueryString(params)).toString();
+
+        try {
+            if (trace)
+                log.trace("AccessToken Request=" + location);
+            URL url = new URL(location);
+            URLConnection connection = url.openConnection();
+            return connection;
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private boolean isJBossEnv() {
+        Class<?> clazz = SecurityActions.loadClass(getClass(), "org.jboss.as.web.WebServer");
+        if (clazz == null)
+            clazz = SecurityActions.loadClass(getClass(), "org.jboss.system.Service");
+        if (clazz != null)
+            return true;
+        return false;
+    }
+
+    private Principal readInIdentity(HttpServletRequest request, HttpServletResponse response, String accessToken,
+            String returnUrl) {
+        FacebookPrincipal facebookPrincipal = null;
+        try {
+            String urlString = new StringBuilder(FacebookConstants.PROFILE_ENDPOINT_URL).append("?access_token=")
+                    .append(URLEncoder.encode(accessToken, "UTF-8")).toString();
+            if (trace)
+                log.trace("Profile read:" + urlString);
+
+            URL profileUrl = new URL(urlString);
+            String profileContent = readUrlContent(profileUrl.openConnection());
+            JSONObject jsonObject = new JSONObject(profileContent);
+
+            facebookPrincipal = new FacebookPrincipal();
+            facebookPrincipal.setAccessToken(accessToken);
+            facebookPrincipal.setId(jsonObject.getString("id"));
+            facebookPrincipal.setName(jsonObject.getString("name"));
+            facebookPrincipal.setFirstName(jsonObject.getString("first_name"));
+            facebookPrincipal.setLastName(jsonObject.getString("last_name"));
+            facebookPrincipal.setGender(jsonObject.getString("gender"));
+            facebookPrincipal.setTimezone(jsonObject.getString("timezone"));
+            facebookPrincipal.setLocale(jsonObject.getString("locale"));
+            if (jsonObject.getString("email") != null) {
+                facebookPrincipal.setEmail(jsonObject.getString("email"));
+            }
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        return facebookPrincipal;
+    }
+
+    private String readUrlContent(URLConnection connection) {
+        StringBuilder result = new StringBuilder();
+        try {
+            Reader reader = new InputStreamReader(connection.getInputStream());
+            char[] buffer = new char[50];
+            int nrOfChars;
+            while ((nrOfChars = reader.read(buffer)) != -1) {
+                result.append(buffer, 0, nrOfChars);
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return result.toString();
+    }
+
+    private Map<String, String> formUrlDecode(String encodedData) {
+        Map<String, String> params = new HashMap<String, String>();
+        String[] elements = encodedData.split("&");
+        for (String element : elements) {
+            String[] pair = element.split("=");
+            if (pair.length == 2) {
+                String paramName = pair[0];
+                String paramValue;
+                try {
+                    paramValue = URLDecoder.decode(pair[1], "UTF-8");
+                } catch (UnsupportedEncodingException e) {
+                    throw new RuntimeException(e);
+                }
+                params.put(paramName, paramValue);
+            } else {
+                throw new RuntimeException("Unexpected name-value pair in response: " + element);
+            }
+        }
+        return params;
+    }
 }

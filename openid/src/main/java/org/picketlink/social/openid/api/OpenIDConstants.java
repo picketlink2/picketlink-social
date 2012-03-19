@@ -2,7 +2,7 @@
  * JBoss, Home of Professional Open Source.
  * Copyright 2008, Red Hat Middleware LLC, and individual contributors
  * as indicated by the @author tags. See the copyright.txt file in the
- * distribution for a full listing of individual contributors. 
+ * distribution for a full listing of individual contributors.
  *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as
@@ -23,29 +23,23 @@ package org.picketlink.social.openid.api;
 
 /**
  * OpenID URL based Constants
+ *
  * @author Anil.Saldhana@redhat.com
  * @since Jul 7, 2009
  */
-public enum OpenIDConstants 
-{
-   EMAIL("http://schema.openid.net/contact/email"),
-   FULLNAME("http://schema.openid.net/contact/fullname"),
-   DOB("http://schema.openid.net/contact/dob"),
-   GENDER("http://schema.openid.net/contact/gender"),
-   POSTCODE("http://schema.openid.net/contact/postcode"),
-   COUNTRY("http://schema.openid.net/contact/country"),
-   LANGUAGE("http://schema.openid.net/contact/language"),
-   TIMEZONE("http://schema.openid.net/contact/timezone");
-   
-   private String constantURL;
-   
-   private OpenIDConstants(String url)
-   { 
-      this.constantURL = url;
-   }
+public enum OpenIDConstants {
+    EMAIL("http://schema.openid.net/contact/email"), FULLNAME("http://schema.openid.net/contact/fullname"), DOB(
+            "http://schema.openid.net/contact/dob"), GENDER("http://schema.openid.net/contact/gender"), POSTCODE(
+            "http://schema.openid.net/contact/postcode"), COUNTRY("http://schema.openid.net/contact/country"), LANGUAGE(
+            "http://schema.openid.net/contact/language"), TIMEZONE("http://schema.openid.net/contact/timezone");
 
-   public String url()
-   {
-      return this.constantURL;
-   }
+    private String constantURL;
+
+    private OpenIDConstants(String url) {
+        this.constantURL = url;
+    }
+
+    public String url() {
+        return this.constantURL;
+    }
 }

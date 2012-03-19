@@ -2,7 +2,7 @@
  * JBoss, Home of Professional Open Source.
  * Copyright 2011, Red Hat Middleware LLC, and individual contributors
  * as indicated by the @author tags. See the copyright.txt file in the
- * distribution for a full listing of individual contributors. 
+ * distribution for a full listing of individual contributors.
  *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as
@@ -34,37 +34,32 @@ import org.jboss.security.auth.spi.UsernamePasswordLoginModule;
 
 /**
  * A {@link LoginModule} for JBoss environment to support facebook authentication
+ *
  * @author Anil Saldhana
  * @since May 19, 2011
  */
-public class FacebookLoginModule extends UsernamePasswordLoginModule
-{ 
-   @Override
-   protected Principal getIdentity()
-   {
-      return FacebookProcessor.cachedPrincipal.get();
-   }
+public class FacebookLoginModule extends UsernamePasswordLoginModule {
+    @Override
+    protected Principal getIdentity() {
+        return FacebookProcessor.cachedPrincipal.get();
+    }
 
-   @Override
-   protected String getUsersPassword() throws LoginException
-   {
-      return FacebookProcessor.EMPTY_PASSWORD;
-   }
+    @Override
+    protected String getUsersPassword() throws LoginException {
+        return FacebookProcessor.EMPTY_PASSWORD;
+    }
 
-   @Override
-   protected Group[] getRoleSets() throws LoginException
-   {   
-      Group group = new SimpleGroup("Roles"); 
+    @Override
+    protected Group[] getRoleSets() throws LoginException {
+        Group group = new SimpleGroup("Roles");
 
-      List<String> roles = FacebookProcessor.cachedRoles.get();
+        List<String> roles = FacebookProcessor.cachedRoles.get();
 
-      if(roles != null)
-      {
-         for(String role: roles)
-         {
-            group.addMember(new SimplePrincipal(role));
-         }
-      }
-      return new Group[] {group};
-   }
+        if (roles != null) {
+            for (String role : roles) {
+                group.addMember(new SimplePrincipal(role));
+            }
+        }
+        return new Group[] { group };
+    }
 }

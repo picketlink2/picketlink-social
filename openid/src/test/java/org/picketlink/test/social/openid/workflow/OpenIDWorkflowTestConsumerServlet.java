@@ -2,7 +2,7 @@
  * JBoss, Home of Professional Open Source.
  * Copyright 2008, Red Hat Middleware LLC, and individual contributors
  * as indicated by the @author tags. See the copyright.txt file in the
- * distribution for a full listing of individual contributors. 
+ * distribution for a full listing of individual contributors.
  *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as
@@ -31,48 +31,42 @@ import javax.servlet.http.HttpServletResponse;
 import org.picketlink.social.openid.api.OpenIDManager;
 import org.picketlink.social.openid.web.HTTPOpenIDContext;
 import org.picketlink.social.openid.web.HTTPProtocolAdaptor;
- 
 
 /**
  * Test Consumer Servlet
+ *
  * @author Anil.Saldhana@redhat.com
  * @since Jan 19, 2011
  */
-public class OpenIDWorkflowTestConsumerServlet extends HttpServlet
-{ 
-   private static final long serialVersionUID = 1L;
-   
-   private OpenIDManager manager = null;
-   
-   public OpenIDWorkflowTestConsumerServlet( OpenIDManager mgr )
-   {
-      this.manager = mgr;
-   }
+public class OpenIDWorkflowTestConsumerServlet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
 
-   @SuppressWarnings("unchecked")
-   @Override
-   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-   { 
-      log( "Provider response:" + request.getQueryString() );
-      log( "UserID Chosen=" + request.getParameter( "openid.identity" )); 
-      
-      // extract the receiving URL from the HTTP request
-      StringBuffer receivingURL = request.getRequestURL();
-      String queryString = request.getQueryString();
-      if (queryString != null && queryString.length() > 0)
-          receivingURL.append("?").append(request.getQueryString());
+    private OpenIDManager manager = null;
 
-      HTTPProtocolAdaptor adapter = new HTTPProtocolAdaptor(new HTTPOpenIDContext( request,response, getServletContext() ));
-      try
-      { 
-         boolean auth = manager.verify(adapter, request.getParameterMap(), receivingURL.toString() );
-         if( !auth )
-            throw new ServletException( "OpenID information from provider not successfully verified" );
-      }
-      catch ( Exception e)
-      { 
-         e.printStackTrace();
-         throw new IOException();
-      } 
-   } 
+    public OpenIDWorkflowTestConsumerServlet(OpenIDManager mgr) {
+        this.manager = mgr;
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        log("Provider response:" + request.getQueryString());
+        log("UserID Chosen=" + request.getParameter("openid.identity"));
+
+        // extract the receiving URL from the HTTP request
+        StringBuffer receivingURL = request.getRequestURL();
+        String queryString = request.getQueryString();
+        if (queryString != null && queryString.length() > 0)
+            receivingURL.append("?").append(request.getQueryString());
+
+        HTTPProtocolAdaptor adapter = new HTTPProtocolAdaptor(new HTTPOpenIDContext(request, response, getServletContext()));
+        try {
+            boolean auth = manager.verify(adapter, request.getParameterMap(), receivingURL.toString());
+            if (!auth)
+                throw new ServletException("OpenID information from provider not successfully verified");
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new IOException();
+        }
+    }
 }

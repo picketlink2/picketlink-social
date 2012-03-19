@@ -2,7 +2,7 @@
  * JBoss, Home of Professional Open Source.
  * Copyright 2008, Red Hat Middleware LLC, and individual contributors
  * as indicated by the @author tags. See the copyright.txt file in the
- * distribution for a full listing of individual contributors. 
+ * distribution for a full listing of individual contributors.
  *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as
@@ -29,53 +29,48 @@ import org.mortbay.jetty.bio.SocketConnector;
 
 /**
  * Base class for embedded web server based tests
+ *
  * @author Anil.Saldhana@redhat.com
  * @since Jul 8, 2009
  */
-public abstract class EmbeddedWebServerBase extends TestCase
-{
-   protected Server server = null;
-   
-   public void setUp() throws Exception
-   {
-      super.setUp(); 
-      
-      //Start the Jetty embedded container
-      server = new Server();
-      
-      server.setConnectors(getConnectors());
-      
-      this.establishUserApps(); 
+public abstract class EmbeddedWebServerBase extends TestCase {
+    protected Server server = null;
 
-      server.start();        
-   } 
-   
-   public void tearDown() throws Exception
-   {
-      if(server != null)
-      {
-         server.stop();
-         server.destroy();
-         server = null;
-      } 
-      super.tearDown();
-   }
-   
-   /**
-    * Return the connectors that need to be configured
-    * on the server. Subclasses can create as many connectors
-    * as they want
-    * @return
-    */
-   protected Connector[] getConnectors()
-   {
-      Connector connector=new SocketConnector();
-      connector.setPort(11080);
-      return new Connector[]{connector}; 
-   }
-   
-   /**
-    * Establish the user applications - context, servlets etc
-    */
-   protected abstract void establishUserApps(); 
+    public void setUp() throws Exception {
+        super.setUp();
+
+        // Start the Jetty embedded container
+        server = new Server();
+
+        server.setConnectors(getConnectors());
+
+        this.establishUserApps();
+
+        server.start();
+    }
+
+    public void tearDown() throws Exception {
+        if (server != null) {
+            server.stop();
+            server.destroy();
+            server = null;
+        }
+        super.tearDown();
+    }
+
+    /**
+     * Return the connectors that need to be configured on the server. Subclasses can create as many connectors as they want
+     *
+     * @return
+     */
+    protected Connector[] getConnectors() {
+        Connector connector = new SocketConnector();
+        connector.setPort(11080);
+        return new Connector[] { connector };
+    }
+
+    /**
+     * Establish the user applications - context, servlets etc
+     */
+    protected abstract void establishUserApps();
 }

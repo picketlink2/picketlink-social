@@ -2,7 +2,7 @@
  * JBoss, Home of Professional Open Source.
  * Copyright 2008, Red Hat Middleware LLC, and individual contributors
  * as indicated by the @author tags. See the copyright.txt file in the
- * distribution for a full listing of individual contributors. 
+ * distribution for a full listing of individual contributors.
  *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as
@@ -32,50 +32,41 @@ import org.picketlink.identity.federation.core.sts.registry.SecurityTokenRegistr
 
 /**
  * A {@code SecurityTokenRegistry} for OpenID that uses in memory registry
+ *
  * @author Anil.Saldhana@redhat.com
  * @since Jan 20, 2011
  */
-public class OpenIDTokenRegistryStore extends DefaultTokenRegistry implements ServerAssociationStore, SecurityTokenRegistry
-{
-   protected InMemoryServerAssociationStore store = new InMemoryServerAssociationStore();
-   
-   /**
-    * @see org.openid4java.server.ServerAssociationStore#generate(java.lang.String, int)
-    */
-   public Association generate(String type, int expiryIn) throws AssociationException
-   { 
-      Association association = store.generate(type, expiryIn);
-      try
-      {
-         addToken( association.getHandle(), association );
-      }
-      catch (IOException e)
-      {
-         throw new AssociationException( e );
-      }
-      return association;
-   }
+public class OpenIDTokenRegistryStore extends DefaultTokenRegistry implements ServerAssociationStore, SecurityTokenRegistry {
+    protected InMemoryServerAssociationStore store = new InMemoryServerAssociationStore();
 
-   /**
-    * @see org.openid4java.server.ServerAssociationStore#load(java.lang.String)
-    */
-   public Association load(String handle)
-   { 
-      return (Association) getToken( handle );
-   }
+    /**
+     * @see org.openid4java.server.ServerAssociationStore#generate(java.lang.String, int)
+     */
+    public Association generate(String type, int expiryIn) throws AssociationException {
+        Association association = store.generate(type, expiryIn);
+        try {
+            addToken(association.getHandle(), association);
+        } catch (IOException e) {
+            throw new AssociationException(e);
+        }
+        return association;
+    }
 
-   /**
-    * @see org.openid4java.server.ServerAssociationStore#remove(java.lang.String)
-    */
-   public void remove(String handle)
-   {  
-      try
-      {
-         removeToken( handle );
-      }
-      catch (IOException e)
-      { 
-         throw new RuntimeException( e );
-      }
-   }
+    /**
+     * @see org.openid4java.server.ServerAssociationStore#load(java.lang.String)
+     */
+    public Association load(String handle) {
+        return (Association) getToken(handle);
+    }
+
+    /**
+     * @see org.openid4java.server.ServerAssociationStore#remove(java.lang.String)
+     */
+    public void remove(String handle) {
+        try {
+            removeToken(handle);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

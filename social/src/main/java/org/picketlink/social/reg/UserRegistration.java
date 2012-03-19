@@ -2,7 +2,7 @@
  * JBoss, Home of Professional Open Source.
  * Copyright 2011, Red Hat Middleware LLC, and individual contributors
  * as indicated by the @author tags. See the copyright.txt file in the
- * distribution for a full listing of individual contributors. 
+ * distribution for a full listing of individual contributors.
  *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as
@@ -23,68 +23,58 @@ package org.picketlink.social.reg;
 
 /**
  * Represents a user with details from 3rd party provider
+ *
  * @author Anil Saldhana
  * @since Sep 22, 2011
  */
-public class UserRegistration
-{
-   private String identifier;
-   
-   private String firstName;
-   
-   private String lastName;
-   
-   private String fullName;
-   
-   private String email;
+public class UserRegistration {
+    private String identifier;
 
-   public String getIdentifier()
-   {
-      return identifier;
-   }
+    private String firstName;
 
-   public void setIdentifier(String identifier)
-   {
-      this.identifier = identifier;
-   }
+    private String lastName;
 
-   public String getFirstName()
-   {
-      return firstName;
-   }
+    private String fullName;
 
-   public void setFirstName(String firstName)
-   {
-      this.firstName = firstName;
-   }
+    private String email;
 
-   public String getLastName()
-   {
-      return lastName;
-   }
+    public String getIdentifier() {
+        return identifier;
+    }
 
-   public void setLastName(String lastName)
-   {
-      this.lastName = lastName;
-   }
+    public void setIdentifier(String identifier) {
+        this.identifier = identifier;
+    }
 
-   public String getFullName()
-   {
-      return fullName;
-   }
+    public String getFirstName() {
+        return firstName;
+    }
 
-   public void setFullName(String fullName)
-   {
-      this.fullName = fullName;
-   }
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
-   public String getEmail()
-   {
-      return email;
-   }
+    public String getLastName() {
+        return lastName;
+    }
 
-   public void setEmail(String email)
-   {
-      this.email = email;
-   }
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }

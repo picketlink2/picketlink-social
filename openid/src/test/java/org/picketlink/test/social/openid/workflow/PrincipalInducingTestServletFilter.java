@@ -2,7 +2,7 @@
  * JBoss, Home of Professional Open Source.
  * Copyright 2008, Red Hat Middleware LLC, and individual contributors
  * as indicated by the @author tags. See the copyright.txt file in the
- * distribution for a full listing of individual contributors. 
+ * distribution for a full listing of individual contributors.
  *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as
@@ -35,32 +35,28 @@ import org.mortbay.jetty.Request;
 
 /**
  * A servlet filter for testing that adds a principal with name "anil"
+ *
  * @author Anil.Saldhana@redhat.com
  * @since Jan 19, 2011
  */
-public class PrincipalInducingTestServletFilter implements Filter
-{  
-   public void init(FilterConfig filterConfig) throws ServletException
-   { 
-   }
+public class PrincipalInducingTestServletFilter implements Filter {
+    public void init(FilterConfig filterConfig) throws ServletException {
+    }
 
-   public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException,
-         ServletException
-   { 
-      Request jettyRequest = (Request) request;
-      if( jettyRequest.getUserPrincipal() == null )
-      {
-         jettyRequest.setUserPrincipal( new Principal() {
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException,
+            ServletException {
+        Request jettyRequest = (Request) request;
+        if (jettyRequest.getUserPrincipal() == null) {
+            jettyRequest.setUserPrincipal(new Principal() {
 
-            public String getName()
-            { 
-               return "http://localhost:11080/";
-            }} );
-      }
-      chain.doFilter(request, response); 
-   }
+                public String getName() {
+                    return "http://localhost:11080/";
+                }
+            });
+        }
+        chain.doFilter(request, response);
+    }
 
-   public void destroy()
-   {
-   } 
+    public void destroy() {
+    }
 }

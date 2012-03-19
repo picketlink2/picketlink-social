@@ -2,7 +2,7 @@
  * JBoss, Home of Professional Open Source.
  * Copyright 2008, Red Hat Middleware LLC, and individual contributors
  * as indicated by the @author tags. See the copyright.txt file in the
- * distribution for a full listing of individual contributors. 
+ * distribution for a full listing of individual contributors.
  *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as
@@ -39,63 +39,53 @@ import org.picketlink.social.openid.api.exceptions.OpenIDGeneralException;
 import org.picketlink.social.openid.web.HTTPOpenIDContext;
 import org.picketlink.social.openid.web.HTTPProtocolAdaptor;
 
-
 /**
- * OpenID Consumer Servlet that gets a post
- * request from the main JSP page of the consumer
- * web application.
+ * OpenID Consumer Servlet that gets a post request from the main JSP page of the consumer web application.
+ *
  * @author Anil.Saldhana@redhat.com
  * @since Jul 10, 2009
  */
-public class OpenIDConsumerServlet extends HttpServlet
-{
-   private static final long serialVersionUID = 1L; 
- 
-   private transient ServletContext servletContext;
-   private String returnURL;
+public class OpenIDConsumerServlet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
 
-   @Override
-   public void init(ServletConfig config) throws ServletException
-   {
-      super.init(config);
-      this.servletContext = config.getServletContext(); 
-      returnURL = this.servletContext.getInitParameter("returnURL"); 
-   }
-   
-   @Override
-   protected void doPost(HttpServletRequest req, HttpServletResponse resp) 
-   throws ServletException, IOException
-   {
-      if(returnURL == null)
-         returnURL = "http://" + req.getServerName() + ":" + req.getServerPort() +
-                 req.getContextPath() + "/consumer_return.jsp";
-      
-      String userEntry = req.getParameter("openid");
-      OpenIDRequest openIDReq = new OpenIDRequest(userEntry);
-      
-      HttpSession session = req.getSession();
-      OpenIDManager manager = (OpenIDManager) session.getAttribute("openid_manager");
-      if(manager == null)
-      {
-         manager = new OpenIDManager(openIDReq);
-         session.setAttribute("openid_manager", manager); 
-      }
-      manager.setUserString( userEntry );
-      
-      try
-      {
-         OpenIDProviderList listOfProviders = manager.discoverProviders();
-         HTTPOpenIDContext httpOpenIDCtx = new HTTPOpenIDContext(req,resp, this.servletContext);
-         httpOpenIDCtx.setReturnURL(returnURL);
-         
-         HTTPProtocolAdaptor adapter = new HTTPProtocolAdaptor(httpOpenIDCtx);
-         OpenIDProviderInformation providerInfo = manager.associate(adapter, listOfProviders);
-         manager.authenticate(adapter, providerInfo);
-      }
-      catch (OpenIDGeneralException e)
-      {
-         log("[OpenIDConsumerServlet]Exception in dealing with the provider:",e);
-         resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-      } 
-   }
+    private transient ServletContext servletContext;
+    private String returnURL;
+
+    @Override
+    public void init(ServletConfig config) throws ServletException {
+        super.init(config);
+        this.servletContext = config.getServletContext();
+        returnURL = this.servletContext.getInitParameter("returnURL");
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        if (returnURL == null)
+            returnURL = "http://" + req.getServerName() + ":" + req.getServerPort() + req.getContextPath()
+                    + "/consumer_return.jsp";
+
+        String userEntry = req.getParameter("openid");
+        OpenIDRequest openIDReq = new OpenIDRequest(userEntry);
+
+        HttpSession session = req.getSession();
+        OpenIDManager manager = (OpenIDManager) session.getAttribute("openid_manager");
+        if (manager == null) {
+            manager = new OpenIDManager(openIDReq);
+            session.setAttribute("openid_manager", manager);
+        }
+        manager.setUserString(userEntry);
+
+        try {
+            OpenIDProviderList listOfProviders = manager.discoverProviders();
+            HTTPOpenIDContext httpOpenIDCtx = new HTTPOpenIDContext(req, resp, this.servletContext);
+            httpOpenIDCtx.setReturnURL(returnURL);
+
+            HTTPProtocolAdaptor adapter = new HTTPProtocolAdaptor(httpOpenIDCtx);
+            OpenIDProviderInformation providerInfo = manager.associate(adapter, listOfProviders);
+            manager.authenticate(adapter, providerInfo);
+        } catch (OpenIDGeneralException e) {
+            log("[OpenIDConsumerServlet]Exception in dealing with the provider:", e);
+            resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+        }
+    }
 }

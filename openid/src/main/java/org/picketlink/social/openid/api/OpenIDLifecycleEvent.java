@@ -2,7 +2,7 @@
  * JBoss, Home of Professional Open Source.
  * Copyright 2008, Red Hat Middleware LLC, and individual contributors
  * as indicated by the @author tags. See the copyright.txt file in the
- * distribution for a full listing of individual contributors. 
+ * distribution for a full listing of individual contributors.
  *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as
@@ -23,80 +23,73 @@ package org.picketlink.social.openid.api;
 
 /**
  * Events in the lifecycle
+ *
  * @author Anil.Saldhana@redhat.com
  * @since Jul 10, 2009
  */
-public class OpenIDLifecycleEvent
-{
-   public enum TYPE
-   {
-      SUCCESS("lifecycle"),
-      SESSION("session");
-      private String type;
+public class OpenIDLifecycleEvent {
+    public enum TYPE {
+        SUCCESS("lifecycle"), SESSION("session");
+        private String type;
 
-      TYPE(String type)
-      {
-        this.type = type;  
-      }
-      
-      public String type()
-      {
-         return type;
-      }
-   }
-   
-   public enum OP
-   {
-      ADD,REMOVE;
-   }
-   
-   private TYPE eventType;
-   private OP operation;
-   private String attributeName;
-   private Object attributeValue;
-   
-   public OpenIDLifecycleEvent(TYPE type, OP operation, String attr, Object val)
-   {
-      this.eventType = type;
-      this.operation = operation;
-      this.attributeName = attr;
-      this.attributeValue = val;
-   }
-   
-   /**
-    * Get the type of the event (session, lifecycle etc)
-    * @return
-    */
-   public TYPE getEventType()
-   {
-      return eventType;
-   }
-   
-   /**
-    * Get the operation we are dealing with (add,remove)
-    * @return
-    */
-   public OP getOperation()
-   {
-      return this.operation;
-   }
+        TYPE(String type) {
+            this.type = type;
+        }
 
-   /**
-    * Return the attribute name that needs
-    * to be dealt at the session level
-    * @return
-    */
-   public String getAttributeName()
-   {
-      return attributeName;
-   }
+        public String type() {
+            return type;
+        }
+    }
 
-   /**
-    * Get the attribute value
-    * @return
-    */
-   public Object getAttributeValue()
-   {
-      return attributeValue;
-   }
+    public enum OP {
+        ADD, REMOVE;
+    }
+
+    private TYPE eventType;
+    private OP operation;
+    private String attributeName;
+    private Object attributeValue;
+
+    public OpenIDLifecycleEvent(TYPE type, OP operation, String attr, Object val) {
+        this.eventType = type;
+        this.operation = operation;
+        this.attributeName = attr;
+        this.attributeValue = val;
+    }
+
+    /**
+     * Get the type of the event (session, lifecycle etc)
+     *
+     * @return
+     */
+    public TYPE getEventType() {
+        return eventType;
+    }
+
+    /**
+     * Get the operation we are dealing with (add,remove)
+     *
+     * @return
+     */
+    public OP getOperation() {
+        return this.operation;
+    }
+
+    /**
+     * Return the attribute name that needs to be dealt at the session level
+     *
+     * @return
+     */
+    public String getAttributeName() {
+        return attributeName;
+    }
+
+    /**
+     * Get the attribute value
+     *
+     * @return
+     */
+    public Object getAttributeValue() {
+        return attributeValue;
+    }
 }

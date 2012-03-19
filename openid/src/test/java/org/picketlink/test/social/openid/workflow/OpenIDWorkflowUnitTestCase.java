@@ -2,7 +2,7 @@
  * JBoss, Home of Professional Open Source.
  * Copyright 2008, Red Hat Middleware LLC, and individual contributors
  * as indicated by the @author tags. See the copyright.txt file in the
- * distribution for a full listing of individual contributors. 
+ * distribution for a full listing of individual contributors.
  *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License as
@@ -27,7 +27,7 @@ import java.util.Map;
 
 import org.mortbay.jetty.servlet.Context;
 import org.mortbay.jetty.servlet.ServletHolder;
-import org.mortbay.jetty.webapp.WebAppContext; 
+import org.mortbay.jetty.webapp.WebAppContext;
 import org.picketlink.social.openid.api.OpenIDManager;
 import org.picketlink.social.openid.api.OpenIDManager.OpenIDProviderInformation;
 import org.picketlink.social.openid.api.OpenIDManager.OpenIDProviderList;
@@ -36,55 +36,52 @@ import org.picketlink.social.openid.servlets.OpenIDProviderServlet;
 import org.picketlink.test.social.openid.EmbeddedWebServerBase;
 import org.picketlink.test.social.openid.InMemoryProtocolAdapter;
 
-
 /**
  * Test the workflow of an OpenID Consumer with a provider
+ *
  * @author Anil.Saldhana@redhat.com
  * @since Jan 18, 2011
  */
-public class OpenIDWorkflowUnitTestCase extends EmbeddedWebServerBase
-{ 
-   private String username = "http://localhost:11080";
-   private OpenIDRequest openIDRequest = new OpenIDRequest( username ); 
-   private OpenIDManager manager = new OpenIDManager( openIDRequest ); 
-   
-   @SuppressWarnings({"unchecked", "rawtypes"})
-   protected void establishUserApps()
-   {
-      ClassLoader tcl = Thread.currentThread().getContextClassLoader();
-      
-      final String WEBAPPDIR = "openid/webapp"; 
+public class OpenIDWorkflowUnitTestCase extends EmbeddedWebServerBase {
+    private String username = "http://localhost:11080";
+    private OpenIDRequest openIDRequest = new OpenIDRequest(username);
+    private OpenIDManager manager = new OpenIDManager(openIDRequest);
 
-      final String CONTEXTPATH = "/";
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+    protected void establishUserApps() {
+        ClassLoader tcl = Thread.currentThread().getContextClassLoader();
 
-      // for localhost:port/admin/index.html and whatever else is in the webapp directory
-      final URL warUrl = tcl.getResource(WEBAPPDIR);
-      final String warUrlString = warUrl.toExternalForm();
-      
-      Context context = new WebAppContext( warUrlString, CONTEXTPATH );
-      server.setHandler( context );
-      
-      Map initParams = new HashMap();
-      initParams.put("configFile", "/test-sts.xml");
-      context.setInitParams(initParams);
-      
-      Thread.currentThread().setContextClassLoader(context.getClassLoader());
- 
-      context.addServlet(new ServletHolder(new OpenIDProviderServlet()), "/provider/");
-      
-      context.addServlet( new ServletHolder( new OpenIDWorkflowTestConsumerServlet( manager)), "/consumer" );
-      
-      context.addFilter(PrincipalInducingTestServletFilter.class, "/securepage.jsp",  1 );
-   }
+        final String WEBAPPDIR = "openid/webapp";
 
-   public void testOpenIDAuth() throws Exception
-   {   
-      InMemoryProtocolAdapter ad = new InMemoryProtocolAdapter(); 
-      OpenIDProviderList providers = manager.discoverProviders();
-      assertNotNull("List of providers is not null", providers);
+        final String CONTEXTPATH = "/";
 
-      OpenIDProviderInformation providerInfo = manager.associate( ad,providers );
-      boolean isValid = manager.authenticate( ad, providerInfo );
-      assertTrue( "Authentication is valid" , isValid );
-   } 
+        // for localhost:port/admin/index.html and whatever else is in the webapp directory
+        final URL warUrl = tcl.getResource(WEBAPPDIR);
+        final String warUrlString = warUrl.toExternalForm();
+
+        Context context = new WebAppContext(warUrlString, CONTEXTPATH);
+        server.setHandler(context);
+
+        Map initParams = new HashMap();
+        initParams.put("configFile", "/test-sts.xml");
+        context.setInitParams(initParams);
+
+        Thread.currentThread().setContextClassLoader(context.getClassLoader());
+
+        context.addServlet(new ServletHolder(new OpenIDProviderServlet()), "/provider/");
+
+        context.addServlet(new ServletHolder(new OpenIDWorkflowTestConsumerServlet(manager)), "/consumer");
+
+        context.addFilter(PrincipalInducingTestServletFilter.class, "/securepage.jsp", 1);
+    }
+
+    public void testOpenIDAuth() throws Exception {
+        InMemoryProtocolAdapter ad = new InMemoryProtocolAdapter();
+        OpenIDProviderList providers = manager.discoverProviders();
+        assertNotNull("List of providers is not null", providers);
+
+        OpenIDProviderInformation providerInfo = manager.associate(ad, providers);
+        boolean isValid = manager.authenticate(ad, providerInfo);
+        assertTrue("Authentication is valid", isValid);
+    }
 }
