@@ -234,15 +234,9 @@ public class FacebookProcessor
    
    private boolean isJBossEnv()
    {
-      ClassLoader tcl = SecurityActions.getContextClassLoader();
-      Class<?> clazz = null;
-      try
-      {
-         clazz = tcl.loadClass("org.jboss.system.Service");
-      }
-      catch (ClassNotFoundException e)
-      { 
-      }
+      Class<?> clazz = SecurityActions.loadClass(getClass(), "org.jboss.as.web.WebServer");
+      if(clazz == null)
+    	  clazz = SecurityActions.loadClass(getClass(), "org.jboss.system.Service");
       if( clazz != null )
          return true;
       return false;

@@ -117,5 +117,34 @@ class SecurityActions
          }
       });
    }
+   
+   /**
+    * Using the caller class, try to load a class using its classloader. If unsuccessful, use the TCCL
+    * @param theAskingClass
+    * @param fqn
+    * @return
+    */
+   static Class<?> loadClass(final Class<?> theAskingClass, final String fqn)
+   {
+	   return AccessController.doPrivileged(new PrivilegedAction<Class<?>>()
+	   {
+	         public Class<?> run()
+	         {
+	            try
+	            {
+	            	ClassLoader tcl = theAskingClass.getClassLoader();
+	            	return tcl.loadClass(fqn);
+	            }
+	            catch (Exception e)
+	            {
+	               try {
+					return Thread.currentThread().getContextClassLoader().loadClass(fqn);
+				} catch (ClassNotFoundException e1) {
+					return null;
+				}
+	            }
+	         }
+	   }); 
+   }
 
 }
