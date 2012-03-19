@@ -213,7 +213,14 @@ public class ExternalAuthenticator extends FormAuthenticator
       if(trace) log.trace("state="+ state);
       
       if( STATES.FINISH.name().equals(state))
-         return true;
+      {
+    	  Principal principal = request.getPrincipal();
+    	  if(principal == null)
+    	  {
+    		  principal = facebookProcessor.getPrincipal(request, response, context.getRealm());
+    	  }
+          return dealWithFacebookPrincipal(request, response, principal);
+      }
       
       if( state == null || state.isEmpty())
       { 
@@ -237,21 +244,7 @@ public class ExternalAuthenticator extends FormAuthenticator
          if(principal == null)
             throw new RuntimeException("Principal was null. Maybe login modules need to be configured properly. Or user chose no data");
          
-         String userName = principal.getName();
-         
-         request.getSessionInternal().setNote(Constants.SESS_USERNAME_NOTE, userName);
-         request.getSessionInternal().setNote(Constants.SESS_PASSWORD_NOTE, "");
-         request.setUserPrincipal(principal);
-
-         if (saveRestoreRequest)
-         {
-            this.restoreRequest(request, request.getSessionInternal());
-         }
-         registerWithAuthenticatorBase(request,response,principal,userName);
-         
-         request.getSession().setAttribute("STATE", STATES.FINISH.name());
-
-         return true;
+         return dealWithFacebookPrincipal(request, response, principal);
       }
       return false;
    }
@@ -352,5 +345,24 @@ public class ExternalAuthenticator extends FormAuthenticator
             }
          }
       }
+   }
+   
+   private boolean dealWithFacebookPrincipal(Request request, Response response, Principal principal) throws IOException
+   {
+	   String userName = principal.getName();
+       
+       request.getSessionInternal().setNote(Constants.SESS_USERNAME_NOTE, userName);
+       request.getSessionInternal().setNote(Constants.SESS_PASSWORD_NOTE, "");
+       request.setUserPrincipal(principal);
+
+       if (saveRestoreRequest)
+       {
+          this.restoreRequest(request, request.getSessionInternal());
+       }
+       registerWithAuthenticatorBase(request,response,principal,userName);
+       
+       request.getSession().setAttribute("STATE", STATES.FINISH.name());
+
+       return true;
    }
 }
