@@ -40,7 +40,6 @@ import org.apache.catalina.deploy.LoginConfig;
 import org.apache.log4j.Logger;
 import org.picketlink.identity.federation.core.util.StringUtil;
 import org.picketlink.social.facebook.FacebookProcessor;
-import org.picketlink.social.openid.auth.OpenIDConsumerAuthenticator;
 import org.picketlink.social.openid.auth.OpenIDProcessor;
 
 /**
@@ -50,7 +49,7 @@ import org.picketlink.social.openid.auth.OpenIDProcessor;
  * @since Sep 22, 2011
  */
 public class ExternalAuthenticator extends FormAuthenticator {
-    protected static Logger log = Logger.getLogger(OpenIDConsumerAuthenticator.class);
+    protected static Logger log = Logger.getLogger(ExternalAuthenticator.class);
     protected boolean trace = log.isTraceEnabled();
 
     private enum AUTH_PROVIDERS {
