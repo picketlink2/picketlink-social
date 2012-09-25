@@ -18,6 +18,7 @@
      <module>openid</module>
      <module>facebook</module>
      <module>social</module>
+     <module>standalone</module>
      <module>assembly</module>
      <module>webapps</module>
    </modules>

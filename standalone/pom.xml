@@ -6,11 +6,11 @@
       <relativePath>../parent</relativePath>
    </parent>
    <modelVersion>4.0.0</modelVersion>
-   <artifactId>picketlink-openid</artifactId>
+   <artifactId>picketlink-social-standalone</artifactId>
    <packaging>jar</packaging>
-   <name>PicketLink Social - OpenID Adaptor</name>
+   <name>PicketLink Social</name>
    <url>http://labs.jboss.org/portal/picketlink/</url>
-   <description>PicketLink Social - OpenID Adaptor</description>
+   <description>PicketLink Social</description>
    <licenses>
       <license>
          <name>lgpl</name>
@@ -79,15 +79,22 @@
 
    <dependencies>
       <dependency>
+         <groupId>org.json</groupId>
+         <artifactId>json</artifactId>
+         <version>20090211</version>
+      </dependency>
+     <!--
+      <dependency>
          <groupId>org.picketlink</groupId>
-         <artifactId>picketlink-fed-model</artifactId>
-         <version>2.0.1.final</version>
+         <artifactId>picketlink-facebook</artifactId>
+         <version>${project.version}</version>
       </dependency>
       <dependency>
          <groupId>org.picketlink</groupId>
-         <artifactId>picketlink-web</artifactId>
-         <version>2.0.1.final</version>
+         <artifactId>picketlink-openid</artifactId>
+         <version>${project.version}</version>
       </dependency>
+      -->
       <dependency>
          <groupId>org.openid4java</groupId>
          <artifactId>openid4java-nodeps</artifactId>
@@ -106,20 +113,7 @@
       <dependency>
          <groupId>org.mortbay.jetty</groupId>
          <artifactId>jetty</artifactId>
-         <version>6.1.18</version>
          <scope>test</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.tomcat</groupId>
-          <artifactId>jasper</artifactId>
-          <version>6.0.29</version>
-         <scope>test</scope>
-      </dependency>
-      <dependency>
-         <groupId>org.apache.tomcat</groupId>
-         <artifactId>catalina</artifactId>
-         <version>6.0.18</version>
-         <optional>true</optional>
       </dependency>
       <dependency>
          <groupId>apache-log4j</groupId>
@@ -140,9 +134,9 @@
          <scope>test</scope>
       </dependency>
       <dependency>
-         <groupId>org.apache.httpcomponents</groupId>
-         <artifactId>httpclient</artifactId>
-         <version>4.1.2</version>
+         <groupId>commons-httpclient</groupId>
+         <artifactId>commons-httpclient</artifactId>
+         <version>3.1</version>
          <scope>test</scope>
       </dependency>
       <dependency>
@@ -154,7 +148,6 @@
       <dependency>
          <groupId>junit</groupId>
          <artifactId>junit</artifactId>
-         <version>4.4</version>
          <scope>test</scope>
       </dependency>
    </dependencies>

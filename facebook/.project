@@ -1,6 +1,6 @@
 <projectDescription>
   <name>picketlink-facebook</name>
-  <comment>PicketLink Social - Facebook Adaptor. NO_M2ECLIPSE_SUPPORT: Project files created with the maven-eclipse-plugin are not supported in M2Eclipse.</comment>
+  <comment>PicketLink Social - Facebook Adaptor</comment>
   <projects/>
   <buildSpec>
     <buildCommand>
